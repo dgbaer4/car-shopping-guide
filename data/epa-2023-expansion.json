@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "0.3",
+  "vehicles": [
+    {
+      "make": "Honda",
+      "model": "Accord Hybrid",
+      "trim": "EPA standard group",
+      "power": "Traditional hybrid",
+      "mpg": 48,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-honda-accord-hybrid-epa-standard-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Honda",
+      "model": "Accord Hybrid",
+      "trim": "Sport/Touring",
+      "power": "Traditional hybrid",
+      "mpg": 44,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-honda-accord-hybrid-sport-touring",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Hyundai",
+      "model": "Elantra Hybrid",
+      "trim": "EPA non-Blue group",
+      "power": "Traditional hybrid",
+      "mpg": 50,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-hyundai-elantra-hybrid-epa-non-blue-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Hyundai",
+      "model": "Elantra Hybrid",
+      "trim": "Blue",
+      "power": "Traditional hybrid",
+      "mpg": 54,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-hyundai-elantra-hybrid-blue",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Kia",
+      "model": "Niro",
+      "trim": "EPA non-FE group",
+      "power": "Traditional hybrid",
+      "mpg": 49,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-kia-niro-epa-non-fe-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Kia",
+      "model": "Niro",
+      "trim": "EPA FE group",
+      "power": "Traditional hybrid",
+      "mpg": 53,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-kia-niro-epa-fe-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Kia",
+      "model": "Sportage Hybrid",
+      "trim": "EPA AWD group",
+      "power": "Traditional hybrid",
+      "mpg": 38,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-kia-sportage-hybrid-epa-awd-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Kia",
+      "model": "Sportage Hybrid",
+      "trim": "EPA FWD group",
+      "power": "Traditional hybrid",
+      "mpg": 43,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/byfuel/Hybrid2023.shtml",
+          "fields": [
+            "mpg"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-kia-sportage-hybrid-epa-fwd-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Nissan",
+      "model": "Ariya",
+      "trim": "Engage FWD 63 kWh",
+      "power": "Fully electric",
+      "kwhPerMile": 0.33,
+      "electricRangeMiles": 216,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/pdfs/guides/FEG2023.pdf",
+          "fields": [
+            "kwhPerMile",
+            "electricRangeMiles"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-nissan-ariya-engage-fwd-63-kwh",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Nissan",
+      "model": "Ariya",
+      "trim": "Venture Plus FWD 87 kWh",
+      "power": "Fully electric",
+      "kwhPerMile": 0.33,
+      "electricRangeMiles": 304,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/pdfs/guides/FEG2023.pdf",
+          "fields": [
+            "kwhPerMile",
+            "electricRangeMiles"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-nissan-ariya-venture-plus-fwd-87-kwh",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Kia",
+      "model": "Niro EV",
+      "trim": "EPA group",
+      "power": "Fully electric",
+      "kwhPerMile": 0.29,
+      "electricRangeMiles": 253,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/pdfs/guides/FEG2023.pdf",
+          "fields": [
+            "kwhPerMile",
+            "electricRangeMiles"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-kia-niro-ev-epa-group",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    },
+    {
+      "make": "Kia",
+      "model": "EV6",
+      "trim": "Standard Range RWD",
+      "power": "Fully electric",
+      "kwhPerMile": 0.28,
+      "electricRangeMiles": 232,
+      "sources": [
+        {
+          "url": "https://www.fueleconomy.gov/feg/pdfs/guides/FEG2023.pdf",
+          "fields": [
+            "kwhPerMile",
+            "electricRangeMiles"
+          ],
+          "accessed": "2026-11-24"
+        }
+      ],
+      "id": "2023-kia-ev6-standard-range-rwd",
+      "year": 2023,
+      "features": {},
+      "verificationStatus": "EPA efficiency group; retail trim mapping pending"
+    }
+  ]
+}
