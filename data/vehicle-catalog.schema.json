@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vehicle configuration catalog v0.3",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "vehicles"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.3"
+    },
+    "vehicles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "make",
+          "model",
+          "year",
+          "trim",
+          "power",
+          "sources"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "trim": {
+            "type": "string"
+          },
+          "drivetrain": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "power": {
+            "enum": [
+              "Gasoline",
+              "Traditional hybrid",
+              "Plug-in hybrid",
+              "Fully electric"
+            ]
+          },
+          "body": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "seats": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "highSeating": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "features": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "optionalFeatures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mpg": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "exclusiveMinimum": 0
+          },
+          "kwhPerMile": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "exclusiveMinimum": 0
+          },
+          "electricRangeMiles": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "url",
+                "fields",
+                "accessed"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "accessed": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
