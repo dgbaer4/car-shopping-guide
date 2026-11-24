@@ -1,0 +1,287 @@
+{
+  "acquisition": {
+    "emptyLookupGroups": 774,
+    "epaLookupGroups": 1101,
+    "errors": 113,
+    "nhtsaVariants": 283,
+    "queryOnlyVariants": 283
+  },
+  "coverage": {
+    "byClassification": {
+      "ambiguous": 98,
+      "model_family_match_requires_review": 234,
+      "no_published_safety_rating": 0,
+      "unmatched": 1074,
+      "verified_configuration_match": 0,
+      "verified_rating_applicability": 0
+    },
+    "byMakeAndYear": {
+      "Honda": {
+        "2021": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 23,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2022": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 28,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2023": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 3,
+          "no_published_safety_rating": 0,
+          "unmatched": 25,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2024": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 30,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2025": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 25,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2026": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 27,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "Hyundai": {
+        "2021": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 20,
+          "no_published_safety_rating": 0,
+          "unmatched": 21,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2022": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 21,
+          "no_published_safety_rating": 0,
+          "unmatched": 24,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2023": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 13,
+          "no_published_safety_rating": 0,
+          "unmatched": 29,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2024": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 36,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2025": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 11,
+          "no_published_safety_rating": 0,
+          "unmatched": 39,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2026": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 9,
+          "no_published_safety_rating": 0,
+          "unmatched": 41,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "Kia": {
+        "2021": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 14,
+          "no_published_safety_rating": 0,
+          "unmatched": 23,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2022": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 11,
+          "no_published_safety_rating": 0,
+          "unmatched": 29,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2023": {
+          "ambiguous": 3,
+          "model_family_match_requires_review": 8,
+          "no_published_safety_rating": 0,
+          "unmatched": 30,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2024": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 30,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2025": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 8,
+          "no_published_safety_rating": 0,
+          "unmatched": 30,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2026": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 32,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "Nissan": {
+        "2021": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 31,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2022": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 27,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2023": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 40,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2024": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 33,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2025": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 30,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2026": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 28,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "Toyota": {
+        "2021": {
+          "ambiguous": 14,
+          "model_family_match_requires_review": 10,
+          "no_published_safety_rating": 0,
+          "unmatched": 41,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2022": {
+          "ambiguous": 8,
+          "model_family_match_requires_review": 11,
+          "no_published_safety_rating": 0,
+          "unmatched": 52,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2023": {
+          "ambiguous": 22,
+          "model_family_match_requires_review": 7,
+          "no_published_safety_rating": 0,
+          "unmatched": 46,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2024": {
+          "ambiguous": 9,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 78,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2025": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 11,
+          "no_published_safety_rating": 0,
+          "unmatched": 68,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "2026": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 78,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      }
+    },
+    "total": 1406
+  },
+  "source": {
+    "artifactUrl": "https://github.com/dgbaer4/car-shopping-guide/actions/runs/45507136855/artifacts/14975252454",
+    "sha256": {
+      "epa.json": "c865a20d781b7e99f410b5883ac872d2d9f994d2c903d5c3652479189dd5e8ba",
+      "safety.json": "e9644af4d80922839b321da1a01d6a49f28e31bd51e1bf7c114d9027e8011381"
+    }
+  },
+  "withoutAliases": {
+    "ambiguous": 79,
+    "model_family_match_requires_review": 225,
+    "no_published_safety_rating": 0,
+    "unmatched": 1102,
+    "verified_configuration_match": 0,
+    "verified_rating_applicability": 0
+  }
+}
