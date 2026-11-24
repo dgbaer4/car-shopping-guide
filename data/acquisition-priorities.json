@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "0.3",
+  "market": "US",
+  "priorityManufacturers": [
+    "Toyota",
+    "Nissan",
+    "Honda",
+    "Hyundai",
+    "Kia"
+  ],
+  "referenceModelYears": {
+    "from": 2021,
+    "to": 2026,
+    "notes": "Rolling five-year model-year window for 2026 reference case; older configurations may be retained."
+  },
+  "targets": {
+    "Toyota": {
+      "Gasoline": [
+        "Corolla",
+        "Camry",
+        "RAV4"
+      ],
+      "Traditional hybrid": [
+        "Prius",
+        "Corolla Hybrid",
+        "Camry Hybrid",
+        "RAV4 Hybrid"
+      ],
+      "Plug-in hybrid": [
+        "Prius Prime",
+        "RAV4 Prime"
+      ],
+      "Fully electric": [
+        "bZ4X"
+      ]
+    },
+    "Nissan": {
+      "Gasoline": [
+        "Sentra",
+        "Altima",
+        "Kicks",
+        "Rogue"
+      ],
+      "Fully electric": [
+        "Leaf",
+        "Ariya"
+      ]
+    },
+    "Honda": {
+      "Gasoline": [
+        "Civic",
+        "Accord",
+        "HR-V",
+        "CR-V"
+      ],
+      "Traditional hybrid": [
+        "Accord Hybrid",
+        "CR-V Hybrid",
+        "Insight",
+        "Civic Hybrid"
+      ],
+      "Plug-in hybrid": [
+        "Clarity PHEV"
+      ],
+      "Fully electric": [
+        "Prologue"
+      ]
+    },
+    "Hyundai": {
+      "Gasoline": [
+        "Elantra",
+        "Sonata",
+        "Kona",
+        "Tucson"
+      ],
+      "Traditional hybrid": [
+        "Elantra Hybrid",
+        "Sonata Hybrid",
+        "Tucson Hybrid",
+        "Ioniq Hybrid"
+      ],
+      "Plug-in hybrid": [
+        "Ioniq Plug-in Hybrid",
+        "Tucson Plug-in Hybrid"
+      ],
+      "Fully electric": [
+        "Kona Electric",
+        "Ioniq 5",
+        "Ioniq 6"
+      ]
+    },
+    "Kia": {
+      "Gasoline": [
+        "Forte",
+        "K4",
+        "Soul",
+        "Seltos",
+        "Sportage"
+      ],
+      "Traditional hybrid": [
+        "Niro",
+        "Sportage Hybrid"
+      ],
+      "Plug-in hybrid": [
+        "Niro PHEV",
+        "Sportage PHEV"
+      ],
+      "Fully electric": [
+        "Niro EV",
+        "EV6"
+      ]
+    }
+  },
+  "status": "Research queue only; verify US model year, trim, drivetrain, specifications and sources before catalog admission."
+}
