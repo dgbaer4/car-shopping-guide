@@ -64,3 +64,44 @@ gh run watch RUN_ID --repo dgbaer4/car-shopping-guide --exit-status
 gh run download RUN_ID --repo dgbaer4/car-shopping-guide \
   --name stage-a-development-only --dir build/actions-verification
 ```
+
+## Observed verification
+
+The live run traversed all 30 requested year-and-make pairs, enumerating
+582 native model labels and acquiring 916 variant records.
+Of those, 791 had a published star rating and 125
+had detail responses with no published stars. The run had 0
+unavailable details, 0 empty or unlisted queries, and 1
+permanent HTTP failure. The run retained 283 of the first artifact’s
+283 distinct safety IDs. These counts measure native acquisition coverage.
+EPA configuration coverage depends on independently reviewed reconciliation.
+
+The 2026 Toyota discovery response lists
+`TUNDRA HYBRID W/ ISODYNAMIC PERFORMANCE SEAT`. The official model route
+returns HTTP 400 for that native label with the slash encoded. The importer
+attempted it once in each run, retained the other models and variants, and
+marked the snapshot incomplete. No alternate model association was assigned.
+[NHTSA model listing](https://api.nhtsa.gov/SafetyRatings/modelyear/2026/make/TOYOTA?format=json) · [Failing model route](https://api.nhtsa.gov/SafetyRatings/modelyear/2026/make/TOYOTA/model/TUNDRA%20HYBRID%20W%2F%20ISODYNAMIC%20PERFORMANCE%20SEAT?format=json)
+
+| Model year | Variant records |
+| --- | ---: |
+| 2021 | 139 |
+| 2022 | 148 |
+| 2023 | 153 |
+| 2024 | 164 |
+| 2025 | 158 |
+| 2026 | 154 |
+
+The acquisition used responses dated 2026-11-24 through 2026-11-24 UTC.
+The full run resumed after an interrupt and made 1,039
+live requests with 495 cache hits. A second full replay
+reused 1,533 cached responses, reproduced all
+records exactly, and attempted only the unresolved Toyota request. The [captured coverage and error
+report](nhtsa-acquisition-verification.json) records the resumed run. The generated
+`safety.json` has SHA-256 `a3efa74dcfd41ef09aa99c8ee06838ec4adbcdf19947e6bc80800788d88e7cdf`.
+
+All five Python tests and all 17 existing Node tests passed. Actionlint v1.7.11
+passed. A local execution of the incomplete-build step using the first run’s
+1,406 EPA configurations produced an explicitly incomplete development catalog
+with zero mapped safety ratings. GitHub Actions execution remains to be verified
+by an authorized dispatch.
