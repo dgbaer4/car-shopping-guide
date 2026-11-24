@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {normalize,evaluate,energyCost} from '../engine/recommendation.mjs';
+const p=normalize({schemaVersion:'0.2',answers:{budget:'$22,000–$25,000',flex:'Up to $2,000',fees:'Yes, everything',power:['Traditional hybrid','Plug-in hybrid','Fully electric'],avoid:['Pickup','Full-size SUV'],age:'Up to 5 years',mileage:'Under 75,000',home:'No',work:'Occasionally',equipment:'Yes, let’s explore'},features:{'Backup camera':'Required','Heated front seats':'Desired'}});
+assert.equal(p.budget,25000);assert.equal(p.flex,2000);
+const v={id:'synthetic',power:'Traditional hybrid',body:'Sedan',condition:'used',year:2023,mileage:40000,outTheDoorPrice:24000,features:{'Backup camera':true,'Heated front seats':true}};
+assert.equal(evaluate(p,v,2026).status,'eligible');
+assert.equal(evaluate(p,{...v,features:{}},2026).status,'conditional');
+assert.equal(evaluate(p,{...v,features:{'Backup camera':false}},2026).status,'excluded');
+assert.equal(evaluate(p,{...v,outTheDoorPrice:28000},2026).status,'excluded');
+assert.equal(evaluate(p,{...v,mileage:75000},2026).status,'excluded');
+assert.equal(evaluate(p,{...v,power:'Fully electric'},2026).notes.length,1);
+assert.equal(energyCost({miles:10000,mpg:50,electricShare:0,gasPrice:5}),1000);
+assert.equal(energyCost({miles:10000,kwhPerMile:.3,electricShare:1,electricPrice:.4}),1200);
+assert.equal(energyCost({miles:10000,electricShare:1}),null);
+console.log('Foundation tests passed');
