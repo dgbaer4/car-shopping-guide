@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {normalize,evaluate} from '../engine/recommendation.mjs';
+const fixtures=JSON.parse(readFileSync(new URL('./fixtures/profiles.json',import.meta.url)));
+const p=id=>normalize(fixtures.find(x=>x.id===id).profile);
+test('six distinct profiles',()=>{assert.equal(fixtures.length,6);for(const f of fixtures)assert.doesNotThrow(()=>normalize(f.profile))});
+test('reference commuter',()=>{const a=p('walnut-creek');assert.equal(a.budget,25000);assert.equal(a.flex,2000);assert.deepEqual(a.commute,[10,25]);assert.deepEqual(a.annualMiles,[5000,10000]);assert.equal(a.workRate,null);assert.deepEqual(a.required,['Backup camera'])});
+test('strict budget boundary',()=>{const a=p('budget-gas');assert.ok(evaluate(a,{id:'x',power:'Gasoline',outTheDoorPrice:15000},2026).rejected.includes('Budget'));assert.equal(a.home,null)});
+test('open-ended mileage',()=>assert.deepEqual(p('home-ev').annualMiles,[15000,null]));
+test('new family vehicle ignores used limits',()=>{const a=p('family');assert.equal(a.maxAge,null);assert.equal(a.maxMileage,null);assert.equal(a.budget,null);assert.equal(a.people,'6 or more')});
+test('road traveler',()=>{assert.deepEqual(p('road-warrior').commute,[100,null]);assert.equal(p('road-warrior').roadcharge,'Prefer to avoid them')});
+test('unknowns remain unknown',()=>{const a=p('uncertain');assert.equal(a.budget,null);assert.equal(a.flex,null);assert.deepEqual(a.days,[0,0]);assert.deepEqual(a.power,[]);assert.equal(a.top,null)});
