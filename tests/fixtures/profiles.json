@@ -1,0 +1,319 @@
+[
+  {
+    "id": "walnut-creek",
+    "description": "Reference commuter, de-identified export",
+    "profile": {
+      "schemaVersion": "0.2",
+      "answers": {
+        "fees": "Yes, everything",
+        "flex": "Up to $2,000",
+        "payment": "Cash",
+        "commute": "10–25 miles",
+        "days": "5",
+        "annual": "5,000–10,000",
+        "trips": "A few times a year",
+        "keep": "6–10 years",
+        "body": [
+          "Compact crossover",
+          "Hatchback",
+          "Sedan"
+        ],
+        "avoid": [
+          "Pickup",
+          "Full-size SUV"
+        ],
+        "seat": "No preference",
+        "people": "1–2 people",
+        "cargo": "Rarely",
+        "condition": "Prefer used",
+        "age": "Up to 5 years",
+        "mileage": "Under 75,000",
+        "warranty": "Desired",
+        "maintenance": "Possibly",
+        "priorities": [
+          "Safety",
+          "Low maintenance",
+          "Reliability"
+        ],
+        "top": "Safety",
+        "equipment": "Yes, let’s explore",
+        "radius": "50 miles",
+        "seller": "Yes",
+        "timing": "As soon as possible",
+        "budget": "$22,000–$25,000",
+        "power": [
+          "Traditional hybrid",
+          "Plug-in hybrid",
+          "Fully electric"
+        ],
+        "home": "No",
+        "work": "Occasionally",
+        "rate": "I'm not sure",
+        "public": "If convenient",
+        "roadcharge": "Occasionally acceptable"
+      },
+      "features": {
+        "Heated front seats": "Desired",
+        "Power driver seat": "Desired",
+        "Heated steering wheel": "Desired",
+        "Apple CarPlay": "Desired",
+        "Wireless Apple CarPlay": "Desired",
+        "360-degree camera": "Desired",
+        "Blind-spot monitoring": "Desired",
+        "Rear cross-traffic alert": "Desired",
+        "Adaptive cruise control": "Desired",
+        "Parking sensors": "Desired",
+        "Spare tire": "Desired",
+        "Backup camera": "Required"
+      }
+    }
+  },
+  {
+    "id": "budget-gas",
+    "description": "Strict budget used gasoline buyer",
+    "profile": {
+      "schemaVersion": "0.2",
+      "answers": {
+        "fees": "Yes, everything",
+        "flex": "None",
+        "payment": "Cash",
+        "commute": "10–25 miles",
+        "days": "5",
+        "annual": "5,000–10,000",
+        "trips": "A few times a year",
+        "keep": "6–10 years",
+        "body": [
+          "Sedan",
+          "Compact crossover"
+        ],
+        "avoid": [
+          "None"
+        ],
+        "seat": "No preference",
+        "people": "1–2 people",
+        "cargo": "Rarely",
+        "condition": "Used only",
+        "age": "Up to 10 years",
+        "mileage": "Under 100,000",
+        "warranty": "Desired",
+        "maintenance": "Possibly",
+        "priorities": [
+          "Purchase affordability",
+          "Reliability"
+        ],
+        "top": "Purchase affordability",
+        "equipment": "Yes, let’s explore",
+        "radius": "50 miles",
+        "seller": "Yes",
+        "timing": "Within a month",
+        "budget": "Under $15,000",
+        "power": [
+          "Gasoline"
+        ]
+      },
+      "features": {
+        "Backup camera": "Required"
+      }
+    }
+  },
+  {
+    "id": "home-ev",
+    "description": "Home charging EV commuter",
+    "profile": {
+      "schemaVersion": "0.2",
+      "answers": {
+        "fees": "Yes, everything",
+        "flex": "None",
+        "payment": "Cash",
+        "commute": "51–100 miles",
+        "days": "5",
+        "annual": "Over 15,000",
+        "trips": "A few times a year",
+        "keep": "6–10 years",
+        "body": [
+          "Sedan",
+          "Compact crossover"
+        ],
+        "avoid": [
+          "None"
+        ],
+        "seat": "No preference",
+        "people": "1–2 people",
+        "cargo": "Rarely",
+        "condition": "Prefer used",
+        "age": "Up to 5 years",
+        "mileage": "Under 75,000",
+        "warranty": "Desired",
+        "maintenance": "Possibly",
+        "priorities": [
+          "Operating costs",
+          "Environmental impact"
+        ],
+        "top": "Operating costs",
+        "equipment": "Yes, let’s explore",
+        "radius": "50 miles",
+        "seller": "Yes",
+        "timing": "Within a month",
+        "budget": "$25,000–$30,000",
+        "power": [
+          "Fully electric"
+        ],
+        "home": "Yes",
+        "work": "Not available",
+        "public": "Yes",
+        "roadcharge": "Not at all"
+      },
+      "features": {
+        "Adaptive cruise control": "Desired"
+      }
+    }
+  },
+  {
+    "id": "family",
+    "description": "Six-passenger family",
+    "profile": {
+      "schemaVersion": "0.2",
+      "answers": {
+        "fees": "Yes, everything",
+        "flex": "None",
+        "payment": "Finance",
+        "commute": "10–25 miles",
+        "days": "5",
+        "annual": "5,000–10,000",
+        "trips": "A few times a year",
+        "keep": "6–10 years",
+        "body": [
+          "Midsize SUV",
+          "Full-size SUV"
+        ],
+        "avoid": [
+          "None"
+        ],
+        "seat": "Required",
+        "people": "6 or more",
+        "cargo": "Frequently",
+        "condition": "New only",
+        "warranty": "Required",
+        "maintenance": "Possibly",
+        "priorities": [
+          "Safety",
+          "Reliability"
+        ],
+        "top": "Safety",
+        "equipment": "Yes, let’s explore",
+        "radius": "50 miles",
+        "seller": "Yes",
+        "timing": "Within a month",
+        "budget": "Over $30,000",
+        "power": [
+          "Gasoline",
+          "Traditional hybrid"
+        ]
+      },
+      "features": {
+        "Automatic emergency braking": "Required"
+      }
+    }
+  },
+  {
+    "id": "road-warrior",
+    "description": "High-mileage hybrid traveler",
+    "profile": {
+      "schemaVersion": "0.2",
+      "answers": {
+        "fees": "Yes, everything",
+        "flex": "None",
+        "payment": "Cash",
+        "commute": "Over 100 miles",
+        "days": "5",
+        "annual": "Over 15,000",
+        "trips": "Weekly",
+        "keep": "6–10 years",
+        "body": [
+          "Sedan",
+          "Compact crossover"
+        ],
+        "avoid": [
+          "None"
+        ],
+        "seat": "No preference",
+        "people": "1–2 people",
+        "cargo": "Rarely",
+        "condition": "Prefer used",
+        "age": "Up to 5 years",
+        "mileage": "Under 75,000",
+        "warranty": "Desired",
+        "maintenance": "Possibly",
+        "priorities": [
+          "Operating costs",
+          "Comfort",
+          "Reliability"
+        ],
+        "top": "Reliability",
+        "equipment": "Yes, let’s explore",
+        "radius": "50 miles",
+        "seller": "Yes",
+        "timing": "Within a month",
+        "budget": "$25,000–$30,000",
+        "power": [
+          "Traditional hybrid",
+          "Plug-in hybrid"
+        ],
+        "home": "Yes",
+        "work": "Not available",
+        "public": "Prefer not to",
+        "roadcharge": "Prefer to avoid them"
+      },
+      "features": {
+        "Adaptive cruise control": "Required"
+      }
+    }
+  },
+  {
+    "id": "uncertain",
+    "description": "Low-mileage exploratory buyer",
+    "profile": {
+      "schemaVersion": "0.2",
+      "answers": {
+        "fees": "I'm not sure",
+        "flex": "I'm not sure",
+        "payment": "No preference",
+        "commute": "I do not commute",
+        "annual": "Under 5,000",
+        "trips": "A few times a year",
+        "keep": "No preference",
+        "body": [
+          "Sedan",
+          "Compact crossover"
+        ],
+        "avoid": [
+          "None"
+        ],
+        "seat": "No preference",
+        "people": "1–2 people",
+        "cargo": "Rarely",
+        "condition": "Prefer used",
+        "age": "Up to 5 years",
+        "mileage": "Under 75,000",
+        "warranty": "Desired",
+        "maintenance": "Possibly",
+        "priorities": [
+          "No preference"
+        ],
+        "top": "Equally important",
+        "equipment": "No specific preferences",
+        "radius": "50 miles",
+        "seller": "Yes",
+        "timing": "Just exploring",
+        "budget": "I'm not sure",
+        "power": [
+          "No preference"
+        ],
+        "home": "Possibly",
+        "work": "I'm not sure",
+        "public": "I'm not sure"
+      },
+      "features": {}
+    }
+  }
+]
