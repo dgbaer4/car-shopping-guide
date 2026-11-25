@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "nhtsa-safety/1.0",
+  "complete": false,
+  "discoveryFinished": true,
+  "scope": {
+    "market": "US",
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "makes": [
+      "Honda",
+      "Hyundai",
+      "Kia",
+      "Nissan",
+      "Toyota"
+    ]
+  },
+  "counts": {
+    "models": 582,
+    "uniqueVariants": 916,
+    "records": 916,
+    "rated": 791,
+    "unrated": 125,
+    "detailUnavailable": 0,
+    "unsupported": 0,
+    "errors": 1
+  },
+  "errorsByStatus": {
+    "permanent_failure": 1
+  },
+  "requests": {
+    "cacheHits": 495,
+    "httpAttempts": 1039
+  },
+  "byYearMake": [
+    {
+      "year": 2021,
+      "make": "Honda",
+      "models": 15,
+      "variants": 20,
+      "records": 20,
+      "rated": 18,
+      "unrated": 2,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2021,
+      "make": "Hyundai",
+      "models": 20,
+      "variants": 25,
+      "records": 25,
+      "rated": 18,
+      "unrated": 7,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2021,
+      "make": "Kia",
+      "models": 15,
+      "variants": 23,
+      "records": 23,
+      "rated": 19,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2021,
+      "make": "Nissan",
+      "models": 20,
+      "variants": 31,
+      "records": 31,
+      "rated": 27,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2021,
+      "make": "Toyota",
+      "models": 24,
+      "variants": 40,
+      "records": 40,
+      "rated": 36,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2022,
+      "make": "Honda",
+      "models": 13,
+      "variants": 18,
+      "records": 18,
+      "rated": 18,
+      "unrated": 0,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2022,
+      "make": "Hyundai",
+      "models": 23,
+      "variants": 35,
+      "records": 35,
+      "rated": 25,
+      "unrated": 10,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2022,
+      "make": "Kia",
+      "models": 16,
+      "variants": 24,
+      "records": 24,
+      "rated": 19,
+      "unrated": 5,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2022,
+      "make": "Nissan",
+      "models": 16,
+      "variants": 29,
+      "records": 29,
+      "rated": 28,
+      "unrated": 1,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2022,
+      "make": "Toyota",
+      "models": 26,
+      "variants": 42,
+      "records": 42,
+      "rated": 38,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2023,
+      "make": "Honda",
+      "models": 13,
+      "variants": 19,
+      "records": 19,
+      "rated": 19,
+      "unrated": 0,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2023,
+      "make": "Hyundai",
+      "models": 20,
+      "variants": 27,
+      "records": 27,
+      "rated": 24,
+      "unrated": 3,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2023,
+      "make": "Kia",
+      "models": 18,
+      "variants": 29,
+      "records": 29,
+      "rated": 21,
+      "unrated": 8,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2023,
+      "make": "Nissan",
+      "models": 19,
+      "variants": 30,
+      "records": 30,
+      "rated": 27,
+      "unrated": 3,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2023,
+      "make": "Toyota",
+      "models": 27,
+      "variants": 48,
+      "records": 48,
+      "rated": 41,
+      "unrated": 7,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2024,
+      "make": "Honda",
+      "models": 14,
+      "variants": 21,
+      "records": 21,
+      "rated": 21,
+      "unrated": 0,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2024,
+      "make": "Hyundai",
+      "models": 18,
+      "variants": 37,
+      "records": 37,
+      "rated": 33,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2024,
+      "make": "Kia",
+      "models": 17,
+      "variants": 28,
+      "records": 28,
+      "rated": 23,
+      "unrated": 5,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2024,
+      "make": "Nissan",
+      "models": 18,
+      "variants": 28,
+      "records": 28,
+      "rated": 25,
+      "unrated": 3,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2024,
+      "make": "Toyota",
+      "models": 30,
+      "variants": 50,
+      "records": 50,
+      "rated": 41,
+      "unrated": 9,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2025,
+      "make": "Honda",
+      "models": 17,
+      "variants": 24,
+      "records": 24,
+      "rated": 23,
+      "unrated": 1,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2025,
+      "make": "Hyundai",
+      "models": 19,
+      "variants": 28,
+      "records": 28,
+      "rated": 24,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2025,
+      "make": "Kia",
+      "models": 18,
+      "variants": 28,
+      "records": 28,
+      "rated": 23,
+      "unrated": 5,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2025,
+      "make": "Nissan",
+      "models": 15,
+      "variants": 24,
+      "records": 24,
+      "rated": 21,
+      "unrated": 3,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2025,
+      "make": "Toyota",
+      "models": 32,
+      "variants": 54,
+      "records": 54,
+      "rated": 46,
+      "unrated": 8,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2026,
+      "make": "Honda",
+      "models": 18,
+      "variants": 24,
+      "records": 24,
+      "rated": 22,
+      "unrated": 2,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2026,
+      "make": "Hyundai",
+      "models": 18,
+      "variants": 29,
+      "records": 29,
+      "rated": 26,
+      "unrated": 3,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2026,
+      "make": "Kia",
+      "models": 16,
+      "variants": 24,
+      "records": 24,
+      "rated": 21,
+      "unrated": 3,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2026,
+      "make": "Nissan",
+      "models": 14,
+      "variants": 24,
+      "records": 24,
+      "rated": 20,
+      "unrated": 4,
+      "detailUnavailable": 0,
+      "status": "queried"
+    },
+    {
+      "year": 2026,
+      "make": "Toyota",
+      "models": 33,
+      "variants": 53,
+      "records": 53,
+      "rated": 44,
+      "unrated": 9,
+      "detailUnavailable": 0,
+      "status": "partial"
+    }
+  ],
+  "unsupported": [],
+  "errors": [
+    {
+      "stage": "model",
+      "year": 2026,
+      "make": "Toyota",
+      "model": "TUNDRA HYBRID W/ ISODYNAMIC PERFORMANCE SEAT",
+      "status": "permanent_failure",
+      "source": "https://api.nhtsa.gov/SafetyRatings/modelyear/2026/make/TOYOTA/model/TUNDRA%20HYBRID%20W%2F%20ISODYNAMIC%20PERFORMANCE%20SEAT?format=json",
+      "httpStatus": 400,
+      "attempts": 1,
+      "reason": "HTTP 400"
+    }
+  ]
+}
