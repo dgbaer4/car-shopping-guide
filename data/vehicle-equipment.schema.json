@@ -1,0 +1,1173 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "market",
+    "catalogSha256",
+    "sources",
+    "trims",
+    "relationships"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "vehicle-equipment/1.0"
+    },
+    "market": {
+      "const": "US"
+    },
+    "catalogSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sources": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "trims": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/trim"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "US retail trim equipment sidecar for v0.3",
+  "$defs": {
+    "status": {
+      "enum": [
+        "standard",
+        "optional",
+        "package-dependent",
+        "unavailable",
+        "unknown"
+      ]
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "body": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "enum": [
+                "Sedan",
+                "Hatchback",
+                "Wagon",
+                "Compact crossover",
+                "Midsize SUV",
+                "Full-size SUV",
+                "Pickup"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "seats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "power": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "enum": [
+                "Gasoline",
+                "Traditional hybrid",
+                "Plug-in hybrid",
+                "Fully electric"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "drivetrain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "Front-Wheel Drive",
+                  "Rear-Wheel Drive",
+                  "All-Wheel Drive",
+                  "4-Wheel Drive"
+                ]
+              }
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Heated front seats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Ventilated front seats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Power driver seat": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Heated steering wheel": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Keyless entry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Push-button start": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Sunroof": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Leather seating": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Power liftgate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Dual-zone climate control": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Apple CarPlay": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Wireless Apple CarPlay": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Android Auto": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Wireless Android Auto": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Wireless phone charging": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Built-in navigation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Premium audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Backup camera": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "360-degree camera": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Blind-spot monitoring": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Rear cross-traffic alert": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Adaptive cruise control": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Automatic emergency braking": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Lane-keeping assistance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Parking sensors": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "All-wheel drive": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Physical climate controls": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Touchscreen climate controls": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Spare tire": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "Remote start": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "source",
+            "locator",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/status"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "market",
+        "year",
+        "make",
+        "model",
+        "url",
+        "accessed",
+        "usage"
+      ],
+      "properties": {
+        "market": {
+          "const": "US"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 2021,
+          "maximum": 2026
+        },
+        "make": {
+          "enum": [
+            "Toyota",
+            "Honda",
+            "Nissan",
+            "Hyundai",
+            "Kia"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "accessed": {
+          "type": "string",
+          "format": "date"
+        },
+        "usage": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "trim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "market",
+        "year",
+        "make",
+        "model",
+        "id",
+        "trim",
+        "facts"
+      ],
+      "properties": {
+        "market": {
+          "const": "US"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 2021,
+          "maximum": 2026
+        },
+        "make": {
+          "enum": [
+            "Toyota",
+            "Honda",
+            "Nissan",
+            "Hyundai",
+            "Kia"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trim": {
+          "type": "string",
+          "minLength": 1
+        },
+        "facts": {
+          "$ref": "#/$defs/facts"
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "epaId",
+        "trimId",
+        "status",
+        "epaIdentity",
+        "source",
+        "locator",
+        "evidence"
+      ],
+      "properties": {
+        "epaId": {
+          "type": "string",
+          "pattern": "^epa-[0-9]+$"
+        },
+        "trimId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "const": "supported-member"
+        },
+        "epaIdentity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model",
+            "drivetrain",
+            "power"
+          ],
+          "properties": {
+            "model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "drivetrain": {
+              "enum": [
+                "Front-Wheel Drive",
+                "Rear-Wheel Drive",
+                "All-Wheel Drive",
+                "4-Wheel Drive"
+              ]
+            },
+            "power": {
+              "enum": [
+                "Gasoline",
+                "Traditional hybrid",
+                "Plug-in hybrid",
+                "Fully electric"
+              ]
+            }
+          }
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

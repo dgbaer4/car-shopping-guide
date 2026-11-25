@@ -1,0 +1,2804 @@
+{
+  "catalogSha256": "eee9f0dd35d21ccddef9db9dea49d6b1d9651192b58734b657e3a9ddb350c0ad",
+  "market": "US",
+  "relationships": [
+    {
+      "epaId": "epa-48500",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Sentra",
+        "power": "Gasoline"
+      },
+      "evidence": "S and SV both have the 34 combined MPG specification.",
+      "locator": "EPA Fuel Economy",
+      "source": "nissan-sentra",
+      "status": "supported-member",
+      "trimId": "us/2025/Nissan/Sentra/S"
+    },
+    {
+      "epaId": "epa-48500",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Sentra",
+        "power": "Gasoline"
+      },
+      "evidence": "S and SV both have the 34 combined MPG specification.",
+      "locator": "EPA Fuel Economy",
+      "source": "nissan-sentra",
+      "status": "supported-member",
+      "trimId": "us/2025/Nissan/Sentra/SV"
+    },
+    {
+      "epaId": "epa-48501",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Sentra SR",
+        "power": "Gasoline"
+      },
+      "evidence": "The SR is explicitly identified by EPA and Nissan reports 33 combined MPG.",
+      "locator": "EPA Fuel Economy",
+      "source": "nissan-sentra",
+      "status": "supported-member",
+      "trimId": "us/2025/Nissan/Sentra/SR"
+    },
+    {
+      "epaId": "epa-49287",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Civic 4Dr",
+        "power": "Gasoline"
+      },
+      "evidence": "The US four-door trim rating specifies 36 combined MPG with matching powertrain and front-wheel drive.",
+      "locator": "Key Features / EPA ratings",
+      "source": "honda-civic-sedan",
+      "status": "supported-member",
+      "trimId": "us/2026/Honda/Civic Sedan/LX"
+    },
+    {
+      "epaId": "epa-49288",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Civic 4Dr",
+        "power": "Gasoline"
+      },
+      "evidence": "The US four-door trim rating specifies 34 combined MPG with matching powertrain and front-wheel drive.",
+      "locator": "Key Features / EPA ratings",
+      "source": "honda-civic-sedan",
+      "status": "supported-member",
+      "trimId": "us/2026/Honda/Civic Sedan/Sport"
+    },
+    {
+      "epaId": "epa-49289",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Civic 4Dr",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The US four-door trim rating specifies 49 combined MPG with matching powertrain and front-wheel drive.",
+      "locator": "Key Features / EPA ratings",
+      "source": "honda-civic-sedan",
+      "status": "supported-member",
+      "trimId": "us/2026/Honda/Civic Sedan/Sport Hybrid"
+    },
+    {
+      "epaId": "epa-49289",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Civic 4Dr",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The US four-door trim rating specifies 49 combined MPG with matching powertrain and front-wheel drive.",
+      "locator": "Key Features / EPA ratings",
+      "source": "honda-civic-sedan",
+      "status": "supported-member",
+      "trimId": "us/2026/Honda/Civic Sedan/Sport Touring Hybrid"
+    },
+    {
+      "epaId": "epa-49821",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Camry HEV AWD SE/XLE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/SE"
+    },
+    {
+      "epaId": "epa-49821",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Camry HEV AWD SE/XLE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/XLE"
+    },
+    {
+      "epaId": "epa-49822",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Camry HEV AWD XSE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/XSE"
+    },
+    {
+      "epaId": "epa-49823",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Camry HEV FF LE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/LE"
+    },
+    {
+      "epaId": "epa-49824",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Camry HEV FF SE/XLE/XSE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/SE"
+    },
+    {
+      "epaId": "epa-49824",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Camry HEV FF SE/XLE/XSE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/XLE"
+    },
+    {
+      "epaId": "epa-49824",
+      "epaIdentity": {
+        "drivetrain": "Front-Wheel Drive",
+        "model": "Camry HEV FF SE/XLE/XSE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/XSE"
+    },
+    {
+      "epaId": "epa-49825",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Camry HEV AWD LE",
+        "power": "Traditional hybrid"
+      },
+      "evidence": "The EPA description names these grades explicitly. Toyota confirms the named grades and their drivetrain availability.",
+      "locator": "Five-grade lineup / Electronic On-Demand All-Wheel Drive",
+      "source": "toyota-camry",
+      "status": "supported-member",
+      "trimId": "us/2026/Toyota/Camry/LE"
+    },
+    {
+      "epaId": "epa-49960",
+      "epaIdentity": {
+        "drivetrain": "Rear-Wheel Drive",
+        "model": "Ioniq 5 RWD",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 318-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/Limited"
+    },
+    {
+      "epaId": "epa-49960",
+      "epaIdentity": {
+        "drivetrain": "Rear-Wheel Drive",
+        "model": "Ioniq 5 RWD",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 318-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/SE"
+    },
+    {
+      "epaId": "epa-49960",
+      "epaIdentity": {
+        "drivetrain": "Rear-Wheel Drive",
+        "model": "Ioniq 5 RWD",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 318-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/SEL"
+    },
+    {
+      "epaId": "epa-49961",
+      "epaIdentity": {
+        "drivetrain": "Rear-Wheel Drive",
+        "model": "Ioniq 5 Standard range",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 245-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/SE Standard Range"
+    },
+    {
+      "epaId": "epa-49962",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Ioniq 5 AWD (19inch Wheels)",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 290-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/SE"
+    },
+    {
+      "epaId": "epa-49962",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Ioniq 5 AWD (19inch Wheels)",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 290-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/SEL"
+    },
+    {
+      "epaId": "epa-49963",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Ioniq 5 AWD (20inch Wheels)",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 269-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/Limited"
+    },
+    {
+      "epaId": "epa-49964",
+      "epaIdentity": {
+        "drivetrain": "All-Wheel Drive",
+        "model": "Ioniq 5 AWD XRT",
+        "power": "Fully electric"
+      },
+      "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 259-mile EPA range rating.",
+      "locator": "2026 EPA range footnote",
+      "source": "hyundai-ioniq5",
+      "status": "supported-member",
+      "trimId": "us/2026/Hyundai/IONIQ 5/XRT"
+    }
+  ],
+  "schemaVersion": "vehicle-equipment/1.0",
+  "sources": {
+    "honda-civic-sedan": {
+      "accessed": "2026-11-24",
+      "make": "Honda",
+      "market": "US",
+      "model": "Civic Sedan",
+      "url": "https://www.hondainfocenter.com/2026/Civic-Sedan/Feature-Guide/Civic-Sedan-Specifications/",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed.",
+      "year": 2026
+    },
+    "hyundai-ioniq5": {
+      "accessed": "2026-11-24",
+      "make": "Hyundai",
+      "market": "US",
+      "model": "IONIQ 5",
+      "url": "https://www.hyundaiusa.com/us/en/vehicles/2026-ioniq-5",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed.",
+      "year": 2026
+    },
+    "kia-k4-pricing": {
+      "accessed": "2026-11-24",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "url": "https://www.kiamedia.com/us/en/media/pressreleases/24161/kia-announces-pricing-for-2026-k4-compact-sedan",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed.",
+      "year": 2026
+    },
+    "kia-k4-sedan": {
+      "accessed": "2026-11-24",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "url": "https://www.kia.com/us/content/dam/kia/us/brochures/KIA_Full-Line_Brochure.pdf",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed.",
+      "year": 2026
+    },
+    "nissan-sentra": {
+      "accessed": "2026-11-24",
+      "make": "Nissan",
+      "market": "US",
+      "model": "Sentra",
+      "url": "https://usa.nissannews.com/en-US/releases/2025-nissan-sentra-press-kit",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed.",
+      "year": 2025
+    },
+    "toyota-camry": {
+      "accessed": "2026-11-24",
+      "make": "Toyota",
+      "market": "US",
+      "model": "Camry",
+      "url": "https://pressroom.toyota.com/toyota-camry-brings-bold-new-nightshade-edition-to-lineup-in-2026/",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed.",
+      "year": 2026
+    }
+  },
+  "trims": [
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The surround-view monitor requires the respective SV or SR Premium Package.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Adaptive cruise control": {
+          "evidence": "The distance-controlled cruise row marks a dash for S and standard on SV and SR.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Android Auto": {
+          "evidence": "The combined smartphone integration row marks Android Auto as standard.",
+          "locator": "Audio Systems",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The combined smartphone integration row marks Apple CarPlay as standard.",
+          "locator": "Audio Systems",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The forward automatic braking system with pedestrian detection is standard.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "The single rear-view monitor is standard across the range.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The table lists side blind-spot warning as standard across the range.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "S lacks dual-zone climate, SV includes it in the All-Weather Package, and SR includes it as standard.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Heated front seats": {
+          "evidence": "S has a dash, SV requires the All-Weather Package, and SR lists the feature as standard.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Heated steering wheel": {
+          "evidence": "S has a dash. SV All-Weather and SR Premium Packages include it.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Keyless entry": {
+          "evidence": "Remote keyless entry is standard, including the base key fob system.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Leather seating": {
+          "evidence": "The SV Premium Package specifies leather-appointed seating. SR's optional upholstery is synthetic.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Power driver seat": {
+          "evidence": "S has a dash. The SV and SR Premium Packages each include it.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Premium audio": {
+          "evidence": "SV and SR Premium Packages list the upgraded Bose system. S has a dash in that row.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Push-button start": {
+          "evidence": "The ignition button is standard across the range.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear crossing traffic alerts are standard across the range.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Remote start": {
+          "evidence": "The engine-start function is excluded for S, in the SV All-Weather Package, and standard on SR.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Spare tire": {
+          "evidence": "A temporary trunk spare is specified across the trim table.",
+          "locator": "Wheels and Tires",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "SV and SR Premium Packages include a power moonroof. S has a dash in the moonroof row.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "body": {
+          "evidence": "The press kit describes the US Sentra as a sedan.",
+          "locator": "Overview",
+          "source": "nissan-sentra",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "The drivetrain specification lists front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "nissan-sentra",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "All columns specify the gasoline 2.0L combustion engine.",
+          "locator": "Pricing and Engine",
+          "source": "nissan-sentra",
+          "value": "Gasoline"
+        },
+        "seats": {
+          "evidence": "The capacity row lists five passengers across the range.",
+          "locator": "Seating",
+          "source": "nissan-sentra",
+          "value": 5
+        }
+      },
+      "id": "us/2025/Nissan/Sentra/S",
+      "make": "Nissan",
+      "market": "US",
+      "model": "Sentra",
+      "trim": "S",
+      "year": 2025
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The surround-view monitor requires the respective SV or SR Premium Package.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Adaptive cruise control": {
+          "evidence": "The distance-controlled cruise row marks a dash for S and standard on SV and SR.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The combined smartphone integration row marks Android Auto as standard.",
+          "locator": "Audio Systems",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The combined smartphone integration row marks Apple CarPlay as standard.",
+          "locator": "Audio Systems",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The forward automatic braking system with pedestrian detection is standard.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "The single rear-view monitor is standard across the range.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The table lists side blind-spot warning as standard across the range.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "S lacks dual-zone climate, SV includes it in the All-Weather Package, and SR includes it as standard.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "S has a dash, SV requires the All-Weather Package, and SR lists the feature as standard.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Heated steering wheel": {
+          "evidence": "S has a dash. SV All-Weather and SR Premium Packages include it.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Keyless entry": {
+          "evidence": "Remote keyless entry is standard, including the base key fob system.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Leather seating": {
+          "evidence": "The SV Premium Package specifies leather-appointed seating. SR's optional upholstery is synthetic.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "unavailable"
+        },
+        "Power driver seat": {
+          "evidence": "S has a dash. The SV and SR Premium Packages each include it.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Premium audio": {
+          "evidence": "SV and SR Premium Packages list the upgraded Bose system. S has a dash in that row.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Push-button start": {
+          "evidence": "The ignition button is standard across the range.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear crossing traffic alerts are standard across the range.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Remote start": {
+          "evidence": "The engine-start function is excluded for S, in the SV All-Weather Package, and standard on SR.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Spare tire": {
+          "evidence": "A temporary trunk spare is specified across the trim table.",
+          "locator": "Wheels and Tires",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "SV and SR Premium Packages include a power moonroof. S has a dash in the moonroof row.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "body": {
+          "evidence": "The press kit describes the US Sentra as a sedan.",
+          "locator": "Overview",
+          "source": "nissan-sentra",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "The drivetrain specification lists front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "nissan-sentra",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "All columns specify the gasoline 2.0L combustion engine.",
+          "locator": "Pricing and Engine",
+          "source": "nissan-sentra",
+          "value": "Gasoline"
+        },
+        "seats": {
+          "evidence": "The capacity row lists five passengers across the range.",
+          "locator": "Seating",
+          "source": "nissan-sentra",
+          "value": 5
+        }
+      },
+      "id": "us/2025/Nissan/Sentra/SR",
+      "make": "Nissan",
+      "market": "US",
+      "model": "Sentra",
+      "trim": "SR",
+      "year": 2025
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The surround-view monitor requires the respective SV or SR Premium Package.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Adaptive cruise control": {
+          "evidence": "The distance-controlled cruise row marks a dash for S and standard on SV and SR.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The combined smartphone integration row marks Android Auto as standard.",
+          "locator": "Audio Systems",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The combined smartphone integration row marks Apple CarPlay as standard.",
+          "locator": "Audio Systems",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The forward automatic braking system with pedestrian detection is standard.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "The single rear-view monitor is standard across the range.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The table lists side blind-spot warning as standard across the range.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "S lacks dual-zone climate, SV includes it in the All-Weather Package, and SR includes it as standard.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Heated front seats": {
+          "evidence": "S has a dash, SV requires the All-Weather Package, and SR lists the feature as standard.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Heated steering wheel": {
+          "evidence": "S has a dash. SV All-Weather and SR Premium Packages include it.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Keyless entry": {
+          "evidence": "Remote keyless entry is standard, including the base key fob system.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Leather seating": {
+          "evidence": "The SV Premium Package specifies leather-appointed seating. SR's optional upholstery is synthetic.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Power driver seat": {
+          "evidence": "S has a dash. The SV and SR Premium Packages each include it.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Premium audio": {
+          "evidence": "SV and SR Premium Packages list the upgraded Bose system. S has a dash in that row.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Push-button start": {
+          "evidence": "The ignition button is standard across the range.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear crossing traffic alerts are standard across the range.",
+          "locator": "Safety, Security and Driving Aids",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Remote start": {
+          "evidence": "The engine-start function is excluded for S, in the SV All-Weather Package, and standard on SR.",
+          "locator": "Comfort and Convenience Features / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "Spare tire": {
+          "evidence": "A temporary trunk spare is specified across the trim table.",
+          "locator": "Wheels and Tires",
+          "source": "nissan-sentra",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "SV and SR Premium Packages include a power moonroof. S has a dash in the moonroof row.",
+          "locator": "Seating / Steering / Options",
+          "source": "nissan-sentra",
+          "value": "package-dependent"
+        },
+        "body": {
+          "evidence": "The press kit describes the US Sentra as a sedan.",
+          "locator": "Overview",
+          "source": "nissan-sentra",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "The drivetrain specification lists front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "nissan-sentra",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "All columns specify the gasoline 2.0L combustion engine.",
+          "locator": "Pricing and Engine",
+          "source": "nissan-sentra",
+          "value": "Gasoline"
+        },
+        "seats": {
+          "evidence": "The capacity row lists five passengers across the range.",
+          "locator": "Seating",
+          "source": "nissan-sentra",
+          "value": 5
+        }
+      },
+      "id": "us/2025/Nissan/Sentra/SV",
+      "make": "Nissan",
+      "market": "US",
+      "model": "Sentra",
+      "trim": "SV",
+      "year": 2025
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with low-speed following is listed in each column.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision mitigation braking is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "Rearview camera with guidance is marked in all four columns.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The side blind-spot system is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Dual-zone climate control": {
+          "evidence": "Gas trims list single-zone automatic climate. Hybrid trims list dual-zone automatic climate.",
+          "locator": "Comfort & Convenience",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The steering-based lane keeping system is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Premium audio": {
+          "evidence": "The premium Bose system is listed for Sport Touring Hybrid.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Cross-traffic monitoring is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Spare tire": {
+          "evidence": "The LX and Sport columns specify compact spare dimensions.",
+          "locator": "Wheels and Tires",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "body": {
+          "evidence": "The comparison covers the sedan body.",
+          "locator": "Title",
+          "source": "honda-civic-sedan",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "All four trim columns specify front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "honda-civic-sedan",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "LX and Sport use gasoline-only propulsion. The two hybrid columns list a conventional two-motor hybrid system.",
+          "locator": "Engineering and Hybrid System",
+          "source": "honda-civic-sedan",
+          "value": "Gasoline"
+        },
+        "seats": {
+          "evidence": "Five-person capacity is shown in each column.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": 5
+        }
+      },
+      "id": "us/2026/Honda/Civic Sedan/LX",
+      "make": "Honda",
+      "market": "US",
+      "model": "Civic Sedan",
+      "trim": "LX",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with low-speed following is listed in each column.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision mitigation braking is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "Rearview camera with guidance is marked in all four columns.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The side blind-spot system is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "Gas trims list single-zone automatic climate. Hybrid trims list dual-zone automatic climate.",
+          "locator": "Comfort & Convenience",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The steering-based lane keeping system is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Premium audio": {
+          "evidence": "The premium Bose system is listed for Sport Touring Hybrid.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Cross-traffic monitoring is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Spare tire": {
+          "evidence": "The LX and Sport columns specify compact spare dimensions.",
+          "locator": "Wheels and Tires",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "body": {
+          "evidence": "The comparison covers the sedan body.",
+          "locator": "Title",
+          "source": "honda-civic-sedan",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "All four trim columns specify front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "honda-civic-sedan",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "LX and Sport use gasoline-only propulsion. The two hybrid columns list a conventional two-motor hybrid system.",
+          "locator": "Engineering and Hybrid System",
+          "source": "honda-civic-sedan",
+          "value": "Gasoline"
+        },
+        "seats": {
+          "evidence": "Five-person capacity is shown in each column.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": 5
+        }
+      },
+      "id": "us/2026/Honda/Civic Sedan/Sport",
+      "make": "Honda",
+      "market": "US",
+      "model": "Civic Sedan",
+      "trim": "Sport",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with low-speed following is listed in each column.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision mitigation braking is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "Rearview camera with guidance is marked in all four columns.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The side blind-spot system is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "Gas trims list single-zone automatic climate. Hybrid trims list dual-zone automatic climate.",
+          "locator": "Comfort & Convenience",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "Heated seats are listed for both hybrid trims.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The steering-based lane keeping system is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Premium audio": {
+          "evidence": "The premium Bose system is listed for Sport Touring Hybrid.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Cross-traffic monitoring is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "The two hybrid columns list a power moonroof.",
+          "locator": "Exterior Features",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "unavailable"
+        },
+        "body": {
+          "evidence": "The comparison covers the sedan body.",
+          "locator": "Title",
+          "source": "honda-civic-sedan",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "All four trim columns specify front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "honda-civic-sedan",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "LX and Sport use gasoline-only propulsion. The two hybrid columns list a conventional two-motor hybrid system.",
+          "locator": "Engineering and Hybrid System",
+          "source": "honda-civic-sedan",
+          "value": "Traditional hybrid"
+        },
+        "seats": {
+          "evidence": "Five-person capacity is shown in each column.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": 5
+        }
+      },
+      "id": "us/2026/Honda/Civic Sedan/Sport Hybrid",
+      "make": "Honda",
+      "market": "US",
+      "model": "Civic Sedan",
+      "trim": "Sport Hybrid",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with low-speed following is listed in each column.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "All four columns list compatibility.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision mitigation braking is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Backup camera": {
+          "evidence": "Rearview camera with guidance is marked in all four columns.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The side blind-spot system is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "Gas trims list single-zone automatic climate. Hybrid trims list dual-zone automatic climate.",
+          "locator": "Comfort & Convenience",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "Heated seats are listed for both hybrid trims.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The steering-based lane keeping system is listed across the lineup.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Leather seating": {
+          "evidence": "Leather-trimmed upholstery is listed in the Sport Touring Hybrid column.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Parking sensors": {
+          "evidence": "Front and rear sensors are listed under Sport Touring Hybrid only.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Power driver seat": {
+          "evidence": "The driver's power adjustment is listed in the Sport Touring Hybrid column.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Premium audio": {
+          "evidence": "The premium Bose system is listed for Sport Touring Hybrid.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Cross-traffic monitoring is listed for Sport and both hybrids.",
+          "locator": "Honda Sensing Driver-Assistive Features and Active Safety",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "The two hybrid columns list a power moonroof.",
+          "locator": "Exterior Features",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless compatibility is listed only in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The Qi pad is listed in the Sport Touring Hybrid column.",
+          "locator": "Audio & Connectivity",
+          "source": "honda-civic-sedan",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "The comparison covers the sedan body.",
+          "locator": "Title",
+          "source": "honda-civic-sedan",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "All four trim columns specify front-wheel drive.",
+          "locator": "Drivetrain",
+          "source": "honda-civic-sedan",
+          "value": [
+            "Front-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "LX and Sport use gasoline-only propulsion. The two hybrid columns list a conventional two-motor hybrid system.",
+          "locator": "Engineering and Hybrid System",
+          "source": "honda-civic-sedan",
+          "value": "Traditional hybrid"
+        },
+        "seats": {
+          "evidence": "Five-person capacity is shown in each column.",
+          "locator": "Seating",
+          "source": "honda-civic-sedan",
+          "value": 5
+        }
+      },
+      "id": "us/2026/Honda/Civic Sedan/Sport Touring Hybrid",
+      "make": "Honda",
+      "market": "US",
+      "model": "Civic Sedan",
+      "trim": "Sport Touring Hybrid",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The overview lists the surround-view system as standard on XRT and Limited.",
+          "locator": "Technology / Surround View Monitor",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance with junction turning is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Hyundai identifies lane keeping assistance as standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "The standard rear cross-traffic system provides warnings and braking assistance.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Hyundai identifies an electric crossover SUV. Compact crossover is the catalog body normalization.",
+          "locator": "Overview",
+          "source": "hyundai-ioniq5",
+          "value": "Compact crossover"
+        },
+        "drivetrain": {
+          "evidence": "The range disclosure identifies the applicable drive variants.",
+          "locator": "2026 EPA range footnote",
+          "source": "hyundai-ioniq5",
+          "value": [
+            "Rear-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The model is battery-electric across these grades.",
+          "locator": "Range and charging",
+          "source": "hyundai-ioniq5",
+          "value": "Fully electric"
+        }
+      },
+      "id": "us/2026/Hyundai/IONIQ 5/Limited",
+      "make": "Hyundai",
+      "market": "US",
+      "model": "IONIQ 5",
+      "trim": "Limited",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance with junction turning is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Hyundai identifies lane keeping assistance as standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "The standard rear cross-traffic system provides warnings and braking assistance.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Hyundai identifies an electric crossover SUV. Compact crossover is the catalog body normalization.",
+          "locator": "Overview",
+          "source": "hyundai-ioniq5",
+          "value": "Compact crossover"
+        },
+        "drivetrain": {
+          "evidence": "The range disclosure identifies the applicable drive variants.",
+          "locator": "2026 EPA range footnote",
+          "source": "hyundai-ioniq5",
+          "value": [
+            "Rear-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The model is battery-electric across these grades.",
+          "locator": "Range and charging",
+          "source": "hyundai-ioniq5",
+          "value": "Fully electric"
+        }
+      },
+      "id": "us/2026/Hyundai/IONIQ 5/SE",
+      "make": "Hyundai",
+      "market": "US",
+      "model": "IONIQ 5",
+      "trim": "SE",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance with junction turning is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Hyundai identifies lane keeping assistance as standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "The standard rear cross-traffic system provides warnings and braking assistance.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Hyundai identifies an electric crossover SUV. Compact crossover is the catalog body normalization.",
+          "locator": "Overview",
+          "source": "hyundai-ioniq5",
+          "value": "Compact crossover"
+        },
+        "drivetrain": {
+          "evidence": "The range disclosure identifies the applicable drive variants.",
+          "locator": "2026 EPA range footnote",
+          "source": "hyundai-ioniq5",
+          "value": [
+            "Rear-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The model is battery-electric across these grades.",
+          "locator": "Range and charging",
+          "source": "hyundai-ioniq5",
+          "value": "Fully electric"
+        }
+      },
+      "id": "us/2026/Hyundai/IONIQ 5/SE Standard Range",
+      "make": "Hyundai",
+      "market": "US",
+      "model": "IONIQ 5",
+      "trim": "SE Standard Range",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance with junction turning is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Hyundai identifies lane keeping assistance as standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "The standard rear cross-traffic system provides warnings and braking assistance.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Hyundai identifies an electric crossover SUV. Compact crossover is the catalog body normalization.",
+          "locator": "Overview",
+          "source": "hyundai-ioniq5",
+          "value": "Compact crossover"
+        },
+        "drivetrain": {
+          "evidence": "The range disclosure identifies the applicable drive variants.",
+          "locator": "2026 EPA range footnote",
+          "source": "hyundai-ioniq5",
+          "value": [
+            "Rear-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The model is battery-electric across these grades.",
+          "locator": "Range and charging",
+          "source": "hyundai-ioniq5",
+          "value": "Fully electric"
+        }
+      },
+      "id": "us/2026/Hyundai/IONIQ 5/SEL",
+      "make": "Hyundai",
+      "market": "US",
+      "model": "IONIQ 5",
+      "trim": "SEL",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The overview lists the surround-view system as standard on XRT and Limited.",
+          "locator": "Technology / Surround View Monitor",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance with junction turning is standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Hyundai identifies lane keeping assistance as standard across the listed grades.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "The standard rear cross-traffic system provides warnings and braking assistance.",
+          "locator": "Hyundai SmartSense",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Hyundai confirms standard support for Android Auto over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Hyundai confirms standard support for Apple CarPlay over a wireless connection.",
+          "locator": "Connectivity / Standard wireless smartphone integration",
+          "source": "hyundai-ioniq5",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Hyundai identifies an electric crossover SUV. Compact crossover is the catalog body normalization.",
+          "locator": "Overview",
+          "source": "hyundai-ioniq5",
+          "value": "Compact crossover"
+        },
+        "drivetrain": {
+          "evidence": "The range disclosure identifies the applicable drive variants.",
+          "locator": "2026 EPA range footnote",
+          "source": "hyundai-ioniq5",
+          "value": [
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The model is battery-electric across these grades.",
+          "locator": "Range and charging",
+          "source": "hyundai-ioniq5",
+          "value": "Fully electric"
+        }
+      },
+      "id": "us/2026/Hyundai/IONIQ 5/XRT",
+      "make": "Hyundai",
+      "market": "US",
+      "model": "IONIQ 5",
+      "trim": "XRT",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "Blind-spot avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "The EX content includes dual-zone climate and is inherited by higher grades.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "The 2026 pricing announcement identifies heated front seats as optional for EX.",
+          "locator": "December 23, 2025 pricing announcement, introduction",
+          "source": "kia-k4-pricing",
+          "value": "optional"
+        },
+        "Keyless entry": {
+          "evidence": "The smart key is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Lane keeping assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Push-button start": {
+          "evidence": "Push-button ignition is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear cross-traffic avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The EX content includes the charging pad and is inherited by higher grades.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "The evidence follows only the sedan columns and inheritance statements.",
+          "locator": "PDF pp. 30–31 / K4 Sedan and Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Sedan"
+        },
+        "power": {
+          "evidence": "The sedan uses a 2.0L or 1.6L turbo gasoline engine.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Gasoline"
+        }
+      },
+      "id": "us/2026/Kia/K4 Sedan/EX",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "trim": "EX",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "Blind-spot avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Built-in navigation": {
+          "evidence": "GT-Line offers navigation in its Premium Package. GT-Line Turbo lists navigation as standard.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Dual-zone climate control": {
+          "evidence": "The EX content includes dual-zone climate and is inherited by higher grades.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Heated steering wheel": {
+          "evidence": "GT-Line Premium and GT-Line Turbo Technology Packages include the heated wheel.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Keyless entry": {
+          "evidence": "The smart key is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Lane keeping assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Power driver seat": {
+          "evidence": "GT-Line lists a ten-way power driver seat. GT-Line Turbo inherits this seat.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Premium audio": {
+          "evidence": "GT-Line Premium adds the branded audio system. The system is included on Turbo.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Push-button start": {
+          "evidence": "Push-button ignition is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear cross-traffic avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "A GT-Line sedan package offers a wide sunroof. Turbo lists it as standard.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Ventilated front seats": {
+          "evidence": "GT-Line Premium and GT-Line Turbo Technology Packages list front ventilation.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The EX content includes the charging pad and is inherited by higher grades.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "The evidence follows only the sedan columns and inheritance statements.",
+          "locator": "PDF pp. 30–31 / K4 Sedan and Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Sedan"
+        },
+        "power": {
+          "evidence": "The sedan uses a 2.0L or 1.6L turbo gasoline engine.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Gasoline"
+        }
+      },
+      "id": "us/2026/Kia/K4 Sedan/GT-Line",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "trim": "GT-Line",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "GT-Line Turbo offers surround view in its Technology Package.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "Blind-spot avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Built-in navigation": {
+          "evidence": "GT-Line offers navigation in its Premium Package. GT-Line Turbo lists navigation as standard.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Dual-zone climate control": {
+          "evidence": "The EX content includes dual-zone climate and is inherited by higher grades.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Heated steering wheel": {
+          "evidence": "GT-Line Premium and GT-Line Turbo Technology Packages include the heated wheel.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Keyless entry": {
+          "evidence": "The smart key is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Lane keeping assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Parking sensors": {
+          "evidence": "Front, rear and side sensing appear in the GT-Line Turbo Technology Package.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Power driver seat": {
+          "evidence": "GT-Line lists a ten-way power driver seat. GT-Line Turbo inherits this seat.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Premium audio": {
+          "evidence": "GT-Line Premium adds the branded audio system. The system is included on Turbo.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Push-button start": {
+          "evidence": "Push-button ignition is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear cross-traffic avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Sunroof": {
+          "evidence": "A GT-Line sedan package offers a wide sunroof. Turbo lists it as standard.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Ventilated front seats": {
+          "evidence": "GT-Line Premium and GT-Line Turbo Technology Packages list front ventilation.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "package-dependent"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The EX content includes the charging pad and is inherited by higher grades.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "The evidence follows only the sedan columns and inheritance statements.",
+          "locator": "PDF pp. 30–31 / K4 Sedan and Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Sedan"
+        },
+        "power": {
+          "evidence": "The sedan uses a 2.0L or 1.6L turbo gasoline engine.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Gasoline"
+        }
+      },
+      "id": "us/2026/Kia/K4 Sedan/GT-Line Turbo",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "trim": "GT-Line Turbo",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Keyless entry": {
+          "evidence": "The smart key is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Lane keeping assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Push-button start": {
+          "evidence": "Push-button ignition is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "The evidence follows only the sedan columns and inheritance statements.",
+          "locator": "PDF pp. 30–31 / K4 Sedan and Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Sedan"
+        },
+        "power": {
+          "evidence": "The sedan uses a 2.0L or 1.6L turbo gasoline engine.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Gasoline"
+        }
+      },
+      "id": "us/2026/Kia/K4 Sedan/LX",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "trim": "LX",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "Distance-controlled cruise with stop and go is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "Forward collision-avoidance assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "Blind-spot avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Keyless entry": {
+          "evidence": "The smart key is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "Lane keeping assist is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Push-button start": {
+          "evidence": "Push-button ignition is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Rear cross-traffic avoidance assistance is listed from LXS upward.",
+          "locator": "PDF p. 31 / Features & Trims and Packages",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "Wireless Android Auto is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "Wireless Apple CarPlay is included starting at LX.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "The evidence follows only the sedan columns and inheritance statements.",
+          "locator": "PDF pp. 30–31 / K4 Sedan and Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Sedan"
+        },
+        "power": {
+          "evidence": "The sedan uses a 2.0L or 1.6L turbo gasoline engine.",
+          "locator": "PDF p. 31 / Features & Trims",
+          "source": "kia-k4-sedan",
+          "value": "Gasoline"
+        }
+      },
+      "id": "us/2026/Kia/K4 Sedan/LXS",
+      "make": "Kia",
+      "market": "US",
+      "model": "K4 Sedan",
+      "trim": "LXS",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "The standard driver assistance suite provides radar distance-controlled cruise.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The standard multimedia system supports Android Auto.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The standard multimedia system supports Apple CarPlay.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The standard safety suite uses collision detection with automatic braking.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The release identifies side blind-spot warning as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "Toyota lists optional heat for LE and SE and standard heat for XLE and XSE.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "optional"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The standard lane tracing function assists with steering to keep the vehicle centered.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Toyota lists reverse crossing-traffic alert as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "The multimedia system supports Android Auto wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "The multimedia system supports Apple CarPlay wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The Qi charging pad is standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Toyota describes the five-grade Camry series as a sedan.",
+          "locator": "Bold Style",
+          "source": "toyota-camry",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "Toyota describes the front-drive hybrid and offers electronic all-wheel drive across all grades.",
+          "locator": "Hybrid Powertrain / Electronic On-Demand All-Wheel Drive",
+          "source": "toyota-camry",
+          "value": [
+            "Front-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The 2026 US Camry range uses Toyota's conventional hybrid system.",
+          "locator": "Hybrid Powertrain",
+          "source": "toyota-camry",
+          "value": "Traditional hybrid"
+        }
+      },
+      "id": "us/2026/Toyota/Camry/LE",
+      "make": "Toyota",
+      "market": "US",
+      "model": "Camry",
+      "trim": "LE",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "The standard driver assistance suite provides radar distance-controlled cruise.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The standard multimedia system supports Android Auto.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The standard multimedia system supports Apple CarPlay.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The standard safety suite uses collision detection with automatic braking.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The release identifies side blind-spot warning as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The standard lane tracing function assists with steering to keep the vehicle centered.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Toyota lists reverse crossing-traffic alert as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "The multimedia system supports Android Auto wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "The multimedia system supports Apple CarPlay wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The Qi charging pad is standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Toyota describes the five-grade Camry series as a sedan.",
+          "locator": "Bold Style",
+          "source": "toyota-camry",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "Toyota describes the front-drive hybrid and offers electronic all-wheel drive across all grades.",
+          "locator": "Hybrid Powertrain / Electronic On-Demand All-Wheel Drive",
+          "source": "toyota-camry",
+          "value": [
+            "Front-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The 2026 US Camry range uses Toyota's conventional hybrid system.",
+          "locator": "Hybrid Powertrain",
+          "source": "toyota-camry",
+          "value": "Traditional hybrid"
+        }
+      },
+      "id": "us/2026/Toyota/Camry/Nightshade",
+      "make": "Toyota",
+      "market": "US",
+      "model": "Camry",
+      "trim": "Nightshade",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "Adaptive cruise control": {
+          "evidence": "The standard driver assistance suite provides radar distance-controlled cruise.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The standard multimedia system supports Android Auto.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The standard multimedia system supports Apple CarPlay.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The standard safety suite uses collision detection with automatic braking.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The release identifies side blind-spot warning as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "Toyota lists optional heat for LE and SE and standard heat for XLE and XSE.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "optional"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The standard lane tracing function assists with steering to keep the vehicle centered.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Toyota lists reverse crossing-traffic alert as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Android Auto": {
+          "evidence": "The multimedia system supports Android Auto wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "The multimedia system supports Apple CarPlay wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The Qi charging pad is standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Toyota describes the five-grade Camry series as a sedan.",
+          "locator": "Bold Style",
+          "source": "toyota-camry",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "Toyota describes the front-drive hybrid and offers electronic all-wheel drive across all grades.",
+          "locator": "Hybrid Powertrain / Electronic On-Demand All-Wheel Drive",
+          "source": "toyota-camry",
+          "value": [
+            "Front-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The 2026 US Camry range uses Toyota's conventional hybrid system.",
+          "locator": "Hybrid Powertrain",
+          "source": "toyota-camry",
+          "value": "Traditional hybrid"
+        }
+      },
+      "id": "us/2026/Toyota/Camry/SE",
+      "make": "Toyota",
+      "market": "US",
+      "model": "Camry",
+      "trim": "SE",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The XLE and XSE Premium Plus Package lists surround-view camera.",
+          "locator": "Safety & Convenience / Premium Plus Package",
+          "source": "toyota-camry",
+          "value": "package-dependent"
+        },
+        "Adaptive cruise control": {
+          "evidence": "The standard driver assistance suite provides radar distance-controlled cruise.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The standard multimedia system supports Android Auto.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The standard multimedia system supports Apple CarPlay.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The standard safety suite uses collision detection with automatic braking.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The release identifies side blind-spot warning as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "Toyota lists optional heat for LE and SE and standard heat for XLE and XSE.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Heated steering wheel": {
+          "evidence": "The two higher grades are listed with heated steering wheels.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The standard lane tracing function assists with steering to keep the vehicle centered.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Parking sensors": {
+          "evidence": "The XLE and XSE Premium Plus Package lists front and rear parking assistance.",
+          "locator": "Safety & Convenience / Premium Plus Package",
+          "source": "toyota-camry",
+          "value": "package-dependent"
+        },
+        "Power driver seat": {
+          "evidence": "Toyota lists the eight-way power driver seat as standard for XLE and XSE.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Toyota lists reverse crossing-traffic alert as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Ventilated front seats": {
+          "evidence": "XLE and XSE have an available front ventilation option.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "optional"
+        },
+        "Wireless Android Auto": {
+          "evidence": "The multimedia system supports Android Auto wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "The multimedia system supports Apple CarPlay wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The Qi charging pad is standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Toyota describes the five-grade Camry series as a sedan.",
+          "locator": "Bold Style",
+          "source": "toyota-camry",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "Toyota describes the front-drive hybrid and offers electronic all-wheel drive across all grades.",
+          "locator": "Hybrid Powertrain / Electronic On-Demand All-Wheel Drive",
+          "source": "toyota-camry",
+          "value": [
+            "Front-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The 2026 US Camry range uses Toyota's conventional hybrid system.",
+          "locator": "Hybrid Powertrain",
+          "source": "toyota-camry",
+          "value": "Traditional hybrid"
+        }
+      },
+      "id": "us/2026/Toyota/Camry/XLE",
+      "make": "Toyota",
+      "market": "US",
+      "model": "Camry",
+      "trim": "XLE",
+      "year": 2026
+    },
+    {
+      "facts": {
+        "360-degree camera": {
+          "evidence": "The XLE and XSE Premium Plus Package lists surround-view camera.",
+          "locator": "Safety & Convenience / Premium Plus Package",
+          "source": "toyota-camry",
+          "value": "package-dependent"
+        },
+        "Adaptive cruise control": {
+          "evidence": "The standard driver assistance suite provides radar distance-controlled cruise.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Android Auto": {
+          "evidence": "The standard multimedia system supports Android Auto.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Apple CarPlay": {
+          "evidence": "The standard multimedia system supports Apple CarPlay.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Automatic emergency braking": {
+          "evidence": "The standard safety suite uses collision detection with automatic braking.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Blind-spot monitoring": {
+          "evidence": "The release identifies side blind-spot warning as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Heated front seats": {
+          "evidence": "Toyota lists optional heat for LE and SE and standard heat for XLE and XSE.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Heated steering wheel": {
+          "evidence": "The two higher grades are listed with heated steering wheels.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Lane-keeping assistance": {
+          "evidence": "The standard lane tracing function assists with steering to keep the vehicle centered.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Parking sensors": {
+          "evidence": "The XLE and XSE Premium Plus Package lists front and rear parking assistance.",
+          "locator": "Safety & Convenience / Premium Plus Package",
+          "source": "toyota-camry",
+          "value": "package-dependent"
+        },
+        "Power driver seat": {
+          "evidence": "Toyota lists the eight-way power driver seat as standard for XLE and XSE.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Rear cross-traffic alert": {
+          "evidence": "Toyota lists reverse crossing-traffic alert as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Ventilated front seats": {
+          "evidence": "XLE and XSE have an available front ventilation option.",
+          "locator": "Elevated Cabin Experience",
+          "source": "toyota-camry",
+          "value": "optional"
+        },
+        "Wireless Android Auto": {
+          "evidence": "The multimedia system supports Android Auto wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless Apple CarPlay": {
+          "evidence": "The multimedia system supports Apple CarPlay wirelessly as standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "Wireless phone charging": {
+          "evidence": "The Qi charging pad is standard.",
+          "locator": "Safety & Convenience / Technology",
+          "source": "toyota-camry",
+          "value": "standard"
+        },
+        "body": {
+          "evidence": "Toyota describes the five-grade Camry series as a sedan.",
+          "locator": "Bold Style",
+          "source": "toyota-camry",
+          "value": "Sedan"
+        },
+        "drivetrain": {
+          "evidence": "Toyota describes the front-drive hybrid and offers electronic all-wheel drive across all grades.",
+          "locator": "Hybrid Powertrain / Electronic On-Demand All-Wheel Drive",
+          "source": "toyota-camry",
+          "value": [
+            "Front-Wheel Drive",
+            "All-Wheel Drive"
+          ]
+        },
+        "power": {
+          "evidence": "The 2026 US Camry range uses Toyota's conventional hybrid system.",
+          "locator": "Hybrid Powertrain",
+          "source": "toyota-camry",
+          "value": "Traditional hybrid"
+        }
+      },
+      "id": "us/2026/Toyota/Camry/XSE",
+      "make": "Toyota",
+      "market": "US",
+      "model": "Camry",
+      "trim": "XSE",
+      "year": 2026
+    }
+  ]
+}
