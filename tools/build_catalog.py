@@ -48,9 +48,15 @@ def build(epa, safety, mappings):
             row = variants[vid]
             evidence = associations[vehicle["id"]]["evidence"]
             vehicle["safetyRatings"] = row["ratings"].copy()
+            notes = f"NHTSA VehicleId {vid}; applicability evidence: {evidence['url']}"
+            if "epaUrl" in evidence:
+                notes += (f"; EPA configuration: {evidence['epaUrl']}; native listing: {evidence['listingUrl']}"
+                          f"; review: {evidence['reviewMethod']} ({evidence['reviewer']})")
+                if "scopeUrl" in evidence:
+                    notes += f"; applicability scope: {evidence['scopeUrl']}"
             sources.append({
                 "url": row["source"], "fields": ["safetyRatings"], "accessed": row["accessed"],
-                "notes": f"NHTSA VehicleId {vid}; applicability evidence: {evidence['url']}",
+                "notes": notes,
             })
         for key in ("mpg", "kwhPerMile", "electricRangeMiles", "body", "seats", "price", "safetyRatings"):
             coverage[key] += int(vehicle.get(key) is not None)

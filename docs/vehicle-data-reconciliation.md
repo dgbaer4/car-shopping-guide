@@ -66,3 +66,48 @@ python tools/build_catalog.py epa.json safety.json data/vehicle-reconciliation-m
 python -m unittest discover -s tests -p 'test_*.py'
 node --test tests/*.test.mjs
 ```
+
+## Expanded development catalog for CSG-A02.1
+
+The expanded build uses the original 1,406 EPA configurations and Agent 1’s immutable `2026-11-24.v1.1` safety snapshot at commit `a4601cbc2945f4ea1d3babd059857fa2f0e64964`. The reconciler consumed all 916 variant records from its `nhtsa-safety/1.1` envelope, with native discovery and detail identities, raw category statuses and structured configuration evidence. There are 791 variants with stars and 125 explicitly unrated variants. The native Toyota Tundra Hybrid ISOdynamic seat path for model year 2026 has one unresolved HTTP 400 in that snapshot. [Agent 1 PR](https://github.com/dgbaer4/car-shopping-guide/pull/1) · [Pinned safety input](https://github.com/dgbaer4/car-shopping-guide/blob/a4601cbc2945f4ea1d3babd059857fa2f0e64964/data/development/nhtsa-safety-2026-11-24.v1.1.json.gz) · [Acquisition interface at c1376aa](https://github.com/dgbaer4/car-shopping-guide/blob/c1376aa342c43cde2100c645b47d53f161cc598e/docs/nhtsa-acquisition.md#output-contract-for-reconciliation)
+
+| EPA result | Original capture | Expanded development build |
+| --- | ---: | ---: |
+| Verified configuration match | 0 | 43 |
+| Verified rating applicability across configurations | 0 | 0 |
+| Confirmed unrated | 0 | 11 |
+| Model-family match requiring review | 234 | 316 |
+| Ambiguous | 98 | 437 |
+| Unmatched | 1,074 | 599 |
+| **Published safety-rating coverage** | **0 / 1,406** | **43 / 1,406 (3.1%)** |
+
+The 43 rated configurations cover Toyota (17), Kia (10), Nissan (8), Honda (7) and Hyundai (1). They include 16 gasoline, 16 traditional hybrid, five plug-in hybrid and six fully electric configurations. The [expanded coverage report](reconciliation/nhtsa-coverage-expanded.json) includes all make/year/powertrain intersections, the original and expanded discovery baselines, verified counts and frozen input digests. The [expanded manual review queue](reconciliation/nhtsa-manual-review-expanded.csv) lists unresolved EPA IDs and possible VehicleIds. The [generated catalog](../data/development/vehicle-catalog-2026-11-24.v2.json.gz) is a development artifact.
+
+### Evidence review and automation
+
+The v2 register contains 418 exact source aliases and 54 reviewed pairs. The [reviewed evidence packet](../data/development/nhtsa-reviewed-evidence.v1.json) links the EPA detail URL for each EPA ID to the NHTSA variant listing and rating detail, including source descriptions, supported attributes, literal rating statuses, pinned star values and the review statement. Agent 2 reviewed the scope of each pair. The utility performed live machine checks of the EPA configuration signature, native listing, NHTSA detail identity and raw ratings for all 54 pairs. These records have no independent human sign-off.
+
+The review prioritized configurations with a uniquely scoped NHTSA native listing and one EPA entry for the covered configuration. It compared named powertrain and drivetrain, reconciled explicit body descriptions with EPA vehicle classes and kept model year and battery boundaries. Where an EPA passenger-car size class was generic, the same-year NHTSA variant listing supplied the body detail for the unique named configuration. This includes the explicitly named 40 kWh Nissan Leaf hatchback, Prius Prime hatchback and Nissan Maxima sedan. This interpretation and the original EPA classification are recorded together in the evidence packet. EPA efficiency classes and NHTSA body descriptions use different vocabularies. Rows with a contradictory known drivetrain or multiple covering release, trim or battery records stay unresolved.
+
+The validator rejects conflicting discovery and detail identities, changed rating values or category availability, contradictory configuration evidence, wrong source URLs and competing native variants without a known material distinction. It requires all four literal NHTSA `Not Rated` categories to confirm an unrated v2 pair. It also preserves the version 1 and empty-register workflows for the original input. Combining old query-only rows with active v2 approvals requires a fresh build with the matching evidence inputs.
+
+The generator compiles reviewed evidence deterministically. Its optional live check reads government endpoints and compares them with pinned values. It never updates an approval from a changed response. Cross-configuration approvals require scoped agency evidence and one explicit EPA ID per output association. An agency scope can be recorded for several pairs and compiled together. This pass found insufficient authoritative scope to transfer stars to an additional EPA ID with a differing trim or configuration. For example, the Prologue AWD Elite and Touring rows remain unresolved, the 2023 Kicks has release-specific variants, and the 2024–2025 Kona Electric acquisition describes RWD while the EPA scope is FWD.
+
+### Reproduce and integrate
+
+Download the preserved EPA JSON and decompress the pinned acquisition snapshot to `safety.json`. The v2 mapping file supplies the aliases to the generator. The generator rebuilds its associations from the separately pinned evidence packet.
+
+```sh
+python tools/generate_reconciliation_associations.py epa.json safety.json \
+  data/vehicle-reconciliation-mappings.v2.json data/development/nhtsa-reviewed-evidence.v1.json \
+  rebuilt-mappings.json --verify-live
+cmp data/vehicle-reconciliation-mappings.v2.json rebuilt-mappings.json
+python tools/build_catalog.py epa.json safety.json rebuilt-mappings.json catalog.json coverage.json
+python tools/reconcile_vehicles.py epa.json safety.json rebuilt-mappings.json reconciliation.json \
+  --review-csv manual-review.csv
+gzip -n -c -9 catalog.json > catalog.json.gz
+```
+
+For controlled integration, pin both source digests from the coverage report, regenerate offline or recheck live with `--verify-live`, run the tests and schema validation, and review the coverage diff before promoting a catalog. If a source changes a published category, star value or configuration, review the scope and update the evidence packet before rebuilding.
+
+Further coverage depends chiefly on authoritative trim, build-date, battery and restraint applicability. Allow roughly two to four engineering days for a focused second batch of common passenger vehicles if manufacturer or NHTSA configuration records are obtainable. A broad review of the unresolved queue would take longer and has no defensible coverage estimate until those sources are confirmed.

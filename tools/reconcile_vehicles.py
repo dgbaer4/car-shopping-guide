@@ -61,6 +61,15 @@ def identity(record):
     return make.casefold(), year, normalized(model)
 
 
+def native_text(value):
+    return " ".join(value.casefold().split()) if isinstance(value, str) else None
+
+
+def native_key(record):
+    make, year, _ = identity(record)
+    return native_text(make), year, native_text(record["model"])
+
+
 def vehicle_id(value):
     require(type(value) in (str, int) and re.fullmatch(r"[1-9][0-9]*", str(value)),
             f"Invalid NHTSA VehicleId: {value!r}")
@@ -80,7 +89,7 @@ def read_register(register):
     # The Stage A workflow passes an empty legacy object.
     if register == {}:
         return {}, {}
-    require(type(register.get("version")) is int and register["version"] == 1,
+    require(type(register.get("version")) is int and register["version"] in (1, 2),
             "Unsupported mapping version")
     aliases = {}
     for entry in register["familyAliases"]:
@@ -124,8 +133,28 @@ def read_register(register):
                 and len(fields) == len(set(fields)) and set(fields) <= RATING_FIELDS
                 and bool(fields) == (entry["classification"] in VERIFIED),
                 f"{epa_id}: invalid reviewed rating fields")
+        if register["version"] == 2:
+            require(evidence.get("reviewMethod") in ("agent_reviewed", "independently_human_reviewed"),
+                    f"{epa_id}: missing review method")
+            require(valid_ratings(evidence.get("reviewedRatings")),
+                    f"{epa_id}: invalid reviewed rating values")
+            require(provenance(evidence.get("epaUrl"), evidence["accessed"], "fueleconomy.gov").path
+                    == f"/ws/rest/vehicle/{epa_id[4:]}", f"{epa_id}: EPA evidence URL has a different ID")
+            for side in ("epaAttributes", "nhtsaAttributes"):
+                values = evidence.get(side)
+                require(isinstance(values, dict) and values.keys() <= set(CONFIG_FIELDS[1:])
+                        and all(nonempty(value) for value in values.values()),
+                        f"{epa_id}: invalid {side} evidence")
+            if entry["classification"] == APPLICABLE:
+                scope = provenance(evidence.get("scopeUrl"), evidence["accessed"], "nhtsa.gov")
+                require(bool(scope.path.strip("/")), f"{epa_id}: missing NHTSA applicability scope")
         associations[epa_id] = entry
     return aliases, associations
+
+
+def valid_ratings(ratings):
+    return (isinstance(ratings, dict) and ratings.keys() == RATING_FIELDS
+            and all(v is None or type(v) is int and 1 <= v <= 5 for v in ratings.values()))
 
 
 def index_safety(records):
@@ -138,20 +167,42 @@ def index_safety(records):
         require(source.path.rstrip("/").lower() == f"/safetyratings/vehicleid/{vid}",
                 f"{vid}: rating URL must identify the same VehicleId")
         ratings = row.get("ratings")
-        require(isinstance(ratings, dict) and ratings.keys() == RATING_FIELDS
-                and all(v is None or type(v) is int and 1 <= v <= 5 for v in ratings.values()),
+        require(valid_ratings(ratings),
                 f"{vid}: invalid rating values or fields")
         native = row.get("nativeIdentity")
         if native is not None:
             require(identity(native)[:2] == query_identity[:2],
                     f"{vid}: native make or model year conflicts with the record")
-            identity_source = provenance(native.get("source"), row["accessed"], "nhtsa.gov")
+            identity_source = provenance(native.get("source"), native.get("accessed", row["accessed"]), "nhtsa.gov")
             if identity_source.hostname == "api.nhtsa.gov":
                 path = unquote(identity_source.path.rstrip("/")).casefold()
                 expected = f"/safetyratings/modelyear/{native['year']}/make/{native['make']}/model/{native['model']}"
                 require(path == expected.casefold(),
                         f"{vid}: native identity URL does not identify the listed variant group")
             require(nonempty(row.get("description")), f"{vid}: missing native description")
+            detail = row.get("nativeDetailIdentity")
+            if detail is not None:
+                detail_identity = {"make": detail.get("Make"), "year": detail.get("ModelYear"),
+                                   "model": detail.get("Model")}
+                require(native_key(detail_identity) == native_key(native)
+                        and native_text(detail.get("VehicleDescription")) == native_text(row["description"]),
+                        f"{vid}: conflicting native detail and discovery identities")
+            for item in row.get("discovery", []):
+                require(native_key(item) == native_key(native)
+                        and native_text(item.get("description")) == native_text(row["description"]),
+                        f"{vid}: competing native discovery identity")
+                provenance(item.get("source"), item.get("accessed"), "nhtsa.gov")
+        if "rawRatings" in row:
+            raw = row["rawRatings"]
+            require(isinstance(raw, dict) and raw.keys() == RATING_FIELDS
+                    and all(ratings[key] == (int(value) if str(value) in ("1", "2", "3", "4", "5") else None)
+                            for key, value in raw.items()), f"{vid}: raw and normalized ratings disagree")
+            if row.get("publicationStatus") == "not_rated":
+                require(all(isinstance(value, str) and value.strip().casefold() == "not rated"
+                            for value in raw.values()), f"{vid}: unrated status lacks explicit raw evidence")
+            if row.get("publicationStatus") == "published":
+                require(any(value is not None for value in ratings.values()),
+                        f"{vid}: published status has no stars")
         variants[vid] = row
     return variants
 
@@ -171,10 +222,19 @@ def validate_association(epa, variant, entry, epa_key, nhtsa_key):
     require(reviewed == {"epa": configuration(epa), "nhtsa": target,
                          "nhtsaModel": native["model"], "description": variant["description"]},
             f"{label}: source configuration changed since review")
-    require(epa.get("power") in POWERTRAINS and target.get("power") in POWERTRAINS,
+    evidence = entry["evidence"]
+    effective = [configuration(epa), target.copy()]
+    for original, key in zip(effective, ("epaAttributes", "nhtsaAttributes")):
+        for field, value in evidence.get(key, {}).items():
+            previous = original.get(field)
+            require(previous is None or configuration_value(field, previous) == configuration_value(field, value),
+                    f"{label}: {key} conflicts with source {field}")
+            original[field] = value
+    epa_attributes, target = effective
+    require(epa_attributes.get("power") in POWERTRAINS and target.get("power") in POWERTRAINS,
             f"{label}: missing or invalid powertrain")
     for field in CONFIG_FIELDS[1:]:
-        left, right = epa.get(field), target.get(field)
+        left, right = epa_attributes.get(field), target.get(field)
         if field in REQUIRED_CONFIGURATION:
             require(nonempty(right), f"{label}: missing NHTSA {field}")
         # A documented applicability statement can resolve an attribute absent in EPA.
@@ -189,12 +249,32 @@ def validate_association(epa, variant, entry, epa_key, nhtsa_key):
     published = {field for field, value in variant["ratings"].items() if value is not None}
     require(published == set(entry["evidence"]["ratingFields"]),
             f"{label}: published rating fields changed since review")
+    if "reviewedRatings" in evidence:
+        require(evidence["reviewedRatings"] == variant["ratings"],
+                f"{label}: published rating values changed since review")
+        require(evidence["url"] == variant["source"] and evidence.get("listingUrl") == native["source"],
+                f"{label}: source provenance changed since review")
+        require(variant.get("status") != "detail_unavailable",
+                f"{label}: NHTSA rating detail unavailable")
     if entry["classification"] == NO_RATING:
+        if "reviewedRatings" in evidence:
+            require("rawRatings" in variant, f"{label}: missing raw evidence for unrated status")
         require(not published and variant.get("publicationStatus") == "not_rated",
                 f"{label}: no published ratings must be explicitly confirmed by NHTSA")
     else:
         require(published and variant.get("publicationStatus") != "not_rated",
                 f"{label}: verified mapping lacks a published rating")
+    return target
+
+
+def distinguish_configurations(left, right):
+    if not isinstance(right, dict):
+        return False
+    return any(
+        nonempty(left.get(field)) and nonempty(right.get(field))
+        and configuration_value(field, left[field]) != configuration_value(field, right[field])
+        for field in (*REQUIRED_CONFIGURATION, "battery", "generation")
+    )
 
 
 def reconcile(records, safety, register):
@@ -215,6 +295,7 @@ def reconcile(records, safety, register):
     decisions = []
     totals = Counter(dict.fromkeys(CLASSIFICATIONS, 0))
     coverage = {}
+    power_coverage = {}
     for epa in records:
         epa_id = epa.get("id")
         require(isinstance(epa_id, str) and re.fullmatch(r"epa-[1-9][0-9]*", epa_id)
@@ -242,7 +323,11 @@ def reconcile(records, safety, register):
             require(entry["configuration"]["epa"] == configuration(epa),
                     f"{epa_id}: EPA configuration changed since review")
             if vid in variants:
-                validate_association(epa, variants[vid], entry, family_key, nhtsa_keys[vid])
+                verified_attributes = validate_association(epa, variants[vid], entry, family_key, nhtsa_keys[vid])
+                if register.get("version") == 2 and entry["classification"] != APPLICABLE:
+                    require(all(other == vid or distinguish_configurations(
+                        verified_attributes, variants[other].get("configuration")) for other in matches),
+                        f"{epa_id}: competing NHTSA variant lacks a material distinction")
                 status, reason = entry["classification"], entry["evidence"]["statement"]
             else:
                 status = REVIEW if len(matches) <= 1 else AMBIGUOUS
@@ -250,6 +335,7 @@ def reconcile(records, safety, register):
         decisions.append({
             "epaId": epa_id, "make": epa["make"], "year": epa["year"],
             "epaConfiguration": configuration(epa), "epaSources": epa["sources"], "family": family,
+            "reviewMethod": entry["evidence"].get("reviewMethod") if entry and vid in variants else None,
             "classification": status, "reason": reason, "reviewedVehicleId": vid,
             "candidates": [{
                 "vehicleId": item, "model": variants[item]["model"],
@@ -262,11 +348,17 @@ def reconcile(records, safety, register):
         year_counts = coverage.setdefault(epa["make"], {}).setdefault(
             str(epa["year"]), dict.fromkeys(CLASSIFICATIONS, 0))
         year_counts[status] += 1
+        power_counts = power_coverage.setdefault(epa["make"], {}).setdefault(str(epa["year"]), {}).setdefault(
+            epa["power"], dict.fromkeys(CLASSIFICATIONS, 0))
+        power_counts[status] += 1
     require(not associations.keys() - ids, "Unknown EPA ID in association register")
     report = {
         "coverage": {"total": len(records), "byClassification": dict(totals),
-                     "byMakeAndYear": coverage},
+                     "byMakeAndYear": coverage, "byMakeYearAndPowertrain": power_coverage,
+                     "publishedConfigurations": sum(totals[status] for status in VERIFIED)},
         "acquisition": {"nhtsaVariants": len(variants),
+                        "schemaVersion": safety.get("schemaVersion"),
+                        "sourceCoverage": safety.get("coverage"),
                         "queryOnlyVariants": sum(v.get("nativeIdentity") is None for v in variants.values()),
                         "unmatchedGroups": safety.get("unmatched", []),
                         "errors": safety.get("errors", []), "scope": safety.get("scope")},

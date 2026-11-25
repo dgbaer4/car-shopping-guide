@@ -242,6 +242,77 @@ class ReconciliationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Duplicate JSON object key"):
                 load_json(path)
 
+    def approve_v2(self, classification=EXACT):
+        self.approve(classification)
+        self.mapping["version"] = 2
+        self.mapping["associations"][0]["evidence"].update(
+            reviewMethod="agent_reviewed", reviewedRatings=self.variant["ratings"].copy(),
+            epaUrl="https://www.fueleconomy.gov/ws/rest/vehicle/101",
+            listingUrl=self.variant["nativeIdentity"]["source"],
+            epaAttributes={}, nhtsaAttributes={},
+        )
+
+    def test_v2_pins_values_even_when_categories_match(self):
+        self.approve_v2()
+        self.assertEqual(self.catalog()["safetyRatings"]["overall"], 5)
+        self.variant["ratings"]["overall"] = 4
+        with self.assertRaisesRegex(ValueError, "rating values changed"):
+            self.catalog()
+
+    def test_v2_checks_expanded_native_identity(self):
+        self.approve_v2()
+        self.variant["nativeDetailIdentity"] = {
+            "ModelYear": 2023, "Make": "Toyota", "Model": "PRIUS PRIME",
+            "VehicleDescription": self.variant["description"],
+        }
+        with self.assertRaisesRegex(ValueError, "conflicting native detail"):
+            self.catalog()
+
+    def test_v2_rejects_competing_variant_without_material_difference(self):
+        self.approve_v2()
+        second = copy.deepcopy(self.variant)
+        second.update(vehicleId=203, source=NHTSA_URL + "/VehicleId/203")
+        self.safety["records"].append(second)
+        with self.assertRaisesRegex(ValueError, "competing NHTSA variant"):
+            self.catalog()
+        second["configuration"]["drivetrain"] = "FWD"
+        self.assertEqual(self.catalog()["safetyRatings"]["overall"], 5)
+
+    def test_v2_rejects_changed_evidence_url_and_contradictory_attributes(self):
+        self.approve_v2()
+        evidence = self.mapping["associations"][0]["evidence"]
+        evidence["listingUrl"] += "?different-source=true"
+        with self.assertRaisesRegex(ValueError, "source provenance changed"):
+            self.catalog()
+        evidence["listingUrl"] = self.variant["nativeIdentity"]["source"]
+        evidence["nhtsaAttributes"]["body"] = "SUV"
+        with self.assertRaisesRegex(ValueError, "conflicts with source body"):
+            self.catalog()
+
+    def test_v2_null_status_requires_positive_evidence(self):
+        self.variant["ratings"] = dict.fromkeys(self.variant["ratings"])
+        self.variant["rawRatings"] = dict.fromkeys(self.variant["ratings"], "Not Rated")
+        self.variant["publicationStatus"] = "not_rated"
+        self.approve_v2(NO_RATING)
+        self.assertEqual(self.decision()["classification"], NO_RATING)
+        self.variant["rawRatings"]["frontal"] = None
+        with self.assertRaisesRegex(ValueError, "unrated status lacks explicit"):
+            self.decision()
+
+    def test_v2_requires_authoritative_scope_for_cross_configuration(self):
+        self.approve_v2(APPLICABLE)
+        with self.assertRaisesRegex(ValueError, "Invalid source URL"):
+            self.decision()
+        evidence = self.mapping["associations"][0]["evidence"]
+        evidence["scopeUrl"] = "https://www.nhtsa.gov/example-scope"
+        self.assertEqual(self.decision()["classification"], APPLICABLE)
+
+    def test_v2_machine_only_review_cannot_publish(self):
+        self.approve_v2()
+        self.mapping["associations"][0]["evidence"]["reviewMethod"] = "machine_validated"
+        with self.assertRaisesRegex(ValueError, "missing review method"):
+            self.catalog()
+
     def test_repository_register_uses_supported_version(self):
         root = Path(__file__).resolve().parents[1]
         register = json.loads((root / "data/vehicle-reconciliation-mappings.v1.json").read_text())
