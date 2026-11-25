@@ -7,7 +7,7 @@ export function classification(row){
  if(row.status==='conditional'||!Number.isFinite(row.score))return 'Potential match';
  return row.score>=85?'Strong match':row.score>=70?'Good match':'Potential match';
 }
-export function results(profile,vehicles,year,{metricsById={},costById={},limit=PAGE_SIZE,eligibleOnly=false}={}){
+export function results(profile,vehicles,year,{metricsById={},costById={},limit=PAGE_SIZE,eligibleOnly=false,orderCandidates}={}){
  if(!Number.isInteger(limit)||limit<1)throw Error('Invalid results limit');
  const byId=new Map(vehicles.map(v=>[v.id,v]));
  if(byId.size!==vehicles.length)throw Error('Duplicate vehicle ID');
@@ -15,7 +15,8 @@ export function results(profile,vehicles,year,{metricsById={},costById={},limit=
  const conditionalCount=ranked.filter(r=>r.status==='conditional').length;
  const excludedCount=ranked.filter(r=>r.status==='excluded').length;
  const candidates=ranked.filter(r=>r.status==='eligible'||(!eligibleOnly&&r.status==='conditional'));
- const items=candidates.slice(0,limit).map(r=>{
+ const ordered=orderCandidates ? orderCandidates(candidates) : candidates;
+ const items=ordered.slice(0,limit).map(r=>{
   const v=byId.get(r.id), input=costById[r.id];
   const cost=input?ownershipCost(input):{total:null,missing:['Ownership assumptions']};
   const {score,scoreRange,...explanation}=explain(profile,v,r);

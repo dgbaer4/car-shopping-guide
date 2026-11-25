@@ -28,3 +28,4 @@ jobs:
         run: |
           python tools/build_integration_catalog.py "$RUNNER_TEMP/integration-catalog.json"
           cmp "$RUNNER_TEMP/integration-catalog.json" data/vehicle-catalog-v0.3-integration.json
+          python tools/build_pilot_release.py
