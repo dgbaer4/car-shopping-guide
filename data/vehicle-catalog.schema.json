@@ -136,7 +136,75 @@
                 }
               }
             }
+          },
+          "safetyRatings": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "overall",
+              "frontal",
+              "side",
+              "rollover"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "overall": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 5
+              },
+              "frontal": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 5
+              },
+              "side": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 5
+              },
+              "rollover": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 5
+              }
+            }
+          },
+          "safetyEvidence": {
+            "enum": [
+              "review-required",
+              "no-published-rating",
+              "unknown"
+            ]
+          },
+          "possibleTrimIds": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
           }
+        },
+        "dependentRequired": {
+          "safetyEvidence": [
+            "safetyRatings",
+            "features",
+            "possibleTrimIds"
+          ]
         }
       }
     }

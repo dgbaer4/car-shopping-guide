@@ -49,7 +49,7 @@ export function evaluate(p,v,year) {
  if(['Fully electric','Plug-in hybrid'].includes(v.power)&&p.home==='No'&&!['Almost always','Usually'].includes(p.work))notes.push('Limited routine charging; verify charging costs and access.');
  if(v.power==='Fully electric'&&p.home==='No'&&p.work==='Not available'&&p.public==='No')rejected.push('No acceptable charging access');
  if(p.body.length&&v.body&&!p.body.includes(v.body))notes.push('Outside preferred body styles');
- return {id:v.id,status:rejected.length?'excluded':unknown.length?'conditional':'eligible',rejected,unknown,notes,matched,missing,unverified,equipmentScore:p.desired.length?matched.length/p.desired.length:null};
+ return {id:v.id,status:rejected.length?'excluded':unknown.length?'conditional':'eligible',rejected,unknown,notes,matched,missing,unverified,equipmentScore:p.desired.length&&!unverified.length?matched.length/p.desired.length:null};
 }
 export function energyCost({miles,mpg,kwhPerMile,electricShare,gasPrice,electricPrice}) {
  if(!Number.isFinite(miles)||miles<0||!Number.isFinite(electricShare)||electricShare<0||electricShare>1)return null;
