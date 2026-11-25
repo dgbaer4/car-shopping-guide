@@ -1,0 +1,24 @@
+name: Development regression tests
+on:
+  push:
+    branches: [feature/v0.3-recommendation-engine]
+  pull_request:
+    branches: [feature/v0.3-recommendation-engine]
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - run: node --test tests/*.test.mjs
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_*.py'
