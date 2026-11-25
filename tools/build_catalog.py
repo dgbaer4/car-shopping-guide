@@ -1,50 +1,80 @@
-"""Build a catalog from EPA records and explicitly reviewed NHTSA mappings.
+"""Build a catalog from EPA records and reviewed NHTSA associations.
+
 Usage: python tools/build_catalog.py epa.json safety.json mappings.json catalog.json report.json
-Mappings: object keyed by EPA id, value {vehicleId, evidenceUrl, reviewed: true}.
 """
-import json, sys
-from pathlib import Path
 from collections import Counter
+from copy import deepcopy
+from pathlib import Path
+import sys
+
+if __package__:
+    from .reconcile_vehicles import VERIFIED, load_json, reconcile, write_json
+else:
+    from reconcile_vehicles import VERIFIED, load_json, reconcile, write_json
+
 
 def build(epa, safety, mappings):
-    records = epa["vehicles"]
-    if not records or len({v["id"] for v in records}) != len(records):
-        raise ValueError("Empty catalog or duplicate IDs")
-    if safety.get("errors"):
-        raise ValueError("Safety acquisition has unresolved errors")
-    variants = {str(v["vehicleId"]): v for v in safety["records"]}
-    if set(mappings) - {v["id"] for v in records}:
-        raise ValueError("Unknown EPA mapping ID")
+    records = deepcopy(epa["vehicles"])
+    if not records:
+        raise ValueError("Empty catalog")
+    variants, associations, reconciliation = reconcile(records, safety, mappings)
+    verified = {
+        row["epaId"]: row["reviewedVehicleId"]
+        for row in reconciliation["decisions"] if row["classification"] in VERIFIED
+    }
     coverage = Counter()
-    for v in records:
-        if v["make"] not in {"Toyota","Nissan","Honda","Hyundai","Kia"} or not 2021 <= v["year"] <= 2026:
+    for vehicle in records:
+        if vehicle["make"] not in {"Toyota", "Nissan", "Honda", "Hyundai", "Kia"}:
             raise ValueError("Out of scope record")
-        if not v.get("sources") or not all(s.get("url","").startswith("https://") for s in v["sources"]):
-            raise ValueError("Missing source")
-        for key in ("mpg","kwhPerMile"):
-            x = v.get(key)
-            if x is not None and (type(x) not in (float,int) or not 0 < x < float("inf")):
+        for key in ("mpg", "kwhPerMile"):
+            value = vehicle.get(key)
+            if value is not None and (type(value) not in (float, int) or not 0 < value < float("inf")):
                 raise ValueError("Invalid efficiency")
-        if any(x is not None and type(x) is not bool for x in v.get("features",{}).values()):
+        if any(value is not None and type(value) is not bool
+               for value in vehicle.get("features", {}).values()):
             raise ValueError("Invalid feature value")
-        m = mappings.get(v["id"])
-        if m:
-            r = variants[str(m["vehicleId"])]
-            if m.get("reviewed") is not True or not m.get("evidenceUrl","").startswith("https://") or (r["year"],r["make"]) != (v["year"],v["make"]):
-                raise ValueError("Unverified mapping")
-            if any(x is not None and (type(x) is not int or not 1 <= x <= 5) for x in r["ratings"].values()):
-                raise ValueError("Invalid safety rating")
-            v["safetyRatings"] = r["ratings"]
-            v["sources"].append({"url":r["source"],"fields":["safetyRatings"],"accessed":r["accessed"],"notes":m["evidenceUrl"]})
-        for k in ("mpg","kwhPerMile","electricRangeMiles","body","seats","price","safetyRatings"):
-            coverage[k] += int(v.get(k) is not None)
-        coverage["backupCameraVerified"] += int(v.get("features",{}).get("Backup camera") is not None)
-    report = {"total":len(records),"byMake":dict(Counter(v["make"] for v in records)), "byYear":dict(Counter(v["year"] for v in records)), "byPower":dict(Counter(v["power"] for v in records)), "fieldCoverage":dict(coverage),"unmatchedSafetyGroups":safety.get("unmatched",[])}
-    return {"schemaVersion":"0.3","vehicles":records},report
+        vehicle["safetyRatings"] = None
+        sources = []
+        for source in vehicle["sources"]:
+            fields = source.get("fields", [])
+            if "safetyRatings" in fields:
+                source["fields"] = [field for field in fields if field != "safetyRatings"]
+                if not source["fields"]:
+                    continue
+            sources.append(source)
+        vehicle["sources"] = sources
+        vid = verified.get(vehicle["id"])
+        if vid is not None:
+            row = variants[vid]
+            evidence = associations[vehicle["id"]]["evidence"]
+            vehicle["safetyRatings"] = row["ratings"].copy()
+            notes = f"NHTSA VehicleId {vid}; applicability evidence: {evidence['url']}"
+            if "epaUrl" in evidence:
+                notes += (f"; EPA configuration: {evidence['epaUrl']}; native listing: {evidence['listingUrl']}"
+                          f"; review: {evidence['reviewMethod']} ({evidence['reviewer']})")
+            if "bulkEvidence" in evidence:
+                notes += f"; Safercar rating record: {evidence['bulkEvidence']['url']}"
+            if "scopeUrl" in evidence:
+                notes += f"; applicability scope: {evidence['scopeUrl']}"
+            sources.append({
+                "url": row["source"], "fields": ["safetyRatings"], "accessed": row["accessed"],
+                "notes": notes,
+            })
+        for key in ("mpg", "kwhPerMile", "electricRangeMiles", "body", "seats", "price", "safetyRatings"):
+            coverage[key] += int(vehicle.get(key) is not None)
+        coverage["backupCameraVerified"] += int(vehicle.get("features", {}).get("Backup camera") is not None)
+    report = {
+        "total": len(records), "byMake": dict(Counter(v["make"] for v in records)),
+        "byYear": dict(Counter(v["year"] for v in records)),
+        "byPower": dict(Counter(v["power"] for v in records)), "fieldCoverage": dict(coverage),
+        "unmatchedSafetyGroups": safety.get("unmatched", []), "reconciliation": reconciliation,
+    }
+    return {"schemaVersion": "0.3", "vehicles": records}, report
+
 
 if __name__ == "__main__":
-    a,b,c,d,e = map(Path,sys.argv[1:])
-    catalog,report = build(*(json.loads(p.read_text()) for p in (a,b,c)))
-    for p,obj in ((d,catalog),(e,report)):
-        p.write_text(json.dumps(obj,indent=2,allow_nan=False)+"\n")
-    print(json.dumps(report,indent=2))
+    a, b, c, d, e = map(Path, sys.argv[1:])
+    catalog, report = build(*(load_json(path) for path in (a, b, c)))
+    write_json(d, catalog)
+    write_json(e, report)
+    print(f"Built {report['total']} configurations with {report['fieldCoverage']['safetyRatings']} verified safety ratings")
