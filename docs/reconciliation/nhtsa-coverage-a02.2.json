@@ -1,0 +1,1220 @@
+{
+  "acquisition": {
+    "errors": [
+      {
+        "attempts": 1,
+        "httpStatus": 400,
+        "make": "Toyota",
+        "model": "TUNDRA HYBRID W/ ISODYNAMIC PERFORMANCE SEAT",
+        "reason": "HTTP 400",
+        "source": "https://api.nhtsa.gov/SafetyRatings/modelyear/2026/make/TOYOTA/model/TUNDRA%20HYBRID%20W%2F%20ISODYNAMIC%20PERFORMANCE%20SEAT?format=json",
+        "stage": "model",
+        "status": "permanent_failure",
+        "year": 2026
+      }
+    ],
+    "publicationStatus": {
+      "not_rated": 125,
+      "published": 791
+    },
+    "variants": 916
+  },
+  "baseline": {
+    "confirmedUnrated": 11,
+    "percentRated": 3.06,
+    "rated": 43,
+    "total": 1406
+  },
+  "byMake": {
+    "Honda": {
+      "confirmedUnrated": 1,
+      "percentRated": 16.76,
+      "rated": 30,
+      "total": 179
+    },
+    "Hyundai": {
+      "confirmedUnrated": 8,
+      "percentRated": 3.27,
+      "rated": 9,
+      "total": 275
+    },
+    "Kia": {
+      "confirmedUnrated": 13,
+      "percentRated": 11.98,
+      "rated": 29,
+      "total": 242
+    },
+    "Nissan": {
+      "confirmedUnrated": 0,
+      "percentRated": 10.0,
+      "rated": 23,
+      "total": 230
+    },
+    "Toyota": {
+      "confirmedUnrated": 1,
+      "percentRated": 7.5,
+      "rated": 36,
+      "total": 480
+    }
+  },
+  "byMakeYearAndPowertrain": {
+    "Honda": {
+      "2021": {
+        "Gasoline": {
+          "ambiguous": 6,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 13,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 3,
+          "no_published_safety_rating": 0,
+          "unmatched": 1,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2022": {
+        "Gasoline": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 16,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2023": {
+        "Gasoline": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 13,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 5,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2024": {
+        "Fully electric": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 15,
+          "verified_configuration_match": 5,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 1,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2025": {
+        "Fully electric": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 8,
+          "verified_configuration_match": 5,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2026": {
+        "Fully electric": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 7,
+          "no_published_safety_rating": 0,
+          "unmatched": 5,
+          "verified_configuration_match": 4,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 3,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      }
+    },
+    "Hyundai": {
+      "2021": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 1,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 12,
+          "model_family_match_requires_review": 17,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2022": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 2,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 10,
+          "model_family_match_requires_review": 14,
+          "no_published_safety_rating": 0,
+          "unmatched": 5,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2023": {
+        "Fully electric": {
+          "ambiguous": 5,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 10,
+          "model_family_match_requires_review": 10,
+          "no_published_safety_rating": 0,
+          "unmatched": 5,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 8,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2024": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 8,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 11,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 7,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 1,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2025": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 1,
+          "unmatched": 13,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 11,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 9,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2026": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 9,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 11,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 12,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 7,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      }
+    },
+    "Kia": {
+      "2021": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 11,
+          "model_family_match_requires_review": 12,
+          "no_published_safety_rating": 0,
+          "unmatched": 7,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2022": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 12,
+          "model_family_match_requires_review": 9,
+          "no_published_safety_rating": 0,
+          "unmatched": 7,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2023": {
+        "Fully electric": {
+          "ambiguous": 5,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 10,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 6,
+          "verified_configuration_match": 5,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 2,
+          "unmatched": 1,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2024": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 9,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 11,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 4,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 1,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2025": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 9,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 11,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 4,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 2,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2026": {
+        "Fully electric": {
+          "ambiguous": 3,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 7,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 9,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 6,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 2,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 2,
+          "model_family_match_requires_review": 3,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      }
+    },
+    "Nissan": {
+      "2021": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 14,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 14,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2022": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 2,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 10,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 15,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2023": {
+        "Fully electric": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 12,
+          "model_family_match_requires_review": 7,
+          "no_published_safety_rating": 0,
+          "unmatched": 18,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2024": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 7,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 16,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2025": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 6,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 6,
+          "no_published_safety_rating": 0,
+          "unmatched": 13,
+          "verified_configuration_match": 4,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2026": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 8,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 3,
+          "no_published_safety_rating": 0,
+          "unmatched": 17,
+          "verified_configuration_match": 4,
+          "verified_rating_applicability": 0
+        }
+      }
+    },
+    "Toyota": {
+      "2021": {
+        "Gasoline": {
+          "ambiguous": 18,
+          "model_family_match_requires_review": 11,
+          "no_published_safety_rating": 0,
+          "unmatched": 19,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 1,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 5,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2022": {
+        "Gasoline": {
+          "ambiguous": 16,
+          "model_family_match_requires_review": 10,
+          "no_published_safety_rating": 0,
+          "unmatched": 23,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 7,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2023": {
+        "Fully electric": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 17,
+          "model_family_match_requires_review": 10,
+          "no_published_safety_rating": 0,
+          "unmatched": 13,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 0,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 13,
+          "model_family_match_requires_review": 2,
+          "no_published_safety_rating": 0,
+          "unmatched": 8,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2024": {
+        "Fully electric": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 3,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 14,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 28,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 1,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 7,
+          "model_family_match_requires_review": 4,
+          "no_published_safety_rating": 0,
+          "unmatched": 22,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2025": {
+        "Fully electric": {
+          "ambiguous": 1,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 4,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 6,
+          "model_family_match_requires_review": 9,
+          "no_published_safety_rating": 0,
+          "unmatched": 24,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        },
+        "Plug-in hybrid": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 1,
+          "no_published_safety_rating": 0,
+          "unmatched": 1,
+          "verified_configuration_match": 1,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 4,
+          "model_family_match_requires_review": 5,
+          "no_published_safety_rating": 0,
+          "unmatched": 24,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        }
+      },
+      "2026": {
+        "Fully electric": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 0,
+          "no_published_safety_rating": 0,
+          "unmatched": 10,
+          "verified_configuration_match": 0,
+          "verified_rating_applicability": 0
+        },
+        "Gasoline": {
+          "ambiguous": 0,
+          "model_family_match_requires_review": 9,
+          "no_published_safety_rating": 0,
+          "unmatched": 25,
+          "verified_configuration_match": 2,
+          "verified_rating_applicability": 0
+        },
+        "Traditional hybrid": {
+          "ambiguous": 10,
+          "model_family_match_requires_review": 3,
+          "no_published_safety_rating": 0,
+          "unmatched": 29,
+          "verified_configuration_match": 3,
+          "verified_rating_applicability": 0
+        }
+      }
+    }
+  },
+  "byPowertrain": {
+    "Fully electric": {
+      "confirmedUnrated": 9,
+      "percentRated": 9.32,
+      "rated": 15,
+      "total": 161
+    },
+    "Gasoline": {
+      "confirmedUnrated": 0,
+      "percentRated": 8.11,
+      "rated": 74,
+      "total": 913
+    },
+    "Plug-in hybrid": {
+      "confirmedUnrated": 14,
+      "percentRated": 16.22,
+      "rated": 6,
+      "total": 37
+    },
+    "Traditional hybrid": {
+      "confirmedUnrated": 0,
+      "percentRated": 10.85,
+      "rated": 32,
+      "total": 295
+    }
+  },
+  "byYear": {
+    "2021": {
+      "confirmedUnrated": 5,
+      "percentRated": 5.66,
+      "rated": 12,
+      "total": 212
+    },
+    "2022": {
+      "confirmedUnrated": 3,
+      "percentRated": 8.0,
+      "rated": 18,
+      "total": 225
+    },
+    "2023": {
+      "confirmedUnrated": 4,
+      "percentRated": 11.11,
+      "rated": 26,
+      "total": 234
+    },
+    "2024": {
+      "confirmedUnrated": 2,
+      "percentRated": 10.12,
+      "rated": 25,
+      "total": 247
+    },
+    "2025": {
+      "confirmedUnrated": 5,
+      "percentRated": 11.11,
+      "rated": 27,
+      "total": 243
+    },
+    "2026": {
+      "confirmedUnrated": 4,
+      "percentRated": 7.76,
+      "rated": 19,
+      "total": 245
+    }
+  },
+  "classifications": {
+    "ambiguous": 384,
+    "model_family_match_requires_review": 293,
+    "no_published_safety_rating": 23,
+    "unmatched": 579,
+    "verified_configuration_match": 127,
+    "verified_rating_applicability": 0
+  },
+  "gainsByMethod": {
+    "alias_and_same_year_source_match": {
+      "confirmed_unrated": 4,
+      "rated": 18
+    },
+    "same_year_source_match": {
+      "confirmed_unrated": 8,
+      "rated": 66
+    }
+  },
+  "milestones": {
+    "15%": {
+      "achieved": false,
+      "remaining": 84,
+      "target": 211
+    },
+    "30%": {
+      "achieved": false,
+      "remaining": 295,
+      "target": 422
+    },
+    "50%": {
+      "achieved": false,
+      "remaining": 576,
+      "target": 703
+    }
+  },
+  "overall": {
+    "confirmedUnrated": 23,
+    "percentRated": 9.03,
+    "rated": 127,
+    "total": 1406
+  },
+  "priorityFamilies": {
+    "baseline": {
+      "confirmedUnrated": 10,
+      "percentRated": 2.52,
+      "rated": 19,
+      "total": 754
+    },
+    "byFamily": {
+      "Honda Accord": {
+        "confirmedUnrated": 0,
+        "percentRated": 13.04,
+        "rated": 3,
+        "total": 23
+      },
+      "Honda CR-V": {
+        "confirmedUnrated": 0,
+        "percentRated": 69.57,
+        "rated": 16,
+        "total": 23
+      },
+      "Honda Civic": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 57
+      },
+      "Honda HR-V": {
+        "confirmedUnrated": 0,
+        "percentRated": 50.0,
+        "rated": 8,
+        "total": 16
+      },
+      "Honda Prologue": {
+        "confirmedUnrated": 0,
+        "percentRated": 33.33,
+        "rated": 3,
+        "total": 9
+      },
+      "Hyundai Elantra": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 42
+      },
+      "Hyundai Ioniq 5": {
+        "confirmedUnrated": 2,
+        "percentRated": 5.0,
+        "rated": 1,
+        "total": 20
+      },
+      "Hyundai Ioniq 6": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 15
+      },
+      "Hyundai Kona": {
+        "confirmedUnrated": 2,
+        "percentRated": 7.5,
+        "rated": 3,
+        "total": 40
+      },
+      "Hyundai Sonata": {
+        "confirmedUnrated": 0,
+        "percentRated": 15.15,
+        "rated": 5,
+        "total": 33
+      },
+      "Hyundai Tucson": {
+        "confirmedUnrated": 4,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 30
+      },
+      "Kia EV6": {
+        "confirmedUnrated": 0,
+        "percentRated": 4.35,
+        "rated": 1,
+        "total": 23
+      },
+      "Kia Forte": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 17
+      },
+      "Kia K4": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 8
+      },
+      "Kia K5": {
+        "confirmedUnrated": 0,
+        "percentRated": 18.18,
+        "rated": 4,
+        "total": 22
+      },
+      "Kia Niro": {
+        "confirmedUnrated": 9,
+        "percentRated": 4.0,
+        "rated": 1,
+        "total": 25
+      },
+      "Kia Sportage": {
+        "confirmedUnrated": 4,
+        "percentRated": 41.94,
+        "rated": 13,
+        "total": 31
+      },
+      "Nissan Altima": {
+        "confirmedUnrated": 0,
+        "percentRated": 20.0,
+        "rated": 5,
+        "total": 25
+      },
+      "Nissan Ariya": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 25
+      },
+      "Nissan Kicks": {
+        "confirmedUnrated": 0,
+        "percentRated": 88.89,
+        "rated": 8,
+        "total": 9
+      },
+      "Nissan Leaf": {
+        "confirmedUnrated": 0,
+        "percentRated": 53.33,
+        "rated": 8,
+        "total": 15
+      },
+      "Nissan Rogue": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 36
+      },
+      "Nissan Sentra": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 13
+      },
+      "Toyota Camry": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 47
+      },
+      "Toyota Corolla": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 60
+      },
+      "Toyota Corolla Cross": {
+        "confirmedUnrated": 0,
+        "percentRated": 100.0,
+        "rated": 14,
+        "total": 14
+      },
+      "Toyota Prius": {
+        "confirmedUnrated": 0,
+        "percentRated": 0.0,
+        "rated": 0,
+        "total": 22
+      },
+      "Toyota Prius Prime": {
+        "confirmedUnrated": 0,
+        "percentRated": 25.0,
+        "rated": 2,
+        "total": 8
+      },
+      "Toyota RAV4": {
+        "confirmedUnrated": 1,
+        "percentRated": 17.39,
+        "rated": 8,
+        "total": 46
+      }
+    },
+    "overall": {
+      "confirmedUnrated": 22,
+      "percentRated": 13.66,
+      "rated": 103,
+      "total": 754
+    }
+  },
+  "sha256": {
+    "baseline": "5d258a9c6ae484913aeb76b5438d2be8f1f1524e304ae842eaeac2307173ea13",
+    "catalog": "cf292f2ae653baf7fc96754b1e5be52eaec82843c72b4cd46c6203cd1ba1cc25",
+    "epa": "c865a20d781b7e99f410b5883ac872d2d9f994d2c903d5c3652479189dd5e8ba",
+    "register": "54e037ffb69905790e95c25ba578b5d3378fa394a87cdf669eab6dd651dd1a84",
+    "safety": "df509d8c19f7a56d261b3826821a0781dc47854b66607602aa483e6f7901daa9"
+  },
+  "unresolvedFirstReviewBlocker": {
+    "acquisition_error_overlap": 12,
+    "known_configuration_conflict": 16,
+    "missing_authoritative_applicability": 455,
+    "missing_structured_attributes_and_scope": 117,
+    "multiple_potential_variants": 38,
+    "no_discovered_same_year_candidate": 115,
+    "only_explicitly_unrated_candidates": 51,
+    "possible_missing_model_alias": 452
+  }
+}
