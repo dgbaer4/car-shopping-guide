@@ -1,0 +1,46 @@
+[
+  {
+    "source": "honda-civic-hatchback-2026",
+    "url": "https://hondanews.com/en-US/releases/release-bb136e6e7af7ccb6b0336e10d81121d6-2026-honda-civic-hatchback-pricing-and-epa-ratings-september",
+    "date": "2026-09-09",
+    "make": "Honda",
+    "model": "Civic Hatchback Hybrid",
+    "year": 2026,
+    "power": "Traditional hybrid",
+    "pattern": "Civic 5Dr",
+    "prices": [30595, 33595]
+  },
+  {
+    "source": "kia-k4-sedan-2025",
+    "url": "https://www.kiamedia.com/us/es/media/pressreleases/22503/kia-america-announces-2025-k4-pricing",
+    "date": "2024-08-13",
+    "make": "Kia",
+    "model": "K4",
+    "year": 2025,
+    "power": "Gasoline",
+    "pattern": "K4(?: 4DR w/ DMS| without DMS)?",
+    "prices": [21990, 22990, 23990, 25190, 28090]
+  },
+  {
+    "source": "kia-k4-hatchback-2026",
+    "url": "https://www.kiamedia.com/us/en/media/pressreleases/24087/kia-america-announces-2026-k4-hatchback-pricing",
+    "date": "2025-12-18",
+    "make": "Kia",
+    "model": "K4 Hatchback",
+    "year": 2026,
+    "power": "Gasoline",
+    "pattern": "K4 Hatchback",
+    "prices": [24890, 25890, 28790]
+  },
+  {
+    "source": "nissan-leaf-2026",
+    "url": "https://usa.nissannews.com/en-US/releases/more-features-more-range-still-under-30k-all-new-2026-nissan-leaf-priced-from-29990-msrp",
+    "date": "2025-08-19",
+    "make": "Nissan",
+    "model": "LEAF 75 kWh",
+    "year": 2026,
+    "power": "Fully electric",
+    "pattern": "LEAF 75kWh .+",
+    "prices": [29990, 34230, 38990]
+  }
+]

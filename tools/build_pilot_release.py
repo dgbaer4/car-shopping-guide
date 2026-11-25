@@ -9,15 +9,16 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = Path("data/vehicle-catalog-v0.3-pilot.json")
+PRICING = Path("data/vehicle-pricing.v1.json")
 EQUIPMENT = Path("data/development/equipment/vehicle-equipment.v1.json")
 VEHICLE_FIELDS = {
     "id", "make", "model", "year", "trim", "power", "body", "drivetrain", "features",
     "mpg", "kwhPerMile", "electricRangeMiles", "possibleTrimIds", "seats", "highSeating",
 }
 ASSETS = (
-    Path("index.html"), EQUIPMENT,
+    Path("index.html"), EQUIPMENT, PRICING,
     *(Path("engine") / (module + ".mjs") for module in (
-        "browser-results", "pilot", "pilot-cost", "recommendation", "results",
+        "browser-results", "pilot", "pilot-cost", "vehicle-pricing", "recommendation", "results",
         "scoring", "explanation", "ownership-cost",
     )),
 )
