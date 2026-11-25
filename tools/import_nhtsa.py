@@ -8,6 +8,7 @@ from http.client import IncompleteRead
 import json
 import math
 from pathlib import Path
+import re
 import sys
 import tempfile
 import time
@@ -24,6 +25,7 @@ FIELDS = {
     "side": "OverallSideCrashRating",
     "rollover": "RolloverRating",
 }
+CONFIG_FIELDS = ("power", "drivetrain", "body", "trim", "battery", "generation")
 TRANSIENT = {408, 425, 429, 500, 502, 503, 504}
 
 
@@ -62,6 +64,10 @@ def retry_after(value):
             return 0
 
 
+def reject_nonfinite(value):
+    raise ValueError(f"Non-finite JSON value: {value}")
+
+
 def rows(payload):
     result = payload["Results"]
     if (not isinstance(result, list) or any(not isinstance(row, dict) for row in result)
@@ -72,12 +78,14 @@ def rows(payload):
 
 class Client:
     def __init__(self, cache, *, timeout=12, interval=0.3, attempts=3,
-                 seconds=2400, opener=urlopen):
+                 seconds=2400, max_age_days=30, force_refresh=False, opener=urlopen):
         self.cache = cache
         self.timeout = timeout
         self.interval = interval
         self.attempts = attempts
         self.opener = opener
+        self.max_age_days = max_age_days
+        self.force_refresh = force_refresh
         self.deadline = time.monotonic() + seconds
         self.next_request = 0
         self.counts = Counter()
@@ -85,14 +93,29 @@ class Client:
     def get(self, path, validate):
         url = BASE + "/" + path + "?format=json"
         entry = self.cache / "v1" / (sha256(url.encode()).hexdigest() + ".json")
+        refresh = False
         try:
-            cached = json.loads(entry.read_text(encoding="utf-8"))
+            cached = json.loads(entry.read_text(encoding="utf-8"), parse_constant=reject_nonfinite)
             if cached["source"] != url:
                 raise ValueError("Cache URL mismatch")
             accessed = datetime.fromisoformat(cached["accessed"]).date().isoformat()
+            fetched = datetime.fromisoformat(cached.get("fetchedAt", accessed))
+            if fetched.tzinfo is None:
+                fetched = fetched.replace(tzinfo=timezone.utc)
+            now = datetime.now(timezone.utc)
+            if fetched > now or fetched.date().isoformat() != accessed:
+                raise ValueError("Cache acquisition timestamp mismatch")
             result = validate(rows(cached["payload"]))
-            self.counts["cacheHits"] += 1
-            return result, url, accessed
+            stale = bool(self.max_age_days and
+                         (now - fetched).total_seconds() >= self.max_age_days * 86400)
+            if not stale and not self.force_refresh:
+                self.counts["cacheHits"] += 1
+                return result, url, accessed
+            refresh = True
+            if stale:
+                self.counts["staleCacheEntries"] += 1
+            if self.force_refresh:
+                self.counts["forcedRefreshes"] += 1
         except FileNotFoundError:
             pass
         except (ValueError, KeyError, TypeError):
@@ -111,7 +134,7 @@ class Client:
                                                 "User-Agent": "CarShoppingGuide-catalog/1.0"})
                 with self.opener(request, timeout=min(
                         self.timeout, max(0.01, self.deadline - time.monotonic()))) as response:
-                    payload = json.load(response)
+                    payload = json.load(response, parse_constant=reject_nonfinite)
                 result = validate(rows(payload))
             except HTTPError as exc:
                 code = exc.code
@@ -126,8 +149,14 @@ class Client:
             except (ValueError, KeyError, TypeError) as exc:
                 raise AcquisitionError("invalid_response", str(exc), attempts=attempt) from exc
             else:
-                accessed = datetime.now(timezone.utc).date().isoformat()
-                write_json(entry, {"source": url, "accessed": accessed, "payload": payload})
+                fetched = datetime.now(timezone.utc)
+                accessed = fetched.date().isoformat()
+                write_json(entry, {"source": url, "accessed": accessed,
+                                   "fetchedAt": fetched.isoformat(), "payload": payload})
+                if refresh:
+                    self.counts["refreshedResponses"] += 1
+                    if path.startswith("VehicleId/") and result is not None:
+                        self.counts["refreshedRecords"] += 1
                 return result, url, accessed
             if attempt == self.attempts or self.next_request >= self.deadline:
                 raise error
@@ -139,7 +168,7 @@ def name(row, field):
     value = row[field]
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"Invalid {field}")
-    return value.strip()
+    return value
 
 
 def vehicle_id(row):
@@ -164,14 +193,15 @@ def variant_rows(rows):
     return [(vehicle_id(row), name(row, "VehicleDescription")) for row in rows]
 
 
-def detail_rows(rows, vid, year, make):
+def detail_rows(rows, vid):
     if not rows:
         return None
     if len(rows) != 1:
         raise ValueError("Expected one result for native VehicleId")
     row = rows[0]
-    if vehicle_id(row) != vid or row["ModelYear"] != year or name(row, "Make") != make:
-        raise ValueError("Detail identity differs from discovery")
+    if vehicle_id(row) != vid or type(row["ModelYear"]) is not int:
+        raise ValueError("Invalid detail ID or model year")
+    name(row, "Make")
     name(row, "Model")
     name(row, "VehicleDescription")
     return row
@@ -185,10 +215,60 @@ def rating(value):
     return None
 
 
+def normalized(value):
+    return " ".join(value.casefold().split())
+
+
+def identity_signature(identity):
+    return (identity["year"], *(normalized(identity[key]) for key in
+                                ("make", "model", "description")))
+
+
+def configuration(description, source, accessed):
+    # The source description refers to this exact VehicleId.
+    evidence = {}
+    attributes = dict.fromkeys(CONFIG_FIELDS)
+
+    def capture(field, examples):
+        matches = [(match.group(), value) for pattern, value in examples
+                   for match in re.finditer(pattern, description, re.IGNORECASE)]
+        if matches and len({value for _, value in matches}) == 1:
+            token, value = matches[0]
+            attributes[field] = value
+            evidence[field] = {"source": source, "accessed": accessed,
+                               "field": "VehicleDescription", "token": token}
+
+    capture("power", [
+        (r"\b(?:PHEV|PLUG[- ]IN HYBRID)\b", "Plug-in hybrid"),
+        (r"\bHEV\b", "Traditional hybrid"),
+        (r"\b(?:BEV|ELECTRIC)\b", "Fully electric"),
+        (r"\bGASOLINE\b", "Gasoline"),
+    ])
+    capture("drivetrain", [(rf"\b{token}\b", token)
+                           for token in ("AWD", "4WD", "FWD", "RWD", "2WD")])
+    capture("body", [
+        (r"\bSUV\b", "SUV"),
+        (r"\b(?:[345]\s+HB|HATCHBACK)\b", "Hatchback"),
+        (r"\bSEDAN\b", "Sedan"),
+        (r"\bVAN\b", "Van"),
+        (r"\bPU/CC\b", "Crew cab pickup"),
+        (r"\bPU/EC\b", "Extended cab pickup"),
+    ])
+    batteries = list(re.finditer(r"\b(\d+(?:\.\d+)?)\s*kWh\s+battery\b",
+                                 description, re.IGNORECASE))
+    if batteries and len({match[1] for match in batteries}) == 1:
+        battery = batteries[0]
+        attributes["battery"] = f"{battery[1]} kWh"
+        evidence["battery"] = {"source": source, "accessed": accessed,
+                               "field": "VehicleDescription", "token": battery.group()}
+    return attributes, evidence
+
+
 def acquire(client, years, makes, checkpoint):
     errors, unsupported, scopes = [], [], []
     variants, records = {}, {}
     attempted_details = set()
+    ids_by_scope = {}
     counts = Counter(models=0)
 
     def query(path, validate, stage, **identity):
@@ -206,25 +286,62 @@ def acquire(client, years, makes, checkpoint):
         return result, url, accessed
 
     def snapshot(finished):
+        handoff, conflicts = {}, []
+        for vid, identities in sorted(variants.items(), key=lambda item: int(item[0])):
+            record = records.get(vid)
+            signatures = {identity_signature(identity) for identity in identities}
+            if len(signatures) != 1 or (record and identity_signature(record) not in signatures):
+                conflicts.append({"stage": "identity", "vehicleId": vid,
+                                  "status": "identity_conflict",
+                                  "source": BASE + f"/VehicleId/{vid}?format=json",
+                                  "reason": "Native listings or rating detail disagree",
+                                  "discovery": identities, "record": record})
+                continue
+            if record:
+                listing = min(identities, key=lambda item: item["source"])
+                identity = {key: listing[key] for key in
+                            ("make", "year", "model", "source", "accessed")}
+                handoff[vid] = {**record, "nativeIdentity": identity}
+        handoff_records = list(handoff.values())
+        scope_report = []
+        for scope in scopes:
+            entry = scope.copy()
+            ids = ids_by_scope.get((scope["year"], scope["make"]), set())
+            if "models" in scope:
+                usable = ids & handoff.keys()
+                entry.update({"variants": len(ids), "records": len(usable),
+                              "rated": sum(handoff[i]["status"] == "rated" for i in usable),
+                              "unrated": sum(handoff[i]["status"] == "unrated" for i in usable),
+                              "detailUnavailable": sum(handoff[i]["status"] == "detail_unavailable"
+                                                       for i in usable)})
+                if (ids - usable) or "status" not in scope:
+                    entry["status"] = "partial"
+            scope_report.append(entry)
+        all_errors = errors + conflicts
         report = {
-            "complete": finished and not errors,
+            "complete": finished and not all_errors,
             "discoveryFinished": finished,
             "scope": {"market": "US", "years": years, "makes": [MAKES[m] for m in makes]},
             "counts": {**counts, "uniqueVariants": len(variants),
-                       "records": len(records), "rated": sum(r["status"] == "rated" for r in records.values()),
-                       "unrated": sum(r["status"] == "unrated" for r in records.values()),
+                       "records": len(handoff), "rated": sum(r["status"] == "rated" for r in handoff_records),
+                       "unrated": sum(r["status"] == "unrated" for r in handoff_records),
                        "detailUnavailable": sum(r["status"] == "detail_unavailable"
-                                                for r in records.values()),
-                       "unsupported": len(unsupported), "errors": len(errors)},
-            "errorsByStatus": dict(Counter(e["status"] for e in errors)),
+                                                for r in handoff_records),
+                       "unsupported": len(unsupported), "errors": len(all_errors),
+                       "identityConflicts": len(conflicts)},
+            "errorsByStatus": dict(Counter(e["status"] for e in all_errors)),
             "requests": dict(client.counts),
-            "byYearMake": scopes,
+            "byYearMake": scope_report,
+            "configurationCounts": {key: sum(r["configuration"][key] is not None for r in handoff_records)
+                                    for key in CONFIG_FIELDS},
+            "publicationCounts": dict(Counter(r["publicationStatus"] for r in handoff_records)),
         }
-        checkpoint({"schemaVersion": "nhtsa-safety/1.0", "coverage": report,
-                    "records": sorted(records.values(), key=lambda r: int(r["vehicleId"])),
+        checkpoint({"schemaVersion": "nhtsa-safety/1.1", "coverage": report,
+                    "scope": report["scope"], "records": handoff_records,
                     "pendingVariants": [{"vehicleId": vid, "discovery": variants[vid]}
                                         for vid in sorted(variants.keys() - records.keys(), key=int)],
-                    "unmatched": [], "unsupported": unsupported, "errors": errors})
+                    "unmatched": [], "unsupported": unsupported, "errors": all_errors})
+        return report["complete"]
 
     try:
         for year in years:
@@ -241,7 +358,7 @@ def acquire(client, years, makes, checkpoint):
                     scope["status"] = "not_listed"
                     continue
                 error_start = len(errors)
-                ids = set()
+                ids = ids_by_scope.setdefault((year, MAKES[make]), set())
                 make_path = f"{year_path}/make/{quote(make, safe='')}"
                 models = query(make_path, lambda r: discovery(r, year, make), "make", **scope)
                 if models is None:
@@ -268,7 +385,7 @@ def acquire(client, years, makes, checkpoint):
                             continue
                         attempted_details.add(vid)
                         detail = query(f"VehicleId/{vid}",
-                                       lambda r: detail_rows(r, vid, year, make),
+                                       lambda r: detail_rows(r, vid),
                                        "vehicle", vehicleId=vid, year=year, make=MAKES[make])
                         if detail is None:
                             continue
@@ -277,13 +394,31 @@ def acquire(client, years, makes, checkpoint):
                         ratings = {key: rating(fields.get(field)) for key, field in FIELDS.items()}
                         native_ratings = {key: rating(value) for key, value in fields.items()
                                           if "rating" in key.lower()}
+                        raw_ratings = {key: fields.get(field) for key, field in FIELDS.items()}
+                        publication = ("published" if any(v is not None for v in ratings.values())
+                                       else "not_rated" if all(isinstance(v, str) and
+                                                              normalized(v) == "not rated"
+                                                              for v in raw_ratings.values())
+                                       else "unknown")
+                        detail_description = fields.get("VehicleDescription", description)
+                        config, evidence = configuration(detail_description, source, accessed) if row else (
+                            dict.fromkeys(CONFIG_FIELDS), {})
                         records[vid] = {
-                            "vehicleId": vid, "year": year, "make": MAKES[make],
+                            "vehicleId": vid, "year": fields.get("ModelYear", year),
+                            "make": fields.get("Make", MAKES[make]).strip().title(),
+                            "nativeDetailIdentity": ({key: fields[key] for key in
+                                                      ("Make", "ModelYear", "Model", "VehicleDescription")}
+                                                     if row else None),
                             "model": fields.get("Model", model),
-                            "description": fields.get("VehicleDescription", description),
+                            "description": detail_description,
                             "ratings": ratings,
                             "nativeRatings": native_ratings,
-                            "configuration": {key: fields[key] for key in (
+                            "rawRatings": raw_ratings,
+                            "rawNativeRatings": {key: fields[key] for key in native_ratings},
+                            "publicationStatus": publication,
+                            "configuration": config,
+                            "configurationEvidence": evidence,
+                            "nativeSafetyEquipment": {key: fields[key] for key in (
                                 "NHTSAElectronicStabilityControl", "NHTSAForwardCollisionWarning",
                                 "NHTSALaneDepartureWarning") if key in fields},
                             "status": ("detail_unavailable" if row is None else
@@ -292,12 +427,7 @@ def acquire(client, years, makes, checkpoint):
                             "discovery": aliases, "source": source, "accessed": accessed,
                             "mappingStatus": "Requires configuration match",
                         }
-                scope.update({"variants": len(ids), "records": len(ids & records.keys()),
-                              "rated": sum(records[i]["status"] == "rated" for i in ids if i in records),
-                              "unrated": sum(records[i]["status"] == "unrated" for i in ids if i in records),
-                              "detailUnavailable": sum(records[i]["status"] == "detail_unavailable"
-                                                       for i in ids if i in records),
-                              "status": "partial" if len(errors) > error_start else "queried"})
+                scope["status"] = "partial" if len(errors) > error_start else "queried"
                 print(f"{year} {make}: {scope['models']} models, {len(ids)} variants, "
                       f"{len(errors) - error_start} errors", file=sys.stderr, flush=True)
                 snapshot(False)
@@ -305,8 +435,7 @@ def acquire(client, years, makes, checkpoint):
         errors.append({"stage": "run", "status": "interrupted", "reason": "Interrupted"})
         snapshot(False)
         return False
-    snapshot(True)
-    return not errors
+    return snapshot(True)
 
 
 def main():
@@ -317,9 +446,15 @@ def main():
     parser.add_argument("--year", type=int, choices=YEARS, action="append")
     parser.add_argument("--make", type=str.upper, choices=sorted(MAKES), action="append")
     parser.add_argument("--seconds", type=float, default=2400)
+    parser.add_argument("--cache-max-age-days", type=float, default=30,
+                        help="Response lifetime in days. Use 0 to reuse valid responses indefinitely.")
+    parser.add_argument("--force-refresh", action="store_true",
+                        help="Reacquire valid cached responses in the selected scope.")
     args = parser.parse_args()
     if not math.isfinite(args.seconds) or args.seconds <= 0:
         parser.error("--seconds must be positive and finite")
+    if not math.isfinite(args.cache_max_age_days) or args.cache_max_age_days < 0:
+        parser.error("--cache-max-age-days must be nonnegative and finite")
     destinations = [p.resolve() for p in (args.output, args.report) if p is not None]
     if len(set(destinations)) != len(destinations):
         parser.error("output and report must be different files")
@@ -330,7 +465,8 @@ def main():
             write_json(args.report, {"schemaVersion": data["schemaVersion"], **data["coverage"],
                                      "unsupported": data["unsupported"], "errors": data["errors"]})
 
-    client = Client(args.cache, seconds=args.seconds)
+    client = Client(args.cache, seconds=args.seconds, max_age_days=args.cache_max_age_days,
+                    force_refresh=args.force_refresh)
     complete = acquire(client, sorted(set(args.year or YEARS)),
                        sorted(set(args.make or MAKES)), checkpoint)
     return 0 if complete else 2
