@@ -207,6 +207,37 @@ def index_safety(records):
     return variants
 
 
+BULK_RATING_FIELDS = {
+    "overall": "OVERALL_STARS", "frontal": "OVERALL_FRNT_STARS",
+    "side": "OVERALL_SIDE_STARS", "rollover": "ROLLOVER_STARS",
+}
+BULK_BODY_TYPES = {"4 dr": "Sedan", "4dr": "Sedan", "5 hb": "Hatchback", "suv": "SUV"}
+
+
+def validate_bulk_evidence(evidence, native, attributes, ratings, label):
+    bulk = evidence["bulkEvidence"]
+    url = provenance(bulk.get("url"), evidence["accessed"], "nhtsa.gov")
+    require(url.path == "/nhtsa/downloads/Safercar/Safercar_data.csv",
+            f"{label}: invalid Safercar source")
+    record = bulk.get("record", {})
+    require(record.get("MAKE", "").casefold() == native["make"].casefold()
+            and record.get("MODEL_YR") == str(native["year"])
+            and normalized(record.get("MODEL", "")) == normalized(native["model"]),
+            f"{label}: Safercar identity differs from the native variant")
+    require(record.get("PRODUCTION_RELEASE") == "1"
+            and configuration_value("drivetrain", record.get("DRIVE_TRAIN", ""))
+            == configuration_value("drivetrain", attributes["drivetrain"])
+            and BULK_BODY_TYPES.get(normalized(record.get("BODY_STYLE", ""))) == attributes["body"],
+            f"{label}: Safercar release, drivetrain or body differs")
+    expected = {field: "" if rating is None else str(rating) for field, rating in ratings.items()}
+    require({field: record.get(key) for field, key in BULK_RATING_FIELDS.items()} == expected,
+            f"{label}: Safercar rating values differ")
+    notes = bulk.get("notes")
+    require(isinstance(notes, dict) and all(
+        not re.search(r"ratings? appl|manufactur|produced|equipped with|\bVIN\b", value, re.I)
+        for value in notes.values()), f"{label}: Safercar notes require scope review")
+
+
 def validate_association(epa, variant, entry, epa_key, nhtsa_key):
     label = f"{epa['id']} / {variant['vehicleId']}"
     native = variant.get("nativeIdentity")
@@ -256,6 +287,8 @@ def validate_association(epa, variant, entry, epa_key, nhtsa_key):
                 f"{label}: source provenance changed since review")
         require(variant.get("status") != "detail_unavailable",
                 f"{label}: NHTSA rating detail unavailable")
+    if "bulkEvidence" in evidence:
+        validate_bulk_evidence(evidence, native, target, variant["ratings"], label)
     if entry["classification"] == NO_RATING:
         if "reviewedRatings" in evidence:
             require("rawRatings" in variant, f"{label}: missing raw evidence for unrated status")

@@ -52,8 +52,10 @@ def build(epa, safety, mappings):
             if "epaUrl" in evidence:
                 notes += (f"; EPA configuration: {evidence['epaUrl']}; native listing: {evidence['listingUrl']}"
                           f"; review: {evidence['reviewMethod']} ({evidence['reviewer']})")
-                if "scopeUrl" in evidence:
-                    notes += f"; applicability scope: {evidence['scopeUrl']}"
+            if "bulkEvidence" in evidence:
+                notes += f"; Safercar rating record: {evidence['bulkEvidence']['url']}"
+            if "scopeUrl" in evidence:
+                notes += f"; applicability scope: {evidence['scopeUrl']}"
             sources.append({
                 "url": row["source"], "fields": ["safetyRatings"], "accessed": row["accessed"],
                 "notes": notes,

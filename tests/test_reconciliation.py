@@ -289,6 +289,33 @@ class ReconciliationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "conflicts with source body"):
             self.catalog()
 
+    def test_safercar_scope_drift_blocks_publication(self):
+        self.approve_v2()
+        evidence = self.mapping["associations"][0]["evidence"]
+        record = {
+            "MAKE": "TOYOTA", "MODEL": "PRIUS", "MODEL_YR": "2023", "BODY_STYLE": "5 HB",
+            "DRIVE_TRAIN": "AWD", "PRODUCTION_RELEASE": "1",
+            "OVERALL_STARS": "5", "OVERALL_FRNT_STARS": "5", "OVERALL_SIDE_STARS": "5",
+            "ROLLOVER_STARS": "",
+        }
+        bulk = {
+            "url": "https://static.nhtsa.gov/nhtsa/downloads/Safercar/Safercar_data.csv",
+            "record": record, "notes": {},
+        }
+        evidence["bulkEvidence"] = bulk
+        self.assertEqual(self.catalog()["safetyRatings"]["overall"], 5)
+        for key, changed in (("MODEL_YR", "2024"), ("PRODUCTION_RELEASE", "2"),
+                             ("DRIVE_TRAIN", "FWD"), ("OVERALL_STARS", "4")):
+            with self.subTest(key=key):
+                original = record[key]
+                record[key] = changed
+                with self.assertRaisesRegex(ValueError, "Safercar"):
+                    self.catalog()
+                record[key] = original
+        bulk["notes"]["FRNT_FOOT_NOTES"] = "Rating applies to vehicles built after VIN ABC."
+        with self.assertRaisesRegex(ValueError, "notes require scope review"):
+            self.catalog()
+
     def test_v2_null_status_requires_positive_evidence(self):
         self.variant["ratings"] = dict.fromkeys(self.variant["ratings"])
         self.variant["rawRatings"] = dict.fromkeys(self.variant["ratings"], "Not Rated")

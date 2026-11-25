@@ -111,3 +111,7 @@ gzip -n -c -9 catalog.json > catalog.json.gz
 For controlled integration, pin both source digests from the coverage report, regenerate offline or recheck live with `--verify-live`, run the tests and schema validation, and review the coverage diff before promoting a catalog. If a source changes a published category, star value or configuration, review the scope and update the evidence packet before rebuilding.
 
 Further coverage depends chiefly on authoritative trim, build-date, battery and restraint applicability. Allow roughly two to four engineering days for a focused second batch of common passenger vehicles if manufacturer or NHTSA configuration records are obtainable. A broad review of the unresolved queue would take longer and has no defensible coverage estimate until those sources are confirmed.
+
+## CSG-A02.2 coverage and applicability review
+
+The [CSG-A02.2 report](reconciliation/csg-a02.2.md) documents the development catalog's increase to 127 rated configurations, its source checks and remaining gaps, and the compact independent-review sample.

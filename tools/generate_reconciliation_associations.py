@@ -4,6 +4,8 @@ Use --verify-live to check the government records behind approved evidence.
 Offline runs reproduce the register from the pinned evidence and snapshots.
 """
 import argparse
+import csv
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
@@ -52,6 +54,31 @@ def verify_live(pair):
             f"{pair['vehicleId']}: official listing no longer identifies this variant")
 
 
+def verify_bulk_rows(path, pairs):
+    """Verify the pinned evidence against an independently downloaded export."""
+    columns = ("MAKE", "MODEL", "MODEL_YR", "DRIVE_TRAIN")
+
+    def key(row):
+        return tuple(row[column].strip().casefold() for column in columns)
+
+    records = defaultdict(list)
+    with path.open(encoding="utf-8-sig", newline="") as stream:
+        for row in csv.DictReader(stream):
+            records[key(row)].append(row)
+    for pair in pairs:
+        evidence = pair["evidence"].get("bulkEvidence")
+        if evidence is None:
+            continue
+        expected = evidence["record"]
+        matching = records[key(expected)]
+        require(len(matching) == 1, f"{pair['epaId']}: Safercar row absent or split")
+        row = matching[0]
+        notes = {field: value.strip() for field, value in row.items()
+                 if ("FOOT" in field or "CONCERN" in field) and value.strip()}
+        require(all(row[field] == value for field, value in expected.items())
+                and notes == evidence["notes"], f"{pair['epaId']}: Safercar row changed")
+
+
 def generate(epa, safety, register, reviewed):
     require(reviewed.get("version") == 1, "Unsupported reviewed evidence version")
     epa_index = {row["id"]: row for row in epa["vehicles"]}
@@ -97,10 +124,13 @@ def main():
     for field in ("epa", "safety", "aliases", "reviewed", "output"):
         parser.add_argument(field, type=Path)
     parser.add_argument("--verify-live", action="store_true")
+    parser.add_argument("--safercar-csv", type=Path)
     args = parser.parse_args()
     epa, safety, aliases, reviewed = (load_json(path) for path in
                                     (args.epa, args.safety, args.aliases, args.reviewed))
     register = generate(epa, safety, aliases, reviewed)
+    if args.safercar_csv:
+        verify_bulk_rows(args.safercar_csv, reviewed["pairs"])
     if args.verify_live:
         with ThreadPoolExecutor(max_workers=4) as pool:
             for _ in pool.map(verify_live, reviewed["pairs"]):
