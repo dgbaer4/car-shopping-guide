@@ -40,7 +40,7 @@ Manufacturer copyright applies to the underlying brochures and pages. Under the 
 Run from the repository root with Python 3 and Node. Python tooling uses `jsonschema` 4 and `lxml` for the Honda extraction aid.
 
 ```sh
-python -m pip install 'jsonschema>=4,<5' 'lxml>=5,<7'
+python -m pip install -r tools/requirements-equipment.txt
 mkdir -p /tmp/csg-equipment
 curl -fL 'https://raw.githubusercontent.com/dgbaer4/car-shopping-guide/199407312dc5d5df3c1e98f3b82b86206da405fe/data/development/vehicle-catalog-2026-11-24.v2.json.gz' \
   -o /tmp/csg-equipment/catalog.json.gz
