@@ -1,6 +1,44 @@
 # Car Shopping Guide v0.3 integration report
 
-**2026-11-25 · Development build for independent review. Staging approval is pending.**
+**2026-11-25 · CSG-I08 · Car Shopping Guide v0.3 — Pilot Preview**
+
+## Cash-purchase pilot amendment
+
+The project owner authorized the cash-purchase MVP and staging deployment. The tested pilot implementation is `0a710c9fddf49e264150c9c3fa02be4f9a25d324`. The pilot removes the payment-method question and financing presentation, while the development engine retains its financing logic and regression coverage.
+
+- Results display up to five confirmed or potential matches initially. Confirmed matches satisfy evaluated hard constraints. Potential matches retain verification items such as seller price, mileage and installed equipment. Known exclusions stay out. Within a match group, the shortlist prioritizes fewer verification gaps and, when Operating costs is selected, lower modeled energy cost where available. The list favors distinct model names before showing comparable configurations of those models.
+- The cost form exposes purchase price, sales tax, one-time fees, annual mileage, ownership period, fuel and electricity, insurance, maintenance, registration, PHEV electric-mile share and resale. Starting values are editable planning assumptions. A candidate-specific price updates the tax, cash needed at purchase and both cost perspectives. Cash expenditure adds running costs to acquisition cost. Net ownership cost deducts estimated resale. Estimates never confirm listing eligibility.
+- The staged Pages tree contains only the release assets, including a generated EPA catalog and the equipment sidecar. Its payload excludes NHTSA ratings, review status, rating provenance and development evidence. Pilot scoring receives no safety metrics. Publication approval for safety ratings remains a separate decision. [Staging preview](https://dgbaer4.github.io/car-shopping-guide/) · [Future development backlog](future-development-backlog.md)
+
+### Walnut Creek–Moraga commuter acceptance
+
+The illustrative profile selected a 10–25 mile round-trip commute five days per week, 10,000–15,000 annual miles, a 3–5 year hold, gasoline or hybrid, a $22,000–$25,000 all-in budget with $2,000 flex, and required adaptive cruise control. The pilot used 12,500 annual miles and four years as editable starting values. It returned five potential matches and identified the need to confirm quote, mileage and installed equipment. This test used scenario inputs rather than live listings or jurisdiction-specific tax rates.
+
+| Comparison | 2022 Hyundai Ioniq Blue | Toyota Prius |
+| --- | ---: | ---: |
+| EPA combined efficiency | 59 MPG | 57 MPG |
+| Default cash at purchase | $26,350 | $26,350 |
+| Default estimated annual fuel | $953 | $987 |
+| Default four-year cash expenditure | $39,964 | $40,097 |
+| Default four-year net ownership cost | $29,389 | $29,522 |
+
+Entering a $21,500 Prius price reduced estimated cash at purchase to $24,150 and four-year net ownership cost to $28,222 under the same operating assumptions. The lower purchase estimate outweighed the modest difference in energy cost. The budget message moved from using flexibility to within the preferred budget and still prompted quote verification.
+
+### Amendment verification
+
+| Check | Observed result |
+| --- | --- |
+| Python regression | 46 tests passed |
+| Node regression | All 8 files passed, 30 reported checks including 4 pilot checks |
+| Schema and regeneration | Development catalog reproduced byte for byte. The pilot catalog validated and two staging packages were identical. The pilot catalog contains 1,406 configurations and has SHA-256 `a7e676890e05b0506c898f3971f492fb4dd813da46e9589d5a59c86ee61338be`. |
+| Safety publication | The staging asset allowlist and payload scan passed. No NHTSA sources, rating fields or VehicleIds were present in the staging data. |
+| Complete Chromium journey | Passed at 390 px from welcome to results using the packaged site. Verified saved-progress reload, equipment selection, review and export, five results, both cost perspectives, editable assumptions, quote and budget updates, ten-result expansion, return to review, and same-origin requests only. |
+
+Pilot limitations remain the absence of verified listing prices, local rate lookups and comprehensive safety/equipment coverage. Safari and print acceptance remain in the backlog.
+
+## Earlier integration baseline
+
+The sections below record the original integration before CSG-I08. The amendment supersedes the earlier staging hold for the safety-free pilot.
 
 ## Integration history
 
