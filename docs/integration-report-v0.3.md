@@ -34,6 +34,10 @@ Entering a $21,500 Prius price reduced estimated cash at purchase to $24,150 and
 | Safety publication | The staging asset allowlist and payload scan passed. No NHTSA sources, rating fields or VehicleIds were present in the staging data. |
 | Complete Chromium journey | Passed at 390 px from welcome to results using the packaged site. Verified saved-progress reload, equipment selection, review and export, five results, both cost perspectives, editable assumptions, quote and budget updates, ten-result expansion, return to review, and same-origin requests only. |
 
+### Staging deployment
+
+GitHub Pages built and served staging commit `46ac1a192d5cd36d4501865199848201b640ce85` from the tested integration snapshot `f9128ae7334047ca5ea3c27d1213995217801f6f`. The deployed HTML and catalog matched the packaged bytes. The hosted development catalog, mapping register and reviewed NHTSA evidence URLs returned HTTP 404. The full Chromium commuter journey passed again on live staging. The main branch remained at `8b97e3d87388899c677854806adfbee91c591540`. [Staging preview](https://dgbaer4.github.io/car-shopping-guide/) · [Pages deployment](https://github.com/dgbaer4/car-shopping-guide/actions/runs/45708970891) · [Integration regression](https://github.com/dgbaer4/car-shopping-guide/actions/runs/45708932661)
+
 Pilot limitations remain the absence of verified listing prices, local rate lookups and comprehensive safety/equipment coverage. Safari and print acceptance remain in the backlog.
 
 ## Earlier integration baseline
