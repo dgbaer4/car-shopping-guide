@@ -16,6 +16,10 @@ VEHICLE_FIELDS = {
 }
 ASSETS = (
     Path("index.html"), EQUIPMENT,
+    *(Path("assets/vehicles") / (body + ".webp") for body in (
+        "sedan", "hatchback", "wagon", "compact-crossover", "midsize-suv",
+        "full-size-suv", "pickup",
+    )),
     *(Path("engine") / (module + ".mjs") for module in (
         "browser-results", "pilot", "pilot-cost", "recommendation", "results",
         "scoring", "explanation", "ownership-cost",

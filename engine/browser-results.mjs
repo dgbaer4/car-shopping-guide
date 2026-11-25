@@ -83,29 +83,34 @@ function budgetMessage(budget, cost) {
   return `Estimated ${measure} exceeds your preferred budget${flex ? ' plus flexibility' : ''}. Update it with a seller quote.`;
 }
 
-function renderEstimate(list, item, assumptions, quotePrice, budget) {
+function renderEstimate(list, details, item, assumptions, quotePrice, budget) {
   const cost = cashEstimate(item.vehicle, assumptions, quotePrice);
   list.replaceChildren();
+  details.replaceChildren();
   const breakdown = [
     ['Vehicle price', cost.purchasePrice],
     ['Sales tax', cost.tax],
     ['One-time fees', cost.fees],
     ['Cash needed at purchase', cost.atPurchase],
+  ];
+  const ownership = [
     ['Energy per year', cost.annualEnergy],
     ['Total operating costs per year', cost.annualOperating],
     ['Estimated resale value', cost.resale],
   ];
-  for (const [label, amount] of breakdown) {
-    append(list, 'dt', label);
-    append(list, 'dd', money(amount));
+  for (const [target, rows] of [[list, breakdown], [details, ownership]]) {
+    for (const [label, amount] of rows) {
+      append(target, 'dt', label);
+      append(target, 'dd', money(amount));
+    }
   }
   const years = assumptions.years;
   for (const [label, total] of [
     ['Cash expenditure', cost.cashExpenditure],
     ['Net ownership cost', cost.netOwnership],
   ]) {
-    append(list, 'dt', label);
-    append(list, 'dd', total == null ? 'Unavailable with the current inputs and EPA data.'
+    append(details, 'dt', label);
+    append(details, 'dd', total == null ? 'Unavailable with the current inputs and EPA data.'
       : `${money(total)} over ${years} years · ${money(total / years)}/year · ${money(total / years / 12)} monthly equivalent`);
   }
   return budgetMessage(budget, cost);
@@ -173,10 +178,24 @@ export function renderResults(container, view, session) {
     price.placeholder = String(session.assumptions.purchasePrice ?? '');
     const list = append(estimate, 'dl');
     list.className = 'estimates';
+    const showFinancials = 'Show more financial information';
+    const toggle = append(estimate, 'button', showFinancials);
+    toggle.type = 'button';
+    const details = append(estimate, 'dl');
+    details.className = 'estimates';
+    details.id = `financial-details-${cards.length}`;
+    details.hidden = true;
+    toggle.setAttribute('aria-controls', details.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.addEventListener('click', () => {
+      details.hidden = !details.hidden;
+      toggle.setAttribute('aria-expanded', String(!details.hidden));
+      toggle.textContent = details.hidden ? showFinancials : 'Hide financial information';
+    });
     const budget = append(estimate, 'p');
     const update = () => {
       price.placeholder = String(session.assumptions.purchasePrice ?? '');
-      budget.textContent = renderEstimate(list, item, session.assumptions, session.prices.get(item.id), view.budget);
+      budget.textContent = renderEstimate(list, details, item, session.assumptions, session.prices.get(item.id), view.budget);
     };
     price.addEventListener('change', () => {
       if (!price.reportValidity()) return;
