@@ -22,8 +22,13 @@ def validate(snapshot, catalog, digest=None):
         trim_id = trim["id"]
         if trim_id in trims:
             raise ValueError(f"Duplicate trim ID: {trim_id}")
+        expected_id = f"{trim['market'].lower()}/{trim['year']}/{trim['make']}/{trim['model']}/{trim['trim']}"
+        if trim_id != expected_id:
+            raise ValueError(f"Trim ID does not match its scope: {trim_id}")
         trims[trim_id] = trim
         for fact in trim["facts"].values():
+            if fact["trimId"] != trim_id:
+                raise ValueError(f"Fact trim scope mismatch: {trim_id}")
             source = sources.get(fact["source"])
             if not source or any(source[k] != trim[k] for k in ("market", "year", "make", "model")):
                 raise ValueError(f"Fact source scope mismatch: {trim_id}")
@@ -100,6 +105,7 @@ def coverage(snapshot, catalog):
             field: trim["facts"].get(field, {}).get("value", "unknown") for field in FIELDS
         }} for trim in snapshot["trims"]],
         "epaConfigurationsWithAppliedEquipment": 0,
+        "catalogSha256": snapshot["catalogSha256"],
     }
 
 

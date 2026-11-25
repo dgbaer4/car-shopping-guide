@@ -53,6 +53,51 @@
       "url": "https://www.kiamedia.com/us/en/media/pressreleases/24161/kia-announces-pricing-for-2026-k4-compact-sedan",
       "accessed": "2026-11-24",
       "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed."
+    },
+    "epa-k4-turbo": {
+      "market": "US",
+      "make": "Kia",
+      "year": 2026,
+      "model": "K4 Sedan",
+      "url": "https://www.fueleconomy.gov/ws/rest/vehicle/50059",
+      "accessed": "2026-11-24",
+      "usage": "Federal EPA/DOE vehicle data. Only factual fields used."
+    },
+    "honda-accord-2025": {
+      "market": "US",
+      "make": "Honda",
+      "year": 2025,
+      "model": "Accord",
+      "url": "https://hondanews.com/en-US/releases/release-008e554add341b8444085beaa2074089-2025-honda-accord-specifications-features",
+      "accessed": "2026-11-24",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed."
+    },
+    "honda-civic-2025": {
+      "market": "US",
+      "make": "Honda",
+      "year": 2025,
+      "model": "Civic Sedan",
+      "url": "https://hondanews.com/en-US/releases/release-c28e8d1efb94e520fef21ff3f800cb30-2025-honda-civic-sedan-specifications-features",
+      "accessed": "2026-11-24",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed."
+    },
+    "toyota-prius-2025": {
+      "market": "US",
+      "make": "Toyota",
+      "year": 2025,
+      "model": "Prius",
+      "url": "https://pressroom.toyota.com/2025-toyota-prius-gets-a-moody-vibe-with-new-nightshade-grade/",
+      "accessed": "2026-11-24",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed."
+    },
+    "honda-crv-2024": {
+      "market": "US",
+      "make": "Honda",
+      "year": 2024,
+      "model": "CR-V",
+      "url": "https://hondanews.com/en-US/releases/release-13f25e90cfe47cd58453f1f710054868-2024-honda-cr-v-specifications-features",
+      "accessed": "2026-11-24",
+      "usage": "Manufacturer copyright applies to the source document. This register retains factual attributes, source locators and original paraphrases only. No document, images or media are redistributed."
     }
   },
   "matrices": [
@@ -343,6 +388,17 @@
             "standard",
             "standard"
           ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Drivetrain",
+          "evidence": "All four trim columns specify front-wheel drive. Availability follows the documented drives for each trim.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable"
+          ]
         }
       ]
     },
@@ -603,6 +659,16 @@
             "standard",
             "standard",
             "standard"
+          ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Drivetrain",
+          "evidence": "The drivetrain specification lists front-wheel drive. Availability follows the documented drives for each trim.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable"
           ]
         }
       ]
@@ -880,6 +946,18 @@
             "package-dependent",
             "package-dependent"
           ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Hybrid Powertrain / Electronic On-Demand All-Wheel Drive",
+          "evidence": "Toyota describes the front-drive hybrid and offers electronic all-wheel drive across all grades. Availability follows the documented drives for each trim.",
+          "cells": [
+            "optional",
+            "optional",
+            "optional",
+            "optional",
+            "optional"
+          ]
         }
       ]
     },
@@ -1069,6 +1147,18 @@
             null,
             "standard",
             "standard"
+          ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "2026 EPA range footnote",
+          "evidence": "The range disclosure identifies the applicable drive variants. Availability follows the documented drives for each trim.",
+          "cells": [
+            "unavailable",
+            "optional",
+            "optional",
+            "standard",
+            "optional"
           ]
         }
       ]
@@ -1392,6 +1482,1403 @@
             "package-dependent",
             "standard"
           ]
+        },
+        {
+          "field": "drivetrain",
+          "locator": "EPA vehicle 50059 / drive",
+          "evidence": "EPA records front-wheel drive for the 1.6 L eight-speed configuration matched to GT-Line Turbo.",
+          "cells": [
+            null,
+            null,
+            null,
+            null,
+            [
+              "Front-Wheel Drive"
+            ]
+          ],
+          "source": "epa-k4-turbo"
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "EPA vehicle 50059 / drive",
+          "evidence": "EPA records front-wheel drive for the 1.6 L eight-speed configuration matched to GT-Line Turbo. Availability follows the documented drives for each trim.",
+          "cells": [
+            null,
+            null,
+            null,
+            null,
+            "unavailable"
+          ],
+          "source": "epa-k4-turbo"
+        }
+      ]
+    },
+    {
+      "scope": {
+        "market": "US",
+        "make": "Honda",
+        "year": 2025,
+        "model": "Accord"
+      },
+      "source": "honda-accord-2025",
+      "columns": [
+        {
+          "id": "us/2025/Honda/Accord/LX",
+          "trim": "LX"
+        },
+        {
+          "id": "us/2025/Honda/Accord/SE",
+          "trim": "SE"
+        },
+        {
+          "id": "us/2025/Honda/Accord/Sport",
+          "trim": "Sport"
+        },
+        {
+          "id": "us/2025/Honda/Accord/EX-L",
+          "trim": "EX-L"
+        },
+        {
+          "id": "us/2025/Honda/Accord/Sport-L",
+          "trim": "Sport-L"
+        },
+        {
+          "id": "us/2025/Honda/Accord/Touring",
+          "trim": "Touring"
+        }
+      ],
+      "rows": [
+        {
+          "field": "Backup camera",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Backup camera",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Blind-spot monitoring",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Blind-spot monitoring",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Rear cross-traffic alert",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Rear cross-traffic alert",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Adaptive cruise control",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Adaptive cruise control",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Automatic emergency braking",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Automatic emergency braking",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Lane-keeping assistance",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Lane-keeping assistance",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Apple CarPlay",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Apple CarPlay",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Android Auto",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Android Auto",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless Apple CarPlay",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless Apple CarPlay",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless Android Auto",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless Android Auto",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Heated front seats",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Heated front seats",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Ventilated front seats",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Ventilated front seats",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Heated steering wheel",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Heated steering wheel",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Power driver seat",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Power driver seat",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Parking sensors",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Parking sensors",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Spare tire",
+          "cells": [
+            "standard",
+            "standard",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable"
+          ],
+          "locator": "Specifications & Features / Spare tire",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Push-button start",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Push-button start",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Remote start",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Remote start",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Sunroof",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Sunroof",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Leather seating",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Leather seating",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless phone charging",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless phone charging",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Premium audio",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Premium audio",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "body",
+          "locator": "Exterior Measurements and Specifications",
+          "evidence": "This specification covers Honda's Accord sedan.",
+          "cells": [
+            "Sedan",
+            "Sedan",
+            "Sedan",
+            "Sedan",
+            "Sedan",
+            "Sedan"
+          ]
+        },
+        {
+          "field": "power",
+          "locator": "Engineering / Petrol and Hybrid",
+          "evidence": "LX and SE are combustion-only. Sport, EX-L, Sport-L and Touring use a conventional hybrid system.",
+          "cells": [
+            "Gasoline",
+            "Gasoline",
+            "Traditional hybrid",
+            "Traditional hybrid",
+            "Traditional hybrid",
+            "Traditional hybrid"
+          ]
+        },
+        {
+          "field": "drivetrain",
+          "locator": "Drivetrain",
+          "evidence": "Front-wheel drive is marked for all six trims.",
+          "cells": [
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ]
+          ]
+        },
+        {
+          "field": "seats",
+          "locator": "Seating",
+          "evidence": "The five-person row is marked in all columns.",
+          "cells": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+          ]
+        },
+        {
+          "field": "Keyless entry",
+          "locator": "Exterior Features",
+          "evidence": "Smart key entry is marked on all six trims.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Drivetrain",
+          "evidence": "Front-wheel drive is marked for all six trims. Availability follows the documented drives for each trim.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable"
+          ]
+        }
+      ]
+    },
+    {
+      "scope": {
+        "market": "US",
+        "make": "Honda",
+        "year": 2025,
+        "model": "Civic Sedan"
+      },
+      "source": "honda-civic-2025",
+      "columns": [
+        {
+          "id": "us/2025/Honda/Civic Sedan/LX",
+          "trim": "LX"
+        },
+        {
+          "id": "us/2025/Honda/Civic Sedan/Sport",
+          "trim": "Sport"
+        },
+        {
+          "id": "us/2025/Honda/Civic Sedan/Sport Hybrid",
+          "trim": "Sport Hybrid"
+        },
+        {
+          "id": "us/2025/Honda/Civic Sedan/Sport Touring Hybrid",
+          "trim": "Sport Touring Hybrid"
+        }
+      ],
+      "rows": [
+        {
+          "field": "Backup camera",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Backup camera",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Blind-spot monitoring",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Blind-spot monitoring",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Rear cross-traffic alert",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Rear cross-traffic alert",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Adaptive cruise control",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Adaptive cruise control",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Automatic emergency braking",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Automatic emergency braking",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Lane-keeping assistance",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Lane-keeping assistance",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Apple CarPlay",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Apple CarPlay",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Android Auto",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Android Auto",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless Apple CarPlay",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless Apple CarPlay",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless Android Auto",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless Android Auto",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Heated front seats",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Heated front seats",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Power driver seat",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Power driver seat",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Parking sensors",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Parking sensors",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Spare tire",
+          "cells": [
+            "standard",
+            "standard",
+            "unavailable",
+            "unavailable"
+          ],
+          "locator": "Specifications & Features / Spare tire",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Push-button start",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Push-button start",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Remote start",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Remote start",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Sunroof",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Sunroof",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Leather seating",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Leather seating",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Dual-zone climate control",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Dual-zone climate control",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless phone charging",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless phone charging",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Premium audio",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Premium audio",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "body",
+          "locator": "Title",
+          "evidence": "The trim comparison covers the Civic sedan.",
+          "cells": [
+            "Sedan",
+            "Sedan",
+            "Sedan",
+            "Sedan"
+          ]
+        },
+        {
+          "field": "power",
+          "locator": "Engineering / Petrol and Hybrid",
+          "evidence": "LX and Sport are combustion-only. The two other columns use a conventional hybrid system.",
+          "cells": [
+            "Gasoline",
+            "Gasoline",
+            "Traditional hybrid",
+            "Traditional hybrid"
+          ]
+        },
+        {
+          "field": "drivetrain",
+          "locator": "Drivetrain",
+          "evidence": "Front-wheel drive is marked for all four trims.",
+          "cells": [
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive"
+            ]
+          ]
+        },
+        {
+          "field": "seats",
+          "locator": "Seating",
+          "evidence": "The five-person row is marked for all four trims.",
+          "cells": [
+            5,
+            5,
+            5,
+            5
+          ]
+        },
+        {
+          "field": "Built-in navigation",
+          "locator": "Audio and Connectivity",
+          "evidence": "The factory navigation row is marked for Sport Touring Hybrid only.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Drivetrain",
+          "evidence": "Front-wheel drive is marked for all four trims. Availability follows the documented drives for each trim.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable"
+          ]
+        }
+      ]
+    },
+    {
+      "scope": {
+        "market": "US",
+        "make": "Toyota",
+        "year": 2025,
+        "model": "Prius"
+      },
+      "source": "toyota-prius-2025",
+      "columns": [
+        {
+          "id": "us/2025/Toyota/Prius/LE",
+          "trim": "LE"
+        },
+        {
+          "id": "us/2025/Toyota/Prius/XLE",
+          "trim": "XLE"
+        },
+        {
+          "id": "us/2025/Toyota/Prius/Nightshade",
+          "trim": "Nightshade"
+        },
+        {
+          "id": "us/2025/Toyota/Prius/Limited",
+          "trim": "Limited"
+        }
+      ],
+      "rows": [
+        {
+          "field": "power",
+          "locator": "Fuel Economy / Fifth-generation hybrid system",
+          "evidence": "The non-plug-in Prius lineup uses a conventional 2.0 L hybrid system.",
+          "cells": [
+            "Traditional hybrid",
+            "Traditional hybrid",
+            "Traditional hybrid",
+            "Traditional hybrid"
+          ]
+        },
+        {
+          "field": "drivetrain",
+          "locator": "Electronic On-Demand All-Wheel Drive",
+          "evidence": "Toyota lists front-wheel drive and electronic all-wheel drive across the trim range.",
+          "cells": [
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ]
+          ]
+        },
+        {
+          "field": "Blind-spot monitoring",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "Blind-spot warning is standard across all grades.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Rear cross-traffic alert",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "Rear cross-traffic alert is standard across all grades.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Automatic emergency braking",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "The standard pre-collision system can automatically apply the brakes.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Adaptive cruise control",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "The standard safety suite includes radar distance control.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Lane-keeping assistance",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "Standard lane tracing assists with steering to center the vehicle in its lane.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Parking sensors",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "Toyota describes front and rear parking assistance with braking across the lineup as available.",
+          "cells": [
+            "optional",
+            "optional",
+            "optional",
+            "optional"
+          ]
+        },
+        {
+          "field": "360-degree camera",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "Toyota offers surround-view on the Limited grade.",
+          "cells": [
+            null,
+            null,
+            null,
+            "optional"
+          ]
+        },
+        {
+          "field": "Ventilated front seats",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "The Limited grade walk lists front-seat ventilation.",
+          "cells": [
+            null,
+            null,
+            null,
+            "standard"
+          ]
+        },
+        {
+          "field": "Power liftgate",
+          "locator": "Toyota Safety Sense / Grade Walk",
+          "evidence": "The Limited grade walk lists a powered liftback.",
+          "cells": [
+            null,
+            null,
+            null,
+            "standard"
+          ]
+        },
+        {
+          "field": "Apple CarPlay",
+          "locator": "2025 Prius Grade Walk",
+          "evidence": "Wireless Apple CarPlay compatibility is standard across the grades.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Android Auto",
+          "locator": "2025 Prius Grade Walk",
+          "evidence": "Wireless Android Auto compatibility is standard across the grades.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Wireless Apple CarPlay",
+          "locator": "2025 Prius Grade Walk",
+          "evidence": "Wireless Apple CarPlay compatibility is standard across the grades.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "Wireless Android Auto",
+          "locator": "2025 Prius Grade Walk",
+          "evidence": "Wireless Android Auto compatibility is standard across the grades.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Electronic On-Demand All-Wheel Drive",
+          "evidence": "Toyota lists front-wheel drive and electronic all-wheel drive across the trim range. Availability follows the documented drives for each trim.",
+          "cells": [
+            "optional",
+            "optional",
+            "optional",
+            "optional"
+          ]
+        }
+      ]
+    },
+    {
+      "scope": {
+        "market": "US",
+        "make": "Honda",
+        "year": 2024,
+        "model": "CR-V"
+      },
+      "source": "honda-crv-2024",
+      "columns": [
+        {
+          "id": "us/2024/Honda/CR-V/LX",
+          "trim": "LX"
+        },
+        {
+          "id": "us/2024/Honda/CR-V/EX",
+          "trim": "EX"
+        },
+        {
+          "id": "us/2024/Honda/CR-V/EX-L",
+          "trim": "EX-L"
+        },
+        {
+          "id": "us/2024/Honda/CR-V/Sport",
+          "trim": "Sport"
+        },
+        {
+          "id": "us/2024/Honda/CR-V/Sport-L",
+          "trim": "Sport-L"
+        },
+        {
+          "id": "us/2024/Honda/CR-V/Sport Touring",
+          "trim": "Sport Touring"
+        }
+      ],
+      "rows": [
+        {
+          "field": "Backup camera",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Backup camera",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Blind-spot monitoring",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Blind-spot monitoring",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Rear cross-traffic alert",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Rear cross-traffic alert",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Adaptive cruise control",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Adaptive cruise control",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Automatic emergency braking",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Automatic emergency braking",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Lane-keeping assistance",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Lane-keeping assistance",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Apple CarPlay",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Apple CarPlay",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Android Auto",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Android Auto",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless Apple CarPlay",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless Apple CarPlay",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Wireless Android Auto",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Wireless Android Auto",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Heated front seats",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Heated front seats",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Heated steering wheel",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Heated steering wheel",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Power driver seat",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Power driver seat",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Parking sensors",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Parking sensors",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Push-button start",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Push-button start",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Remote start",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Remote start",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Sunroof",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Sunroof",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Leather seating",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "unavailable",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Leather seating",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Dual-zone climate control",
+          "cells": [
+            "unavailable",
+            "standard",
+            "standard",
+            "standard",
+            "standard",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Dual-zone climate control",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "Premium audio",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ],
+          "locator": "Specifications & Features / Premium audio",
+          "evidence": "The manufacturer's comparison marks availability separately in each named trim column."
+        },
+        {
+          "field": "body",
+          "locator": "Specifications / Body",
+          "evidence": "The compact CR-V crossover is normalized to the catalog body category.",
+          "cells": [
+            "Compact crossover",
+            "Compact crossover",
+            "Compact crossover",
+            "Compact crossover",
+            "Compact crossover",
+            "Compact crossover"
+          ]
+        },
+        {
+          "field": "power",
+          "locator": "Engineering",
+          "evidence": "LX, EX and EX-L are gasoline trims. Sport, Sport-L and Sport Touring are conventional hybrids.",
+          "cells": [
+            "Gasoline",
+            "Gasoline",
+            "Gasoline",
+            "Traditional hybrid",
+            "Traditional hybrid",
+            "Traditional hybrid"
+          ]
+        },
+        {
+          "field": "drivetrain",
+          "locator": "Drivetrain / EPA MPG Ratings",
+          "evidence": "FWD is listed through Sport-L. The AWD fuel economy row applies to all trims.",
+          "cells": [
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "Front-Wheel Drive",
+              "All-Wheel Drive"
+            ],
+            [
+              "All-Wheel Drive"
+            ]
+          ]
+        },
+        {
+          "field": "Spare tire",
+          "locator": "Specifications / Spare Tire",
+          "evidence": "The gasoline trims include a spare tire. The hybrid trims supply a repair kit instead.",
+          "cells": [
+            "standard",
+            "standard",
+            "standard",
+            "unavailable",
+            "unavailable",
+            "unavailable"
+          ]
+        },
+        {
+          "field": "Built-in navigation",
+          "locator": "Audio and Connectivity",
+          "evidence": "Honda lists factory navigation on Sport Touring only.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "unavailable",
+            "standard"
+          ]
+        },
+        {
+          "field": "Power liftgate",
+          "locator": "Exterior Features",
+          "evidence": "The power tailgate rows together cover EX-L, Sport-L and Sport Touring.",
+          "cells": [
+            "unavailable",
+            "unavailable",
+            "standard",
+            "unavailable",
+            "standard",
+            "standard"
+          ]
+        },
+        {
+          "field": "All-wheel drive",
+          "locator": "Drivetrain / EPA MPG Ratings",
+          "evidence": "FWD is listed through Sport-L. The AWD fuel economy row applies to all trims. Availability follows the documented drives for each trim.",
+          "cells": [
+            "optional",
+            "optional",
+            "optional",
+            "optional",
+            "optional",
+            "standard"
+          ]
         }
       ]
     }
@@ -1695,6 +3182,310 @@
       "source": "hyundai-ioniq5",
       "locator": "2026 EPA range footnote",
       "evidence": "Hyundai explicitly lists these grades with matching drivetrain and a 259-mile EPA range rating."
+    },
+    {
+      "epaId": "epa-50059",
+      "trimId": "us/2026/Kia/K4 Sedan/GT-Line Turbo",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "K4",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "kia-k4-sedan",
+      "locator": "PDF p. 31 / GT-Line Turbo Sedan",
+      "evidence": "EPA lists a 1.6 L engine, eight-speed automatic and front-wheel drive. Kia identifies the 1.6 L turbo and eight-speed as unique to GT-Line Turbo within the sedan lineup.",
+      "corroboration": {
+        "url": "https://www.fueleconomy.gov/ws/rest/vehicle/50059",
+        "accessed": "2026-11-24",
+        "locator": "displ, trany, drive, make, model, year"
+      }
+    },
+    {
+      "epaId": "epa-48504",
+      "trimId": "us/2025/Honda/Accord/LX",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Accord",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-accord-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The two gasoline trims share the 32 MPG combined rating."
+    },
+    {
+      "epaId": "epa-48504",
+      "trimId": "us/2025/Honda/Accord/SE",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Accord",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-accord-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The two gasoline trims share the 32 MPG combined rating."
+    },
+    {
+      "epaId": "epa-48505",
+      "trimId": "us/2025/Honda/Accord/EX-L",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Accord Hybrid",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-accord-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The EX-L is the only trim listed at 48 MPG combined."
+    },
+    {
+      "epaId": "epa-48497",
+      "trimId": "us/2025/Honda/Accord/Sport",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Accord Hybrid Sport/Touring",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-accord-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "EPA names Sport/Touring, and both share the 44 MPG combined rating. Sport-L remains unlinked despite its identical published MPG."
+    },
+    {
+      "epaId": "epa-48497",
+      "trimId": "us/2025/Honda/Accord/Touring",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Accord Hybrid Sport/Touring",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-accord-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "EPA names Sport/Touring, and both share the 44 MPG combined rating. Sport-L remains unlinked despite its identical published MPG."
+    },
+    {
+      "epaId": "epa-48016",
+      "trimId": "us/2025/Honda/Civic Sedan/LX",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Civic 4Dr",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-civic-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The sedan trims are listed at 36 MPG combined with matching powertrain and front-wheel drive."
+    },
+    {
+      "epaId": "epa-48017",
+      "trimId": "us/2025/Honda/Civic Sedan/Sport",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Civic 4Dr",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-civic-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The sedan trims are listed at 34 MPG combined with matching powertrain and front-wheel drive."
+    },
+    {
+      "epaId": "epa-48018",
+      "trimId": "us/2025/Honda/Civic Sedan/Sport Hybrid",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Civic 4Dr",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-civic-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The sedan trims are listed at 49 MPG combined with matching powertrain and front-wheel drive."
+    },
+    {
+      "epaId": "epa-48018",
+      "trimId": "us/2025/Honda/Civic Sedan/Sport Touring Hybrid",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Civic 4Dr",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-civic-2025",
+      "locator": "EPA MPG Ratings",
+      "evidence": "The sedan trims are listed at 49 MPG combined with matching powertrain and front-wheel drive."
+    },
+    {
+      "epaId": "epa-48860",
+      "trimId": "us/2025/Toyota/Prius/XLE",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Prius XLE/LTD",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "toyota-prius-2025",
+      "locator": "2025 Prius Grade Walk / Fuel Economy",
+      "evidence": "EPA explicitly names XLE/LTD with front-wheel drive. Toyota confirms the XLE and Limited names and front-wheel-drive hybrid availability."
+    },
+    {
+      "epaId": "epa-48860",
+      "trimId": "us/2025/Toyota/Prius/Limited",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "Prius XLE/LTD",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "toyota-prius-2025",
+      "locator": "2025 Prius Grade Walk / Fuel Economy",
+      "evidence": "EPA explicitly names XLE/LTD with front-wheel drive. Toyota confirms the XLE and Limited names and front-wheel-drive hybrid availability."
+    },
+    {
+      "epaId": "epa-46693",
+      "trimId": "us/2024/Honda/CR-V/LX",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V FWD",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 30 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46693",
+      "trimId": "us/2024/Honda/CR-V/EX",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V FWD",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 30 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46693",
+      "trimId": "us/2024/Honda/CR-V/EX-L",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V FWD",
+        "power": "Gasoline",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 30 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46694",
+      "trimId": "us/2024/Honda/CR-V/Sport",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V FWD",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 40 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46694",
+      "trimId": "us/2024/Honda/CR-V/Sport-L",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V FWD",
+        "power": "Traditional hybrid",
+        "drivetrain": "Front-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 40 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46715",
+      "trimId": "us/2024/Honda/CR-V/LX",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V AWD",
+        "power": "Gasoline",
+        "drivetrain": "All-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 29 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46715",
+      "trimId": "us/2024/Honda/CR-V/EX",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V AWD",
+        "power": "Gasoline",
+        "drivetrain": "All-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 29 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46715",
+      "trimId": "us/2024/Honda/CR-V/EX-L",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V AWD",
+        "power": "Gasoline",
+        "drivetrain": "All-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 29 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46716",
+      "trimId": "us/2024/Honda/CR-V/Sport",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V AWD",
+        "power": "Traditional hybrid",
+        "drivetrain": "All-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 37 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46716",
+      "trimId": "us/2024/Honda/CR-V/Sport-L",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V AWD",
+        "power": "Traditional hybrid",
+        "drivetrain": "All-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 37 MPG combined rating."
+    },
+    {
+      "epaId": "epa-46716",
+      "trimId": "us/2024/Honda/CR-V/Sport Touring",
+      "status": "supported-member",
+      "epaIdentity": {
+        "model": "CR-V AWD",
+        "power": "Traditional hybrid",
+        "drivetrain": "All-Wheel Drive"
+      },
+      "source": "honda-crv-2024",
+      "locator": "Drivetrain / EPA MPG Ratings",
+      "evidence": "The group has the matching drive, powertrain and 37 MPG combined rating."
     }
   ]
 }

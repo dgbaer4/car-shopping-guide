@@ -67,7 +67,8 @@
             "value",
             "source",
             "locator",
-            "evidence"
+            "evidence",
+            "trimId"
           ],
           "properties": {
             "value": {
@@ -92,6 +93,10 @@
             "evidence": {
               "type": "string",
               "minLength": 1
+            },
+            "trimId": {
+              "type": "string",
+              "minLength": 1
             }
           }
         },
@@ -102,7 +107,8 @@
             "value",
             "source",
             "locator",
-            "evidence"
+            "evidence",
+            "trimId"
           ],
           "properties": {
             "value": {
@@ -120,6 +126,10 @@
             "evidence": {
               "type": "string",
               "minLength": 1
+            },
+            "trimId": {
+              "type": "string",
+              "minLength": 1
             }
           }
         },
@@ -130,7 +140,8 @@
             "value",
             "source",
             "locator",
-            "evidence"
+            "evidence",
+            "trimId"
           ],
           "properties": {
             "value": {
@@ -152,6 +163,10 @@
             "evidence": {
               "type": "string",
               "minLength": 1
+            },
+            "trimId": {
+              "type": "string",
+              "minLength": 1
             }
           }
         },
@@ -162,7 +177,8 @@
             "value",
             "source",
             "locator",
-            "evidence"
+            "evidence",
+            "trimId"
           ],
           "properties": {
             "value": {
@@ -189,818 +205,102 @@
             "evidence": {
               "type": "string",
               "minLength": 1
+            },
+            "trimId": {
+              "type": "string",
+              "minLength": 1
             }
           }
         },
         "Heated front seats": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Ventilated front seats": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Power driver seat": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Heated steering wheel": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Keyless entry": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Push-button start": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Sunroof": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Leather seating": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Power liftgate": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Dual-zone climate control": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Apple CarPlay": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Wireless Apple CarPlay": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Android Auto": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Wireless Android Auto": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Wireless phone charging": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Built-in navigation": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Premium audio": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Backup camera": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "360-degree camera": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Blind-spot monitoring": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Rear cross-traffic alert": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Adaptive cruise control": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Automatic emergency braking": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Lane-keeping assistance": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Parking sensors": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "All-wheel drive": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Physical climate controls": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Touchscreen climate controls": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Spare tire": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         },
         "Remote start": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "value",
-            "source",
-            "locator",
-            "evidence"
-          ],
-          "properties": {
-            "value": {
-              "$ref": "#/$defs/status"
-            },
-            "source": {
-              "type": "string",
-              "minLength": 1
-            },
-            "locator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "evidence": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "#/$defs/equipmentFact"
         }
       }
     },
@@ -1164,6 +464,62 @@
           "minLength": 1
         },
         "evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "corroboration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "accessed",
+            "locator"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "accessed": {
+              "type": "string",
+              "format": "date"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "equipmentFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "source",
+        "locator",
+        "evidence",
+        "trimId"
+      ],
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/status"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trimId": {
           "type": "string",
           "minLength": 1
         }

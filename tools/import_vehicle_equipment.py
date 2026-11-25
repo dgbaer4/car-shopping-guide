@@ -15,7 +15,7 @@ def build(evidence, catalog, digest):
         if not columns or len(set(t["id"] for t in columns)) != len(columns):
             raise ValueError("Missing or duplicate matrix columns")
         for column in columns:
-            records.append({**matrix["scope"], **column, "facts": {}})
+            records.append({**column, **matrix["scope"], "facts": {}})
         for row in matrix["rows"]:
             if len(row["cells"]) != len(columns):
                 raise ValueError(f"Column count mismatch for {row['field']}")
@@ -27,6 +27,7 @@ def build(evidence, catalog, digest):
                     raise ValueError(f"Duplicate fact {record['id']}: {field}")
                 record["facts"][field] = {
                     "value": cell,
+                    "trimId": record["id"],
                     "source": row.get("source", matrix["source"]),
                     "locator": row["locator"],
                     "evidence": row["evidence"],

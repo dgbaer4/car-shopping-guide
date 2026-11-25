@@ -5,11 +5,12 @@
     "sidecarLinkedEpaConfigurations": 0,
     "sidecarTrimRecords": 0
   },
+  "catalogSha256": "eee9f0dd35d21ccddef9db9dea49d6b1d9651192b58734b657e3a9ddb350c0ad",
   "epaConfigurationsWithAppliedEquipment": 0,
   "epaCoverage": [
     {
       "configurations": 179,
-      "linked": 3,
+      "linked": 13,
       "scope": [
         "Honda"
       ]
@@ -562,7 +563,7 @@
     },
     {
       "configurations": 32,
-      "linked": 0,
+      "linked": 4,
       "scope": [
         "Honda",
         2024
@@ -597,7 +598,7 @@
     },
     {
       "configurations": 2,
-      "linked": 0,
+      "linked": 2,
       "scope": [
         "Honda",
         2024,
@@ -606,7 +607,7 @@
     },
     {
       "configurations": 2,
-      "linked": 0,
+      "linked": 2,
       "scope": [
         "Honda",
         2024,
@@ -750,7 +751,7 @@
     },
     {
       "configurations": 27,
-      "linked": 0,
+      "linked": 6,
       "scope": [
         "Honda",
         2025
@@ -758,7 +759,7 @@
     },
     {
       "configurations": 1,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Honda",
         2025,
@@ -767,7 +768,7 @@
     },
     {
       "configurations": 1,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Honda",
         2025,
@@ -776,7 +777,7 @@
     },
     {
       "configurations": 1,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Honda",
         2025,
@@ -803,7 +804,7 @@
     },
     {
       "configurations": 4,
-      "linked": 0,
+      "linked": 3,
       "scope": [
         "Honda",
         2025,
@@ -3125,7 +3126,7 @@
     },
     {
       "configurations": 242,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Kia"
       ]
@@ -4567,7 +4568,7 @@
     },
     {
       "configurations": 40,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Kia",
         2026
@@ -4683,7 +4684,7 @@
     },
     {
       "configurations": 1,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Kia",
         2026,
@@ -6817,7 +6818,7 @@
     },
     {
       "configurations": 480,
-      "linked": 5,
+      "linked": 6,
       "scope": [
         "Toyota"
       ]
@@ -8926,7 +8927,7 @@
     },
     {
       "configurations": 86,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Toyota",
         2025
@@ -9285,7 +9286,7 @@
     },
     {
       "configurations": 1,
-      "linked": 0,
+      "linked": 1,
       "scope": [
         "Toyota",
         2025,
@@ -10192,167 +10193,843 @@
       ]
     }
   ],
-  "linkedEpaConfigurations": 15,
-  "relationships": 23,
+  "linkedEpaConfigurations": 27,
+  "relationships": 46,
   "snapshot": {
     "fields": {
       "360-degree camera": {
+        "optional": 1,
         "package-dependent": 5,
         "standard": 2,
         "unavailable": 1,
-        "unknown": 14
+        "unknown": 33
       },
       "Adaptive cruise control": {
-        "standard": 21,
+        "standard": 41,
         "unavailable": 1
       },
       "All-wheel drive": {
-        "unknown": 22
+        "optional": 17,
+        "standard": 2,
+        "unavailable": 19,
+        "unknown": 4
       },
       "Android Auto": {
-        "standard": 22
+        "standard": 42
       },
       "Apple CarPlay": {
-        "standard": 22
+        "standard": 42
       },
       "Automatic emergency braking": {
-        "standard": 22
+        "standard": 42
       },
       "Backup camera": {
-        "standard": 7,
-        "unknown": 15
+        "standard": 23,
+        "unknown": 19
       },
       "Blind-spot monitoring": {
-        "standard": 15,
-        "unavailable": 1,
+        "standard": 32,
+        "unavailable": 4,
         "unknown": 6
       },
       "Built-in navigation": {
         "package-dependent": 1,
-        "standard": 1,
-        "unknown": 20
+        "standard": 3,
+        "unavailable": 8,
+        "unknown": 30
       },
       "Dual-zone climate control": {
         "package-dependent": 1,
-        "standard": 6,
-        "unavailable": 3,
-        "unknown": 12
+        "standard": 13,
+        "unavailable": 6,
+        "unknown": 22
       },
       "Heated front seats": {
         "optional": 3,
         "package-dependent": 1,
-        "standard": 5,
-        "unavailable": 1,
-        "unknown": 12
+        "standard": 17,
+        "unavailable": 5,
+        "unknown": 16
       },
       "Heated steering wheel": {
         "package-dependent": 4,
-        "standard": 2,
-        "unavailable": 1,
-        "unknown": 15
+        "standard": 4,
+        "unavailable": 11,
+        "unknown": 23
       },
       "Keyless entry": {
-        "standard": 8,
-        "unknown": 14
+        "standard": 14,
+        "unknown": 28
       },
       "Lane-keeping assistance": {
-        "standard": 19,
+        "standard": 39,
         "unknown": 3
       },
       "Leather seating": {
         "package-dependent": 1,
-        "standard": 1,
-        "unavailable": 2,
-        "unknown": 18
+        "standard": 8,
+        "unavailable": 11,
+        "unknown": 22
       },
       "Parking sensors": {
+        "optional": 4,
         "package-dependent": 3,
-        "standard": 1,
+        "standard": 7,
+        "unavailable": 10,
         "unknown": 18
       },
       "Physical climate controls": {
-        "unknown": 22
+        "unknown": 42
       },
       "Power driver seat": {
         "package-dependent": 2,
-        "standard": 5,
-        "unavailable": 1,
-        "unknown": 14
+        "standard": 16,
+        "unavailable": 6,
+        "unknown": 18
       },
       "Power liftgate": {
-        "unknown": 22
+        "standard": 4,
+        "unavailable": 3,
+        "unknown": 35
       },
       "Premium audio": {
         "package-dependent": 3,
-        "standard": 2,
-        "unavailable": 4,
-        "unknown": 13
+        "standard": 5,
+        "unavailable": 17,
+        "unknown": 17
       },
       "Push-button start": {
-        "standard": 8,
-        "unknown": 14
+        "standard": 24,
+        "unknown": 18
       },
       "Rear cross-traffic alert": {
-        "standard": 20,
-        "unavailable": 1,
+        "standard": 37,
+        "unavailable": 4,
         "unknown": 1
       },
       "Remote start": {
         "package-dependent": 1,
-        "standard": 1,
-        "unavailable": 1,
-        "unknown": 19
+        "standard": 15,
+        "unavailable": 3,
+        "unknown": 23
       },
       "Spare tire": {
-        "standard": 5,
-        "unknown": 17
+        "standard": 12,
+        "unavailable": 9,
+        "unknown": 21
       },
       "Sunroof": {
         "package-dependent": 3,
-        "standard": 3,
-        "unavailable": 1,
-        "unknown": 15
+        "standard": 15,
+        "unavailable": 5,
+        "unknown": 19
       },
       "Touchscreen climate controls": {
-        "unknown": 22
+        "unknown": 42
       },
       "Ventilated front seats": {
         "optional": 2,
         "package-dependent": 2,
-        "unknown": 18
+        "standard": 2,
+        "unavailable": 5,
+        "unknown": 31
       },
       "Wireless Android Auto": {
-        "standard": 16,
-        "unavailable": 3,
+        "standard": 28,
+        "unavailable": 11,
         "unknown": 3
       },
       "Wireless Apple CarPlay": {
-        "standard": 16,
-        "unavailable": 3,
+        "standard": 28,
+        "unavailable": 11,
         "unknown": 3
       },
       "Wireless phone charging": {
-        "standard": 9,
-        "unknown": 13
+        "standard": 14,
+        "unavailable": 5,
+        "unknown": 23
       },
       "body": {
-        "verified": 22
+        "unknown": 4,
+        "verified": 38
       },
       "drivetrain": {
-        "unknown": 5,
-        "verified": 17
+        "unknown": 4,
+        "verified": 38
       },
       "power": {
-        "verified": 22
+        "verified": 42
       },
       "seats": {
-        "unknown": 15,
-        "verified": 7
+        "unknown": 25,
+        "verified": 17
       }
     },
-    "trimRecords": 22
+    "trimRecords": 42
   },
   "trimCoverage": [
+    {
+      "fields": {
+        "360-degree camera": {
+          "unknown": 20
+        },
+        "Adaptive cruise control": {
+          "standard": 20
+        },
+        "All-wheel drive": {
+          "optional": 5,
+          "standard": 1,
+          "unavailable": 14
+        },
+        "Android Auto": {
+          "standard": 20
+        },
+        "Apple CarPlay": {
+          "standard": 20
+        },
+        "Automatic emergency braking": {
+          "standard": 20
+        },
+        "Backup camera": {
+          "standard": 20
+        },
+        "Blind-spot monitoring": {
+          "standard": 16,
+          "unavailable": 4
+        },
+        "Built-in navigation": {
+          "standard": 2,
+          "unavailable": 8,
+          "unknown": 10
+        },
+        "Dual-zone climate control": {
+          "standard": 9,
+          "unavailable": 5,
+          "unknown": 6
+        },
+        "Heated front seats": {
+          "standard": 14,
+          "unavailable": 4,
+          "unknown": 2
+        },
+        "Heated steering wheel": {
+          "standard": 2,
+          "unavailable": 10,
+          "unknown": 8
+        },
+        "Keyless entry": {
+          "standard": 6,
+          "unknown": 14
+        },
+        "Lane-keeping assistance": {
+          "standard": 20
+        },
+        "Leather seating": {
+          "standard": 8,
+          "unavailable": 9,
+          "unknown": 3
+        },
+        "Parking sensors": {
+          "standard": 7,
+          "unavailable": 10,
+          "unknown": 3
+        },
+        "Physical climate controls": {
+          "unknown": 20
+        },
+        "Power driver seat": {
+          "standard": 12,
+          "unavailable": 5,
+          "unknown": 3
+        },
+        "Power liftgate": {
+          "standard": 3,
+          "unavailable": 3,
+          "unknown": 14
+        },
+        "Premium audio": {
+          "standard": 4,
+          "unavailable": 16
+        },
+        "Push-button start": {
+          "standard": 16,
+          "unknown": 4
+        },
+        "Rear cross-traffic alert": {
+          "standard": 16,
+          "unavailable": 4
+        },
+        "Remote start": {
+          "standard": 14,
+          "unavailable": 2,
+          "unknown": 4
+        },
+        "Spare tire": {
+          "standard": 9,
+          "unavailable": 9,
+          "unknown": 2
+        },
+        "Sunroof": {
+          "standard": 14,
+          "unavailable": 4,
+          "unknown": 2
+        },
+        "Touchscreen climate controls": {
+          "unknown": 20
+        },
+        "Ventilated front seats": {
+          "standard": 1,
+          "unavailable": 5,
+          "unknown": 14
+        },
+        "Wireless Android Auto": {
+          "standard": 9,
+          "unavailable": 11
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 9,
+          "unavailable": 11
+        },
+        "Wireless phone charging": {
+          "standard": 6,
+          "unavailable": 5,
+          "unknown": 9
+        },
+        "body": {
+          "verified": 20
+        },
+        "drivetrain": {
+          "verified": 20
+        },
+        "power": {
+          "verified": 20
+        },
+        "seats": {
+          "unknown": 6,
+          "verified": 14
+        }
+      },
+      "scope": [
+        "Honda"
+      ],
+      "trimRecords": 20
+    },
+    {
+      "fields": {
+        "360-degree camera": {
+          "unknown": 6
+        },
+        "Adaptive cruise control": {
+          "standard": 6
+        },
+        "All-wheel drive": {
+          "optional": 5,
+          "standard": 1
+        },
+        "Android Auto": {
+          "standard": 6
+        },
+        "Apple CarPlay": {
+          "standard": 6
+        },
+        "Automatic emergency braking": {
+          "standard": 6
+        },
+        "Backup camera": {
+          "standard": 6
+        },
+        "Blind-spot monitoring": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Built-in navigation": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Dual-zone climate control": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Heated front seats": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Heated steering wheel": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Keyless entry": {
+          "unknown": 6
+        },
+        "Lane-keeping assistance": {
+          "standard": 6
+        },
+        "Leather seating": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Parking sensors": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Physical climate controls": {
+          "unknown": 6
+        },
+        "Power driver seat": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Power liftgate": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Premium audio": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Push-button start": {
+          "standard": 6
+        },
+        "Rear cross-traffic alert": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Remote start": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Spare tire": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Sunroof": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Touchscreen climate controls": {
+          "unknown": 6
+        },
+        "Ventilated front seats": {
+          "unknown": 6
+        },
+        "Wireless Android Auto": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Wireless phone charging": {
+          "unknown": 6
+        },
+        "body": {
+          "verified": 6
+        },
+        "drivetrain": {
+          "verified": 6
+        },
+        "power": {
+          "verified": 6
+        },
+        "seats": {
+          "unknown": 6
+        }
+      },
+      "scope": [
+        "Honda",
+        2024
+      ],
+      "trimRecords": 6
+    },
+    {
+      "fields": {
+        "360-degree camera": {
+          "unknown": 6
+        },
+        "Adaptive cruise control": {
+          "standard": 6
+        },
+        "All-wheel drive": {
+          "optional": 5,
+          "standard": 1
+        },
+        "Android Auto": {
+          "standard": 6
+        },
+        "Apple CarPlay": {
+          "standard": 6
+        },
+        "Automatic emergency braking": {
+          "standard": 6
+        },
+        "Backup camera": {
+          "standard": 6
+        },
+        "Blind-spot monitoring": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Built-in navigation": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Dual-zone climate control": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Heated front seats": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Heated steering wheel": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Keyless entry": {
+          "unknown": 6
+        },
+        "Lane-keeping assistance": {
+          "standard": 6
+        },
+        "Leather seating": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Parking sensors": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Physical climate controls": {
+          "unknown": 6
+        },
+        "Power driver seat": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Power liftgate": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Premium audio": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Push-button start": {
+          "standard": 6
+        },
+        "Rear cross-traffic alert": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Remote start": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Spare tire": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Sunroof": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Touchscreen climate controls": {
+          "unknown": 6
+        },
+        "Ventilated front seats": {
+          "unknown": 6
+        },
+        "Wireless Android Auto": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Wireless phone charging": {
+          "unknown": 6
+        },
+        "body": {
+          "verified": 6
+        },
+        "drivetrain": {
+          "verified": 6
+        },
+        "power": {
+          "verified": 6
+        },
+        "seats": {
+          "unknown": 6
+        }
+      },
+      "scope": [
+        "Honda",
+        2024,
+        "CR-V"
+      ],
+      "trimRecords": 6
+    },
+    {
+      "fields": {
+        "360-degree camera": {
+          "unknown": 10
+        },
+        "Adaptive cruise control": {
+          "standard": 10
+        },
+        "All-wheel drive": {
+          "unavailable": 10
+        },
+        "Android Auto": {
+          "standard": 10
+        },
+        "Apple CarPlay": {
+          "standard": 10
+        },
+        "Automatic emergency braking": {
+          "standard": 10
+        },
+        "Backup camera": {
+          "standard": 10
+        },
+        "Blind-spot monitoring": {
+          "standard": 8,
+          "unavailable": 2
+        },
+        "Built-in navigation": {
+          "standard": 1,
+          "unavailable": 3,
+          "unknown": 6
+        },
+        "Dual-zone climate control": {
+          "standard": 2,
+          "unavailable": 2,
+          "unknown": 6
+        },
+        "Heated front seats": {
+          "standard": 7,
+          "unavailable": 3
+        },
+        "Heated steering wheel": {
+          "standard": 1,
+          "unavailable": 5,
+          "unknown": 4
+        },
+        "Keyless entry": {
+          "standard": 6,
+          "unknown": 4
+        },
+        "Lane-keeping assistance": {
+          "standard": 10
+        },
+        "Leather seating": {
+          "standard": 4,
+          "unavailable": 6
+        },
+        "Parking sensors": {
+          "standard": 3,
+          "unavailable": 7
+        },
+        "Physical climate controls": {
+          "unknown": 10
+        },
+        "Power driver seat": {
+          "standard": 6,
+          "unavailable": 4
+        },
+        "Power liftgate": {
+          "unknown": 10
+        },
+        "Premium audio": {
+          "standard": 2,
+          "unavailable": 8
+        },
+        "Push-button start": {
+          "standard": 10
+        },
+        "Rear cross-traffic alert": {
+          "standard": 8,
+          "unavailable": 2
+        },
+        "Remote start": {
+          "standard": 9,
+          "unavailable": 1
+        },
+        "Spare tire": {
+          "standard": 4,
+          "unavailable": 6
+        },
+        "Sunroof": {
+          "standard": 7,
+          "unavailable": 3
+        },
+        "Touchscreen climate controls": {
+          "unknown": 10
+        },
+        "Ventilated front seats": {
+          "standard": 1,
+          "unavailable": 5,
+          "unknown": 4
+        },
+        "Wireless Android Auto": {
+          "standard": 5,
+          "unavailable": 5
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 5,
+          "unavailable": 5
+        },
+        "Wireless phone charging": {
+          "standard": 5,
+          "unavailable": 5
+        },
+        "body": {
+          "verified": 10
+        },
+        "drivetrain": {
+          "verified": 10
+        },
+        "power": {
+          "verified": 10
+        },
+        "seats": {
+          "verified": 10
+        }
+      },
+      "scope": [
+        "Honda",
+        2025
+      ],
+      "trimRecords": 10
+    },
+    {
+      "fields": {
+        "360-degree camera": {
+          "unknown": 6
+        },
+        "Adaptive cruise control": {
+          "standard": 6
+        },
+        "All-wheel drive": {
+          "unavailable": 6
+        },
+        "Android Auto": {
+          "standard": 6
+        },
+        "Apple CarPlay": {
+          "standard": 6
+        },
+        "Automatic emergency braking": {
+          "standard": 6
+        },
+        "Backup camera": {
+          "standard": 6
+        },
+        "Blind-spot monitoring": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Built-in navigation": {
+          "unknown": 6
+        },
+        "Dual-zone climate control": {
+          "unknown": 6
+        },
+        "Heated front seats": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Heated steering wheel": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Keyless entry": {
+          "standard": 6
+        },
+        "Lane-keeping assistance": {
+          "standard": 6
+        },
+        "Leather seating": {
+          "standard": 3,
+          "unavailable": 3
+        },
+        "Parking sensors": {
+          "standard": 2,
+          "unavailable": 4
+        },
+        "Physical climate controls": {
+          "unknown": 6
+        },
+        "Power driver seat": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Power liftgate": {
+          "unknown": 6
+        },
+        "Premium audio": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Push-button start": {
+          "standard": 6
+        },
+        "Rear cross-traffic alert": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Remote start": {
+          "standard": 6
+        },
+        "Spare tire": {
+          "standard": 2,
+          "unavailable": 4
+        },
+        "Sunroof": {
+          "standard": 5,
+          "unavailable": 1
+        },
+        "Touchscreen climate controls": {
+          "unknown": 6
+        },
+        "Ventilated front seats": {
+          "standard": 1,
+          "unavailable": 5
+        },
+        "Wireless Android Auto": {
+          "standard": 4,
+          "unavailable": 2
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 4,
+          "unavailable": 2
+        },
+        "Wireless phone charging": {
+          "standard": 4,
+          "unavailable": 2
+        },
+        "body": {
+          "verified": 6
+        },
+        "drivetrain": {
+          "verified": 6
+        },
+        "power": {
+          "verified": 6
+        },
+        "seats": {
+          "verified": 6
+        }
+      },
+      "scope": [
+        "Honda",
+        2025,
+        "Accord"
+      ],
+      "trimRecords": 6
+    },
     {
       "fields": {
         "360-degree camera": {
@@ -10362,7 +11039,7 @@
           "standard": 4
         },
         "All-wheel drive": {
-          "unknown": 4
+          "unavailable": 4
         },
         "Android Auto": {
           "standard": 4
@@ -10381,7 +11058,8 @@
           "unavailable": 1
         },
         "Built-in navigation": {
-          "unknown": 4
+          "standard": 1,
+          "unavailable": 3
         },
         "Dual-zone climate control": {
           "standard": 2,
@@ -10389,7 +11067,7 @@
         },
         "Heated front seats": {
           "standard": 2,
-          "unknown": 2
+          "unavailable": 2
         },
         "Heated steering wheel": {
           "unknown": 4
@@ -10402,18 +11080,18 @@
         },
         "Leather seating": {
           "standard": 1,
-          "unknown": 3
+          "unavailable": 3
         },
         "Parking sensors": {
           "standard": 1,
-          "unknown": 3
+          "unavailable": 3
         },
         "Physical climate controls": {
           "unknown": 4
         },
         "Power driver seat": {
           "standard": 1,
-          "unknown": 3
+          "unavailable": 3
         },
         "Power liftgate": {
           "unknown": 4
@@ -10423,22 +11101,23 @@
           "unavailable": 3
         },
         "Push-button start": {
-          "unknown": 4
+          "standard": 4
         },
         "Rear cross-traffic alert": {
           "standard": 3,
           "unavailable": 1
         },
         "Remote start": {
-          "unknown": 4
+          "standard": 3,
+          "unavailable": 1
         },
         "Spare tire": {
           "standard": 2,
-          "unknown": 2
+          "unavailable": 2
         },
         "Sunroof": {
           "standard": 2,
-          "unknown": 2
+          "unavailable": 2
         },
         "Touchscreen climate controls": {
           "unknown": 4
@@ -10456,7 +11135,7 @@
         },
         "Wireless phone charging": {
           "standard": 1,
-          "unknown": 3
+          "unavailable": 3
         },
         "body": {
           "verified": 4
@@ -10472,7 +11151,9 @@
         }
       },
       "scope": [
-        "Honda"
+        "Honda",
+        2025,
+        "Civic Sedan"
       ],
       "trimRecords": 4
     },
@@ -10485,7 +11166,7 @@
           "standard": 4
         },
         "All-wheel drive": {
-          "unknown": 4
+          "unavailable": 4
         },
         "Android Auto": {
           "standard": 4
@@ -10609,7 +11290,7 @@
           "standard": 4
         },
         "All-wheel drive": {
-          "unknown": 4
+          "unavailable": 4
         },
         "Android Auto": {
           "standard": 4
@@ -10735,7 +11416,9 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "optional": 3,
+          "standard": 1,
+          "unavailable": 1
         },
         "Android Auto": {
           "standard": 5
@@ -10846,7 +11529,9 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "optional": 3,
+          "standard": 1,
+          "unavailable": 1
         },
         "Android Auto": {
           "standard": 5
@@ -10958,7 +11643,9 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "optional": 3,
+          "standard": 1,
+          "unavailable": 1
         },
         "Android Auto": {
           "standard": 5
@@ -11071,7 +11758,8 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "unavailable": 1,
+          "unknown": 4
         },
         "Android Auto": {
           "standard": 5
@@ -11173,7 +11861,8 @@
           "verified": 5
         },
         "drivetrain": {
-          "unknown": 5
+          "unknown": 4,
+          "verified": 1
         },
         "power": {
           "verified": 5
@@ -11197,7 +11886,8 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "unavailable": 1,
+          "unknown": 4
         },
         "Android Auto": {
           "standard": 5
@@ -11299,7 +11989,8 @@
           "verified": 5
         },
         "drivetrain": {
-          "unknown": 5
+          "unknown": 4,
+          "verified": 1
         },
         "power": {
           "verified": 5
@@ -11324,7 +12015,8 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "unavailable": 1,
+          "unknown": 4
         },
         "Android Auto": {
           "standard": 5
@@ -11426,7 +12118,8 @@
           "verified": 5
         },
         "drivetrain": {
-          "unknown": 5
+          "unknown": 4,
+          "verified": 1
         },
         "power": {
           "verified": 5
@@ -11453,7 +12146,7 @@
           "unavailable": 1
         },
         "All-wheel drive": {
-          "unknown": 3
+          "unavailable": 3
         },
         "Android Auto": {
           "standard": 3
@@ -11576,7 +12269,7 @@
           "unavailable": 1
         },
         "All-wheel drive": {
-          "unknown": 3
+          "unavailable": 3
         },
         "Android Auto": {
           "standard": 3
@@ -11700,7 +12393,7 @@
           "unavailable": 1
         },
         "All-wheel drive": {
-          "unknown": 3
+          "unavailable": 3
         },
         "Android Auto": {
           "standard": 3
@@ -11817,119 +12510,354 @@
     {
       "fields": {
         "360-degree camera": {
+          "optional": 1,
           "package-dependent": 2,
-          "unknown": 3
+          "unknown": 6
         },
         "Adaptive cruise control": {
-          "standard": 5
+          "standard": 9
         },
         "All-wheel drive": {
-          "unknown": 5
+          "optional": 9
         },
         "Android Auto": {
-          "standard": 5
+          "standard": 9
         },
         "Apple CarPlay": {
-          "standard": 5
+          "standard": 9
         },
         "Automatic emergency braking": {
-          "standard": 5
+          "standard": 9
         },
         "Backup camera": {
-          "unknown": 5
+          "unknown": 9
         },
         "Blind-spot monitoring": {
-          "standard": 5
+          "standard": 9
         },
         "Built-in navigation": {
-          "unknown": 5
+          "unknown": 9
         },
         "Dual-zone climate control": {
-          "unknown": 5
+          "unknown": 9
         },
         "Heated front seats": {
           "optional": 2,
           "standard": 2,
-          "unknown": 1
+          "unknown": 5
         },
         "Heated steering wheel": {
           "standard": 2,
-          "unknown": 3
+          "unknown": 7
         },
         "Keyless entry": {
-          "unknown": 5
+          "unknown": 9
         },
         "Lane-keeping assistance": {
-          "standard": 5
+          "standard": 9
         },
         "Leather seating": {
-          "unknown": 5
+          "unknown": 9
         },
         "Parking sensors": {
+          "optional": 4,
           "package-dependent": 2,
           "unknown": 3
         },
         "Physical climate controls": {
-          "unknown": 5
+          "unknown": 9
         },
         "Power driver seat": {
           "standard": 2,
-          "unknown": 3
+          "unknown": 7
         },
         "Power liftgate": {
-          "unknown": 5
+          "standard": 1,
+          "unknown": 8
         },
         "Premium audio": {
-          "unknown": 5
+          "unknown": 9
         },
         "Push-button start": {
-          "unknown": 5
+          "unknown": 9
         },
         "Rear cross-traffic alert": {
-          "standard": 5
+          "standard": 9
         },
         "Remote start": {
-          "unknown": 5
+          "unknown": 9
         },
         "Spare tire": {
-          "unknown": 5
+          "unknown": 9
         },
         "Sunroof": {
-          "unknown": 5
+          "unknown": 9
         },
         "Touchscreen climate controls": {
-          "unknown": 5
+          "unknown": 9
         },
         "Ventilated front seats": {
           "optional": 2,
-          "unknown": 3
+          "standard": 1,
+          "unknown": 6
         },
         "Wireless Android Auto": {
-          "standard": 5
+          "standard": 9
         },
         "Wireless Apple CarPlay": {
-          "standard": 5
+          "standard": 9
         },
         "Wireless phone charging": {
-          "standard": 5
+          "standard": 5,
+          "unknown": 4
         },
         "body": {
+          "unknown": 4,
           "verified": 5
         },
         "drivetrain": {
-          "verified": 5
+          "verified": 9
         },
         "power": {
-          "verified": 5
+          "verified": 9
         },
         "seats": {
-          "unknown": 5
+          "unknown": 9
         }
       },
       "scope": [
         "Toyota"
       ],
-      "trimRecords": 5
+      "trimRecords": 9
+    },
+    {
+      "fields": {
+        "360-degree camera": {
+          "optional": 1,
+          "unknown": 3
+        },
+        "Adaptive cruise control": {
+          "standard": 4
+        },
+        "All-wheel drive": {
+          "optional": 4
+        },
+        "Android Auto": {
+          "standard": 4
+        },
+        "Apple CarPlay": {
+          "standard": 4
+        },
+        "Automatic emergency braking": {
+          "standard": 4
+        },
+        "Backup camera": {
+          "unknown": 4
+        },
+        "Blind-spot monitoring": {
+          "standard": 4
+        },
+        "Built-in navigation": {
+          "unknown": 4
+        },
+        "Dual-zone climate control": {
+          "unknown": 4
+        },
+        "Heated front seats": {
+          "unknown": 4
+        },
+        "Heated steering wheel": {
+          "unknown": 4
+        },
+        "Keyless entry": {
+          "unknown": 4
+        },
+        "Lane-keeping assistance": {
+          "standard": 4
+        },
+        "Leather seating": {
+          "unknown": 4
+        },
+        "Parking sensors": {
+          "optional": 4
+        },
+        "Physical climate controls": {
+          "unknown": 4
+        },
+        "Power driver seat": {
+          "unknown": 4
+        },
+        "Power liftgate": {
+          "standard": 1,
+          "unknown": 3
+        },
+        "Premium audio": {
+          "unknown": 4
+        },
+        "Push-button start": {
+          "unknown": 4
+        },
+        "Rear cross-traffic alert": {
+          "standard": 4
+        },
+        "Remote start": {
+          "unknown": 4
+        },
+        "Spare tire": {
+          "unknown": 4
+        },
+        "Sunroof": {
+          "unknown": 4
+        },
+        "Touchscreen climate controls": {
+          "unknown": 4
+        },
+        "Ventilated front seats": {
+          "standard": 1,
+          "unknown": 3
+        },
+        "Wireless Android Auto": {
+          "standard": 4
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 4
+        },
+        "Wireless phone charging": {
+          "unknown": 4
+        },
+        "body": {
+          "unknown": 4
+        },
+        "drivetrain": {
+          "verified": 4
+        },
+        "power": {
+          "verified": 4
+        },
+        "seats": {
+          "unknown": 4
+        }
+      },
+      "scope": [
+        "Toyota",
+        2025
+      ],
+      "trimRecords": 4
+    },
+    {
+      "fields": {
+        "360-degree camera": {
+          "optional": 1,
+          "unknown": 3
+        },
+        "Adaptive cruise control": {
+          "standard": 4
+        },
+        "All-wheel drive": {
+          "optional": 4
+        },
+        "Android Auto": {
+          "standard": 4
+        },
+        "Apple CarPlay": {
+          "standard": 4
+        },
+        "Automatic emergency braking": {
+          "standard": 4
+        },
+        "Backup camera": {
+          "unknown": 4
+        },
+        "Blind-spot monitoring": {
+          "standard": 4
+        },
+        "Built-in navigation": {
+          "unknown": 4
+        },
+        "Dual-zone climate control": {
+          "unknown": 4
+        },
+        "Heated front seats": {
+          "unknown": 4
+        },
+        "Heated steering wheel": {
+          "unknown": 4
+        },
+        "Keyless entry": {
+          "unknown": 4
+        },
+        "Lane-keeping assistance": {
+          "standard": 4
+        },
+        "Leather seating": {
+          "unknown": 4
+        },
+        "Parking sensors": {
+          "optional": 4
+        },
+        "Physical climate controls": {
+          "unknown": 4
+        },
+        "Power driver seat": {
+          "unknown": 4
+        },
+        "Power liftgate": {
+          "standard": 1,
+          "unknown": 3
+        },
+        "Premium audio": {
+          "unknown": 4
+        },
+        "Push-button start": {
+          "unknown": 4
+        },
+        "Rear cross-traffic alert": {
+          "standard": 4
+        },
+        "Remote start": {
+          "unknown": 4
+        },
+        "Spare tire": {
+          "unknown": 4
+        },
+        "Sunroof": {
+          "unknown": 4
+        },
+        "Touchscreen climate controls": {
+          "unknown": 4
+        },
+        "Ventilated front seats": {
+          "standard": 1,
+          "unknown": 3
+        },
+        "Wireless Android Auto": {
+          "standard": 4
+        },
+        "Wireless Apple CarPlay": {
+          "standard": 4
+        },
+        "Wireless phone charging": {
+          "unknown": 4
+        },
+        "body": {
+          "unknown": 4
+        },
+        "drivetrain": {
+          "verified": 4
+        },
+        "power": {
+          "verified": 4
+        },
+        "seats": {
+          "unknown": 4
+        }
+      },
+      "scope": [
+        "Toyota",
+        2025,
+        "Prius"
+      ],
+      "trimRecords": 4
     },
     {
       "fields": {
@@ -11941,7 +12869,7 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "optional": 5
         },
         "Android Auto": {
           "standard": 5
@@ -12059,7 +12987,7 @@
           "standard": 5
         },
         "All-wheel drive": {
-          "unknown": 5
+          "optional": 5
         },
         "Android Auto": {
           "standard": 5
@@ -12172,9 +13100,670 @@
   "trims": [
     {
       "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unavailable",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "standard",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unknown",
+        "body": "Compact crossover",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": "unknown"
+      },
+      "id": "us/2024/Honda/CR-V/EX"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "standard",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "standard",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "standard",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "Compact crossover",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": "unknown"
+      },
+      "id": "us/2024/Honda/CR-V/EX-L"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "unavailable",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "unavailable",
+        "Heated front seats": "unavailable",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unavailable",
+        "Power liftgate": "unavailable",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "unavailable",
+        "Remote start": "unavailable",
+        "Spare tire": "standard",
+        "Sunroof": "unavailable",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unknown",
+        "body": "Compact crossover",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": "unknown"
+      },
+      "id": "us/2024/Honda/CR-V/LX"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unavailable",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unknown",
+        "body": "Compact crossover",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2024/Honda/CR-V/Sport"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "standard",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "standard",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "standard",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "standard",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "standard",
+        "Premium audio": "standard",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "Compact crossover",
+        "drivetrain": [
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2024/Honda/CR-V/Sport Touring"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "standard",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "standard",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "Compact crossover",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2024/Honda/CR-V/Sport-L"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "standard",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "standard",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unavailable",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "standard",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Accord/EX-L"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "unavailable",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "unavailable",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "standard",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unavailable",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "unavailable",
+        "Remote start": "standard",
+        "Spare tire": "standard",
+        "Sunroof": "unavailable",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unavailable",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unavailable",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Accord/LX"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "standard",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "standard",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unavailable",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unavailable",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Accord/SE"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "standard",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unavailable",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "standard",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Accord/Sport"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unavailable",
+        "Keyless entry": "standard",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unavailable",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "standard",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Accord/Sport-L"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "standard",
+        "Keyless entry": "standard",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "standard",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unknown",
+        "Premium audio": "standard",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "standard",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "standard",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Accord/Touring"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "unavailable",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "unavailable",
+        "Heated front seats": "unavailable",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unavailable",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "unavailable",
+        "Remote start": "unavailable",
+        "Spare tire": "standard",
+        "Sunroof": "unavailable",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unavailable",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Civic Sedan/LX"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "unavailable",
+        "Heated front seats": "unavailable",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unavailable",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "standard",
+        "Sunroof": "unavailable",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unavailable",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Gasoline",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Civic Sedan/Sport"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unavailable",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unavailable",
+        "Parking sensors": "unavailable",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unavailable",
+        "Power liftgate": "unknown",
+        "Premium audio": "unavailable",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "unavailable",
+        "Wireless Apple CarPlay": "unavailable",
+        "Wireless phone charging": "unavailable",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Civic Sedan/Sport Hybrid"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "standard",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "standard",
+        "Dual-zone climate control": "standard",
+        "Heated front seats": "standard",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "standard",
+        "Parking sensors": "standard",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "standard",
+        "Power liftgate": "unknown",
+        "Premium audio": "standard",
+        "Push-button start": "standard",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "standard",
+        "Spare tire": "unavailable",
+        "Sunroof": "standard",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "standard",
+        "body": "Sedan",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": 5
+      },
+      "id": "us/2025/Honda/Civic Sedan/Sport Touring Hybrid"
+    },
+    {
+      "fields": {
         "360-degree camera": "unavailable",
         "Adaptive cruise control": "unavailable",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12215,7 +13804,7 @@
       "fields": {
         "360-degree camera": "package-dependent",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12256,7 +13845,7 @@
       "fields": {
         "360-degree camera": "package-dependent",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12297,7 +13886,175 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "unknown",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "unknown",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unknown",
+        "Parking sensors": "optional",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unknown",
+        "Power liftgate": "unknown",
+        "Premium audio": "unknown",
+        "Push-button start": "unknown",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "unknown",
+        "Spare tire": "unknown",
+        "Sunroof": "unknown",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "unknown",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2025/Toyota/Prius/LE"
+    },
+    {
+      "fields": {
+        "360-degree camera": "optional",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "unknown",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "unknown",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unknown",
+        "Parking sensors": "optional",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unknown",
+        "Power liftgate": "standard",
+        "Premium audio": "unknown",
+        "Push-button start": "unknown",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "unknown",
+        "Spare tire": "unknown",
+        "Sunroof": "unknown",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "standard",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "unknown",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2025/Toyota/Prius/Limited"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "unknown",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "unknown",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unknown",
+        "Parking sensors": "optional",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unknown",
+        "Power liftgate": "unknown",
+        "Premium audio": "unknown",
+        "Push-button start": "unknown",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "unknown",
+        "Spare tire": "unknown",
+        "Sunroof": "unknown",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "unknown",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2025/Toyota/Prius/Nightshade"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "optional",
+        "Android Auto": "standard",
+        "Apple CarPlay": "standard",
+        "Automatic emergency braking": "standard",
+        "Backup camera": "unknown",
+        "Blind-spot monitoring": "standard",
+        "Built-in navigation": "unknown",
+        "Dual-zone climate control": "unknown",
+        "Heated front seats": "unknown",
+        "Heated steering wheel": "unknown",
+        "Keyless entry": "unknown",
+        "Lane-keeping assistance": "standard",
+        "Leather seating": "unknown",
+        "Parking sensors": "optional",
+        "Physical climate controls": "unknown",
+        "Power driver seat": "unknown",
+        "Power liftgate": "unknown",
+        "Premium audio": "unknown",
+        "Push-button start": "unknown",
+        "Rear cross-traffic alert": "standard",
+        "Remote start": "unknown",
+        "Spare tire": "unknown",
+        "Sunroof": "unknown",
+        "Touchscreen climate controls": "unknown",
+        "Ventilated front seats": "unknown",
+        "Wireless Android Auto": "standard",
+        "Wireless Apple CarPlay": "standard",
+        "Wireless phone charging": "unknown",
+        "body": "unknown",
+        "drivetrain": [
+          "Front-Wheel Drive",
+          "All-Wheel Drive"
+        ],
+        "power": "Traditional hybrid",
+        "seats": "unknown"
+      },
+      "id": "us/2025/Toyota/Prius/XLE"
+    },
+    {
+      "fields": {
+        "360-degree camera": "unknown",
+        "Adaptive cruise control": "standard",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12338,7 +14095,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12379,7 +14136,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12420,7 +14177,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12461,7 +14218,7 @@
       "fields": {
         "360-degree camera": "standard",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12503,7 +14260,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12545,7 +14302,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12586,7 +14343,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12628,7 +14385,7 @@
       "fields": {
         "360-degree camera": "standard",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "standard",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12747,7 +14504,7 @@
       "fields": {
         "360-degree camera": "package-dependent",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "unavailable",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12776,7 +14533,9 @@
         "Wireless Apple CarPlay": "standard",
         "Wireless phone charging": "standard",
         "body": "Sedan",
-        "drivetrain": "unknown",
+        "drivetrain": [
+          "Front-Wheel Drive"
+        ],
         "power": "Gasoline",
         "seats": "unknown"
       },
@@ -12864,7 +14623,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12906,7 +14665,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12948,7 +14707,7 @@
       "fields": {
         "360-degree camera": "unknown",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -12990,7 +14749,7 @@
       "fields": {
         "360-degree camera": "package-dependent",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
@@ -13032,7 +14791,7 @@
       "fields": {
         "360-degree camera": "package-dependent",
         "Adaptive cruise control": "standard",
-        "All-wheel drive": "unknown",
+        "All-wheel drive": "optional",
         "Android Auto": "standard",
         "Apple CarPlay": "standard",
         "Automatic emergency braking": "standard",
