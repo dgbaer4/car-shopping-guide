@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "0.2",
+  "answers": {
+    "fees": "Yes, everything",
+    "flex": "Up to $2,000",
+    "payment": "Cash",
+    "commute": "10–25 miles",
+    "days": "5",
+    "annual": "5,000–10,000",
+    "trips": "A few times a year",
+    "keep": "6–10 years",
+    "body": [
+      "Compact crossover",
+      "Hatchback",
+      "Sedan"
+    ],
+    "avoid": [
+      "Pickup",
+      "Full-size SUV"
+    ],
+    "seat": "No preference",
+    "people": "1–2 people",
+    "cargo": "Rarely",
+    "condition": "Prefer used",
+    "age": "Up to 5 years",
+    "mileage": "Under 75,000",
+    "warranty": "Desired",
+    "maintenance": "Possibly",
+    "priorities": [
+      "Safety",
+      "Low maintenance",
+      "Reliability"
+    ],
+    "top": "Safety",
+    "equipment": "Yes, let’s explore",
+    "radius": "50 miles",
+    "seller": "Yes",
+    "timing": "As soon as possible",
+    "budget": "$22,000–$25,000",
+    "power": [
+      "Traditional hybrid",
+      "Plug-in hybrid",
+      "Fully electric"
+    ],
+    "home": "No",
+    "work": "Occasionally",
+    "rate": "I'm not sure",
+    "public": "If convenient",
+    "roadcharge": "Occasionally acceptable"
+  },
+  "features": {
+    "Heated front seats": "Desired",
+    "Power driver seat": "Desired",
+    "Heated steering wheel": "Desired",
+    "Apple CarPlay": "Desired",
+    "Wireless Apple CarPlay": "Desired",
+    "360-degree camera": "Desired",
+    "Blind-spot monitoring": "Desired",
+    "Rear cross-traffic alert": "Desired",
+    "Adaptive cruise control": "Desired",
+    "Parking sensors": "Desired",
+    "Spare tire": "Desired",
+    "Backup camera": "Required"
+  }
+}
