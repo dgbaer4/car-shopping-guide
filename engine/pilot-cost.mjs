@@ -7,9 +7,7 @@ function midpoint(range, fallback) {
 
 export function pilotDefaults(profile) {
   const buyer = normalize(profile);
-  const purchasePrice = midpoint(buyer.budgetRange, 25000);
   return {
-    purchasePrice,
     salesTaxRate: 10,
     fees: 500,
     annualMiles: Math.round(midpoint(buyer.annualMiles, 10000)),
@@ -24,8 +22,7 @@ export function pilotDefaults(profile) {
   };
 }
 
-export function cashEstimate(vehicle, assumptions, quotePrice) {
-  const purchasePrice = quotePrice ?? vehicle.price ?? assumptions.purchasePrice;
+export function cashEstimate(vehicle, assumptions, purchasePrice = null) {
   const tax = purchasePrice == null || assumptions.salesTaxRate == null
     ? null : purchasePrice * assumptions.salesTaxRate / 100;
   const resale = purchasePrice == null || assumptions.resalePercent == null
