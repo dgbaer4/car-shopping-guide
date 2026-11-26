@@ -1,4 +1,5 @@
 import { recommendPilot } from './pilot.mjs';
+import { PAGE_SIZE } from './results.mjs';
 import { cashEstimate } from './pilot-cost.mjs';
 import { assessBudget, priceDisclosure } from './vehicle-pricing.mjs';
 
@@ -9,7 +10,7 @@ async function readJson(path) {
   return response.json();
 }
 
-export async function loadResults(profile, limit, pricedOnly) {
+export async function loadResults(profile, limit = PAGE_SIZE, pricedOnly) {
   inputs ??= Promise.all([
     readJson('../data/vehicle-catalog-v0.3-pilot.json'),
     readJson('../data/development/equipment/vehicle-equipment.v1.json'),
@@ -19,7 +20,33 @@ export async function loadResults(profile, limit, pricedOnly) {
     throw error;
   });
   const [catalog, equipment, pricing] = await inputs;
-  const view = recommendPilot(profile, catalog, { year: new Date().getFullYear(), limit, pricing, pricedOnly });
+  // The cross-category shortlists need the full ranked order, even when
+  // the first page is filled by confirmed matches.
+  const view = recommendPilot(profile, catalog, {
+    year: new Date().getFullYear(), limit: Math.max(1, catalog.vehicles.length), pricing, pricedOnly,
+  });
+  const ranked = view.items;
+  const groups = [
+    { title: 'Confirmed matches', items: [], shortlist: [], names: new Set() },
+    { title: 'Possible matches', items: [], shortlist: [], names: new Set() },
+  ];
+  for (const [index, item] of ranked.entries()) {
+    const group = groups[item.explanation.status === 'eligible' ? 0 : 1];
+    const name = vehicleName(item);
+    const shortlisted = group.shortlist.length < PAGE_SIZE && !group.names.has(name);
+    if (shortlisted) {
+      group.shortlist.push(item);
+      group.names.add(name);
+    }
+    if (index < limit || shortlisted) group.items.push(item);
+  }
+  view.groups = groups.filter(group => group.items.length);
+  view.items = view.groups.flatMap(group => group.items);
+  // Advance by five new cards, skipping any already supplied by the shortlists.
+  const visible = new Set(view.items.map(item => item.id));
+  const unseen = ranked.flatMap((item, index) => visible.has(item.id) ? [] : [index]);
+  view.hasMore = unseen.length > 0;
+  if (view.hasMore) view.nextLimit = (unseen[PAGE_SIZE - 1] ?? unseen.at(-1)) + 1;
   const trims = new Map(equipment.trims.map(trim => [trim.id, trim]));
   const requested = Object.keys(profile.features);
   for (const item of view.items) {
@@ -58,6 +85,13 @@ function append(parent, tag, text = '') {
   node.textContent = text;
   parent.append(node);
   return node;
+}
+
+const vehicleName = item => `${item.year} ${item.make} ${item.model}`;
+const cardId = item => `vehicle-${item.id}`;
+
+function jump(parent, text, target) {
+  append(parent, 'a', text).href = `#${encodeURIComponent(target)}`;
 }
 
 function numberInput(parent, [key, caption, max, min = 0, step = 'any'], value) {
@@ -104,42 +138,47 @@ function renderEstimate(list, details, item, assumptions, purchasePrice) {
   }
 }
 
-export function renderResults(container, view, session) {
+export function renderResults(container, view, session, { comparison, showMore }) {
   session.conditions ??= new Map();
   session.expandedFinancials ??= new Set();
   session.assumptions ??= { ...view.defaults };
   session.assumptionDraft ??= {};
   container.replaceChildren();
-  append(container, 'h1', 'Vehicle recommendations');
-  const confirmed = view.totalCandidates - view.conditionalCount;
-  append(container, 'p', `${confirmed} confirmed · ${view.conditionalCount} potential · ${view.excludedCount} excluded`);
+
+  const title = append(container, 'h1', 'Vehicle recommendations');
+  title.id = 'recommendations';
+  title.tabIndex = -1;
+  const possible = view.conditionalCount;
+  const confirmed = view.totalCandidates - possible;
+  const count = (number, category) => `${number} ${category} ${number === 1 ? 'match' : 'matches'}`;
+  const counts = confirmed
+    ? [count(confirmed, 'confirmed'), count(possible, 'possible')]
+    : [count(possible, 'possible'), count(confirmed, 'confirmed')];
+  append(container, 'p', counts.join(' · ')).className = 'match-status';
+
   if (!view.items.length) {
-    append(container, 'p', 'No configurations meet the selected constraints. Review your buyer profile to broaden your search.');
+    append(container, 'p', 'We found no matches with the current selections. Review your buyer profile or try broader preferences.');
+    container.append(comparison);
     return;
   }
-  append(container, 'p', 'Confirmed matches satisfy the evaluated requirements. Potential matches still need listing or configuration details verified. Safety ratings are unavailable in the pilot.');
+  if (confirmed) append(container, 'p', 'Confirmed matches satisfy the requirements we could evaluate.');
+  if (possible) append(container, 'p', 'Possible matches are worth exploring. Use the cards below to see which listing or vehicle details still need verification.');
+  for (const group of view.groups) {
+    append(container, 'h2', group.title);
+    const list = append(container, 'ul');
+    for (const item of group.shortlist) jump(append(list, 'li'), vehicleName(item), cardId(item));
+  }
+  jump(append(container, 'p'), 'Jump to financial assumptions', 'financial-assumptions');
+  container.append(comparison);
+  append(container, 'p', 'Safety ratings are unavailable in the pilot.');
   if (view.compareEnergy) append(container, 'p', 'Within each match group, the shortlist prioritizes fewer items to verify and lower estimated energy costs using the starting assumptions. Editing costs updates the comparisons below.');
-  append(container, 'p', 'Cash expenditure includes the purchase and running costs. Net ownership cost subtracts estimated resale value. Both cover the same ownership period.');
   append(container, 'p', priceDisclosure + ' Asking prices and MSRP are reference prices. Completed transaction prices are unavailable.');
-  const form = append(container, 'form');
-  append(form, 'h2', 'Editable cash-purchase assumptions');
-  append(form, 'p', 'Tax, fees, running costs and resale start with editable planning assumptions. Each vehicle uses its sourced central price when available. Enter a vehicle-specific price to compare a quote or an alternative scenario.');
-  const grid = append(form, 'div');
-  grid.className = 'cost-grid';
-  const inputs = fields.map(field => {
-    const key = field[0];
-    const input = numberInput(grid, field, session.assumptionDraft[key] ?? session.assumptions[key]);
-    input.addEventListener('input', () => { session.assumptionDraft[key] = input.value; });
-    return input;
-  });
-  const apply = append(form, 'button', 'Update cost estimates');
-  apply.type = 'submit';
-  const status = append(form, 'p');
-  status.setAttribute('role', 'status');
   const cards = [];
-  for (const item of view.items) {
-    const card = append(container, 'article');
-    append(card, 'h2', `${item.year} ${item.make} ${item.model}`);
+  function renderCard(section, item) {
+    const card = append(section, 'article');
+    const heading = append(card, 'h3', vehicleName(item));
+    heading.id = cardId(item);
+    heading.tabIndex = -1;
     append(card, 'p', item.classification).className = 'match-status';
     const { mpg, kwhPerMile, drivetrain } = item.vehicle;
     append(card, 'p', [item.power, drivetrain, mpg != null ? `EPA ${mpg} MPG combined` : null,
@@ -151,7 +190,7 @@ export function renderResults(container, view, session) {
       ['What to verify', item.explanation.verify.filter(text => !text.startsWith('Scoring evidence unavailable:'))],
     ]) {
       if (!entries.length) continue;
-      append(card, 'h3', label);
+      append(card, 'h4', label);
       const list = append(card, 'ul');
       for (const entry of entries) append(list, 'li', entry);
     }
@@ -161,7 +200,7 @@ export function renderResults(container, view, session) {
       append(details, 'summary', 'Possible retail trims');
       append(details, 'p', 'Verify the exact trim and installed equipment with the seller.');
       for (const trim of item.possibleTrims) {
-        append(details, 'h3', trim.name);
+        append(details, 'h4', trim.name);
         for (const fact of trim.facts) {
           const row = append(details, 'p', `${fact.name} · ${fact.status}`);
           if (fact.url) append(row, 'a', ' Source').href = fact.url;
@@ -267,6 +306,33 @@ export function renderResults(container, view, session) {
     cards.push(update);
     update();
   }
+
+  for (const group of view.groups) {
+    const section = append(container, 'section');
+    append(section, 'h2', `${group.title} in detail`);
+    for (const item of group.items) renderCard(section, item);
+  }
+  if (view.hasMore) container.append(showMore);
+
+  const form = append(container, 'form');
+  const assumptions = append(form, 'h2', 'Editable cash-purchase assumptions');
+  assumptions.id = 'financial-assumptions';
+  assumptions.tabIndex = -1;
+  append(form, 'p', 'Tax, fees, running costs and resale start with editable planning assumptions. Each vehicle uses its sourced central price when available. Enter a vehicle-specific price to compare a quote or an alternative scenario.');
+  append(form, 'p', 'Cash expenditure includes the purchase and running costs. Net ownership cost subtracts estimated resale value. Both cover the same ownership period.');
+  const grid = append(form, 'div');
+  grid.className = 'cost-grid';
+  const inputs = fields.map(field => {
+    const key = field[0];
+    const input = numberInput(grid, field, session.assumptionDraft[key] ?? session.assumptions[key]);
+    input.addEventListener('input', () => { session.assumptionDraft[key] = input.value; });
+    return input;
+  });
+  const apply = append(form, 'button', 'Update cost estimates');
+  apply.type = 'submit';
+  const status = append(form, 'p');
+  status.setAttribute('role', 'status');
+  jump(append(form, 'p'), 'Return to recommendations', title.id);
 
   form.addEventListener('submit', event => {
     event.preventDefault();

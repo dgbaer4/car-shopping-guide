@@ -33,11 +33,11 @@ async function showRecommendations(limit, pricedOnly=false){
     if(pilotSession?.profileKey!==profileKey)pilotSession={profileKey,prices:new Map()};
     const view=await loadResults(profile,limit,pricedOnly);
     if(!panel.isConnected)return;
-    renderResults(panel,view,pilotSession);
-    const modeButton=btn(pricedOnly?'Show all matches':'Compare matches with sourced prices',()=>showRecommendations(undefined,!pricedOnly));
-    panel.querySelector('h1').after(modeButton);
-    if(pricedOnly)modeButton.after(el('p','Showing only configurations with sourced pricing for the preferred purchase condition.'));
-    if(view.hasMore)nav.append(btn('Show more',()=>showRecommendations(view.nextLimit,pricedOnly),'primary'));
+    const comparison=el('div');
+    comparison.append(btn(pricedOnly?'Show all matches':'Compare matches with sourced prices',()=>showRecommendations(undefined,!pricedOnly)));
+    if(pricedOnly)comparison.append(el('p','Showing only configurations with sourced pricing for the preferred purchase condition.'));
+    const showMore=btn('Show more',()=>showRecommendations(view.nextLimit,pricedOnly),'primary');
+    renderResults(panel,view,pilotSession,{comparison,showMore});
   }catch(error){
     if(!panel.isConnected)return;
     panel.replaceChildren(heading,el('p','Vehicle data is unavailable. Open the guide over HTTP and try again.'));
