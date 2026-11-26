@@ -1,0 +1,371 @@
+Manufacturer,EPA model,2021 released,2022 released,2023 released,2024 released,2025 released,2026 released,2021 retained,2022 retained,2023 retained,2024 retained,2025 retained,2026 retained,Released,Excluded pickups,Retained
+Honda,Accord,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Accord Hybrid,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Accord Hybrid Sport/Touring,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Accord SE,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Honda,Accord Sport/Touring,2,2,0,0,0,0,2,2,0,0,0,0,4,0,4
+Honda,CR-V AWD,1,1,1,2,2,2,1,1,1,2,2,2,9,0,9
+Honda,CR-V AWD TrailSport,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Honda,CR-V FWD,1,1,1,2,2,2,1,1,1,2,2,2,9,0,9
+Honda,CR-V Hybrid AWD,1,1,1,0,0,0,1,1,1,0,0,0,3,0,3
+Honda,CR-V Hybrid FWD,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Honda,Civic 4Dr,4,5,5,5,4,4,4,5,5,5,4,4,27,0,27
+Honda,Civic 5Dr,4,6,7,7,3,3,4,6,7,7,3,3,30,0,30
+Honda,Clarity Plug-in Hybrid,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Honda,HR-V AWD,2,2,1,1,1,1,2,2,1,1,1,1,8,0,8
+Honda,HR-V FWD,2,2,1,1,1,1,2,2,1,1,1,1,8,0,8
+Honda,Insight,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Honda,Insight Touring,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Honda,Odyssey,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Passport AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Passport AWD Trailsport,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Honda,Passport FWD,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Honda,Pilot AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Pilot AWD Touring/Elite/Black,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Honda,Pilot AWD TrailSport,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Honda,Pilot FWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Honda,Prelude,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Honda,Prologue AWD Elite,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Honda,Prologue AWD Touring,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Honda,Prologue FWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Honda,Ridgeline AWD,1,1,1,1,1,1,0,0,0,0,0,0,6,6,0
+Honda,Ridgeline AWD TrailSport,0,0,0,1,1,1,0,0,0,0,0,0,3,3,0
+Hyundai,Accent,2,1,0,0,0,0,2,1,0,0,0,0,3,0,3
+Hyundai,Elantra,4,4,3,3,3,1,4,4,3,3,3,1,18,0,18
+Hyundai,Elantra Hybrid,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Hyundai,Elantra Hybrid Blue,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Hyundai,Elantra N,0,2,2,2,2,2,0,2,2,2,2,2,10,0,10
+Hyundai,Elantra non-ISG,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Elantra w/Stop-Start,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Ioniq,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Hyundai,Ioniq 5 AWD (19 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 5 AWD (19inch Wheels),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Ioniq 5 AWD (20 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 5 AWD (20inch Wheels),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Ioniq 5 AWD (Long Range),0,1,0,0,0,0,0,1,0,0,0,0,1,0,1
+Hyundai,Ioniq 5 AWD XRT,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Hyundai,Ioniq 5 Long range AWD,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Hyundai,Ioniq 5 Long range RWD,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Hyundai,Ioniq 5 N,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Hyundai,Ioniq 5 RWD,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Hyundai,Ioniq 5 RWD (Long Range),0,1,0,0,0,0,0,1,0,0,0,0,1,0,1
+Hyundai,Ioniq 5 RWD (Standard Range),0,1,0,0,0,0,0,1,0,0,0,0,1,0,1
+Hyundai,Ioniq 5 Robo taxi,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Hyundai,Ioniq 5 Standard range,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Hyundai,Ioniq 5 Standard range RWD,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Hyundai,Ioniq 6 AWD (18 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 6 AWD (20 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 6 Long range AWD (18 inch Wheels),0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Hyundai,Ioniq 6 Long range AWD (20 inch Wheels),0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Hyundai,Ioniq 6 Long range RWD (18 inch Wheels),0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Hyundai,Ioniq 6 Long range RWD (20 inch Wheels),0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Hyundai,Ioniq 6 RWD (18 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 6 RWD (20 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 6 Standard Range,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Ioniq 6 Standard Range RWD,0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Hyundai,Ioniq 9 AWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Ioniq 9 AWD Performance,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Ioniq 9 RWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Ioniq Blue,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Hyundai,Ioniq Electric,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Hyundai,Ioniq Plug-in Hybrid,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Hyundai,Kona AWD,2,2,2,3,3,1,2,2,2,3,3,1,13,0,13
+Hyundai,Kona AWD SX2 1.6T 8AT AWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Kona AWD w/Stop-Start,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Kona Electric,1,1,1,0,0,0,1,1,1,0,0,0,3,0,3
+Hyundai,Kona Electric (17 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Kona Electric (19 inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Hyundai,Kona Electric Long Range,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Hyundai,Kona Electric Standard Range,0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Hyundai,Kona FWD,2,2,2,3,3,1,2,2,2,3,3,1,13,0,13
+Hyundai,Kona FWD SX2 1.6T 8AT FWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Kona FWD w/Stop-Start,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Kona N,0,1,1,0,0,0,0,1,1,0,0,0,2,0,2
+Hyundai,Palisade AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Hyundai,Palisade FWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Hyundai,Palisade Hybrid AWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Palisade Hybrid FWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Palisade Hybrid FWD Blue,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Palisade XRT Pro,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Santa Cruz AWD,0,2,2,2,2,0,0,0,0,0,0,0,8,8,0
+Hyundai,Santa Cruz AWD NX4 OB 2.5 AWD 8AT,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Hyundai,Santa Cruz AWD NX4 OB 2.5T AWD 8AT,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Hyundai,Santa Cruz FWD,0,1,1,1,1,1,0,0,0,0,0,0,5,5,0
+Hyundai,Santa Cruz XRT AWD,0,0,0,0,1,1,0,0,0,0,0,0,2,2,0
+Hyundai,Santa Fe AWD,2,2,2,1,1,1,2,2,2,1,1,1,9,0,9
+Hyundai,Santa Fe AWD XRT,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Hyundai,Santa Fe FWD,2,2,2,1,1,1,2,2,2,1,1,1,9,0,9
+Hyundai,Santa Fe Hybrid,1,1,1,0,0,0,1,1,1,0,0,0,3,0,3
+Hyundai,Santa Fe Hybrid AWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Hyundai,Santa Fe Hybrid Blue,1,1,1,0,0,0,1,1,1,0,0,0,3,0,3
+Hyundai,Santa Fe Hybrid FWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Hyundai,Santa Fe Plug-in Hybrid,0,1,1,0,0,0,0,1,1,0,0,0,2,0,2
+Hyundai,Sonata,4,4,4,0,0,0,4,4,4,0,0,0,12,0,12
+Hyundai,Sonata AWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Hyundai,Sonata FWD,0,0,0,2,3,2,0,0,0,2,3,2,7,0,7
+Hyundai,Sonata FWD w/Stop-Start,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Hyundai,Sonata Hybrid,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Hyundai,Sonata Hybrid Blue,1,1,1,0,0,1,1,1,1,0,0,1,4,0,4
+Hyundai,Tucson AWD,2,1,1,1,1,1,2,1,1,1,1,1,7,0,7
+Hyundai,Tucson FWD,2,1,1,1,1,1,2,1,1,1,1,1,7,0,7
+Hyundai,Tucson Hybrid,0,1,1,1,1,2,0,1,1,1,1,2,6,0,6
+Hyundai,Tucson Hybrid Blue,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Hyundai,Tucson Plug-in Hybrid,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Hyundai,Veloster,4,0,0,0,0,0,4,0,0,0,0,0,4,0,4
+Hyundai,Veloster N,2,2,0,0,0,0,2,2,0,0,0,0,4,0,4
+Hyundai,Venue,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Kia,Carnival,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Kia,Carnival Hybrid,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Kia,EV6 AWD (Long Range),0,1,0,0,0,0,0,1,0,0,0,0,1,0,1
+Kia,EV6 AWD GT,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Kia,EV6 Long Range AWD (19 inch Wheels),0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,EV6 Long Range AWD (19 inch tires),0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Kia,EV6 Long Range AWD (20 inch Wheels),0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,EV6 Long Range AWD (20 inch tires),0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Kia,EV6 Long Range RWD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Kia,EV6 RWD (Long Range),0,1,0,0,0,0,0,1,0,0,0,0,1,0,1
+Kia,EV6 RWD (Standard Range),0,1,0,0,0,0,0,1,0,0,0,0,1,0,1
+Kia,EV6 Standard Range RWD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Kia,EV9 GT,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Kia,EV9 Long Range AWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,EV9 Long Range AWD GT-Line,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,EV9 Long Range RWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,EV9 Standard Range RWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,Forte,4,3,3,3,0,0,4,3,3,3,0,0,13,0,13
+Kia,Forte FE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Kia,K4,0,0,0,0,3,1,0,0,0,0,3,1,4,0,4
+Kia,K4 4DR w/ DMS,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Kia,K4 Hatchback,0,0,0,0,0,2,0,0,0,0,0,2,2,0,2
+Kia,K4 without DMS,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Kia,K5,3,3,2,2,3,2,3,3,2,2,3,2,15,0,15
+Kia,K5 AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Kia,K5 w/Stop-Start,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Kia,Niro,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Kia,Niro Electric,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Kia,Niro FE,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Kia,Niro Plug-in Hybrid,1,1,1,0,1,1,1,1,1,0,1,1,5,0,5
+Kia,Niro Touring,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Kia,Rio,1,1,1,0,0,0,1,1,1,0,0,0,3,0,3
+Kia,Sedona,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Kia,Seltos AWD,2,2,2,2,2,2,2,2,2,2,2,2,12,0,12
+Kia,Seltos FWD,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Kia,Sorento AWD,2,2,2,2,2,2,2,2,2,2,2,2,12,0,12
+Kia,Sorento FWD,2,2,2,2,2,2,2,2,2,2,2,2,12,0,12
+Kia,Sorento Hybrid,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Kia,Sorento Hybrid AWD,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Kia,Sorento Hybrid FWD,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Kia,Sorento Plug-in Hybrid,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Kia,Soul,3,2,1,1,1,0,3,2,1,1,1,0,8,0,8
+Kia,Soul Eco dynamics,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Kia,Sportage AWD,2,2,1,1,1,1,2,2,1,1,1,1,8,0,8
+Kia,Sportage FWD,2,2,1,1,1,1,2,2,1,1,1,1,8,0,8
+Kia,Sportage Hybrid AWD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Kia,Sportage Hybrid FWD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Kia,Sportage Plug-in Hybrid,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Kia,Sportage X-pro,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Kia,Stinger AWD,2,2,2,0,0,0,2,2,2,0,0,0,6,0,6
+Kia,Stinger RWD,2,2,2,0,0,0,2,2,2,0,0,0,6,0,6
+Kia,Telluride AWD,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Kia,Telluride FWD,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Nissan,370Z,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Nissan,ARIYA ENG Plus/EVO Plus e-4ORCE 87kWh,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Nissan,ARIYA ENGAGE FWD 63kWh,0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Nissan,ARIYA ENGAGE e-4ORCE 63kWh,0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Nissan,ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh,0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Nissan,ARIYA EVO Plus/EMP Plus/PRM FWD 87kWh,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Nissan,ARIYA EVOLVE+ FWD 87kWh,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Nissan,ARIYA EVOLVE+/EMPOWER+ FWD 87kWh,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Nissan,ARIYA FWD 63kWh,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Nissan,ARIYA FWD 87kWh,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,ARIYA PLAT Plus e-4ORCE 87kWh 19,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Nissan,ARIYA PLAT Plus e-4ORCE 87kWh 20,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 20in. Wheels,0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Nissan,ARIYA VENTURE Plus FWD 87kWh,0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Nissan,ARIYA e-4ORCE 63kWh,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Nissan,ARIYA e-4ORCE 87kWh,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,Altima,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Nissan,Altima AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Nissan,Altima AWD SR/Platinum,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Altima SL/SR,0,0,1,1,1,0,0,0,1,1,1,0,3,0,3
+Nissan,Altima SR,1,2,1,1,0,0,1,2,1,1,0,0,5,0,5
+Nissan,Altima SR/Platinum,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Nissan,Altima SV/SL,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Armada 2WD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Nissan,Armada 4WD,2,2,2,1,1,1,2,2,2,1,1,1,9,0,9
+Nissan,Armada 4WD PRO-4X,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Nissan,Frontier 2WD,1,1,2,1,1,1,0,0,0,0,0,0,7,7,0
+Nissan,Frontier 4WD,1,1,2,1,1,1,0,0,0,0,0,0,7,7,0
+Nissan,Frontier 4WD PRO4X,0,0,2,1,1,1,0,0,0,0,0,0,5,5,0
+Nissan,GT-R,1,0,1,1,0,0,1,0,1,1,0,0,3,0,3
+Nissan,Kicks,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Nissan,Kicks AWD,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Nissan,Kicks Play,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Nissan,LEAF,0,0,1,1,1,0,0,0,1,1,1,0,3,0,3
+Nissan,LEAF 75kWh (18 inch alloy Wheels),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,LEAF 75kWh (18 inch steel Wheels),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,LEAF 75kWh (19 inch Wheels),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,LEAF SV,0,0,1,1,1,0,0,0,1,1,1,0,3,0,3
+Nissan,Leaf (40 kW-hr battery pack),1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Leaf (62 kW-hr battery pack),1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Leaf SV/SL (62 kW-hr battery pack),1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Maxima,1,1,1,0,0,0,1,1,1,0,0,0,3,0,3
+Nissan,Murano AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Nissan,Murano FWD,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Nissan,NV200 Cargo Van,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Nissan,Pathfinder 2WD,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Nissan,Pathfinder 4WD,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Nissan,Pathfinder 4WD Platinum,0,1,0,1,1,1,0,1,0,1,1,1,4,0,4
+Nissan,Pathfinder 4WD Rock Creek,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Nissan,Pathfinder 4WD SL/Platinum,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1
+Nissan,Rogue AWD,2,1,2,1,1,1,2,1,2,1,1,1,8,0,8
+Nissan,Rogue AWD  SV/SL/Platinum,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Nissan,Rogue AWD Rock Creek,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Nissan,Rogue AWD SL/Platinum,1,1,2,1,1,0,1,1,2,1,1,0,6,0,6
+Nissan,Rogue FWD,2,1,2,1,1,1,2,1,2,1,1,1,8,0,8
+Nissan,Rogue FWD  SV/SL/Platinum,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Nissan,Rogue FWD SL/Platinum,1,1,2,1,1,0,1,1,2,1,1,0,6,0,6
+Nissan,Rogue Sport,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Rogue Sport AWD,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Nissan,Sentra,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Nissan,Sentra (2-mode),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,Sentra (3-mode),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,Sentra SL/SR,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Nissan,Sentra SR,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Nissan,Titan 2WD,1,1,1,1,0,0,0,0,0,0,0,0,4,4,0
+Nissan,Titan 4WD,1,1,1,1,0,0,0,0,0,0,0,0,4,4,0
+Nissan,Titan 4WD PRO-4X,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0
+Nissan,Titan 4WD PRO4X,0,1,1,1,0,0,0,0,0,0,0,0,3,3,0
+Nissan,Versa,2,2,2,2,2,0,2,2,2,2,2,0,10,0,10
+Nissan,Z,0,0,2,2,2,2,0,0,2,2,2,2,8,0,8
+Nissan,Z NISMO,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,4Runner 2WD,1,1,1,1,2,2,1,1,1,1,2,2,8,0,8
+Toyota,4Runner 4WD,2,2,2,2,4,2,2,2,2,2,4,2,14,0,14
+Toyota,4Runner Hybrid 4WD,0,0,0,0,0,2,0,0,0,0,0,2,2,0,2
+Toyota,Avalon,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,Avalon AWD,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Toyota,Avalon Hybrid,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,Avalon Hybrid XLE,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,Avalon TRD,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Toyota,Avalon XLE,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,C-HR,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,C-HR AWD 18inch,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,C-HR AWD 20inch,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Camry,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry AWD LE/SE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry AWD XLE/XSE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry HEV AWD LE,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Toyota,Camry HEV AWD SE/XLE,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Toyota,Camry HEV AWD XSE,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Toyota,Camry HEV FF LE,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Toyota,Camry HEV FF SE/XLE/XSE,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Toyota,Camry Hybrid LE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry Hybrid SE/XLE/XSE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry LE/SE,1,1,2,1,0,0,1,1,2,1,0,0,5,0,5
+Toyota,Camry TRD,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry XLE/XSE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Camry XSE,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Corolla,4,4,2,2,3,1,4,4,2,2,3,1,16,0,16
+Toyota,Corolla (1-mode TM),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Corolla (3-mode TM),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Corolla APEX,2,2,0,0,0,0,2,2,0,0,0,0,4,0,4
+Toyota,Corolla Cross,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Toyota,Corolla Cross 4WD,0,1,1,0,0,0,0,1,1,0,0,0,2,0,2
+Toyota,Corolla Cross AWD,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Corolla Cross Hybrid AWD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Toyota,Corolla FX,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Toyota,Corolla Hatchback,2,2,1,1,1,1,2,2,1,1,1,1,8,0,8
+Toyota,Corolla Hatchback FX,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Corolla Hatchback XSE,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Toyota,Corolla Hybrid,1,1,2,0,0,1,1,1,2,0,0,1,5,0,5
+Toyota,Corolla Hybrid (Normal/Eco Modes),0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Toyota,Corolla Hybrid (Sport/Normal/Eco Modes),0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Toyota,Corolla Hybrid AWD,0,0,2,0,0,1,0,0,2,0,0,1,3,0,3
+Toyota,Corolla Hybrid AWD (Normal/Eco Modes),0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Toyota,Corolla Hybrid AWD (Sport/Normal/Eco Modes),0,0,0,1,1,0,0,0,0,1,1,0,2,0,2
+Toyota,Corolla Hybrid SE,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Corolla Hybrid SE AWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Corolla XLE,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,Corolla XSE,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,Crown AWD,0,0,2,2,2,1,0,0,2,2,2,1,7,0,7
+Toyota,Crown Hybrid AWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,Crown Signia AWD,0,0,0,0,1,1,0,0,0,0,1,1,2,0,2
+Toyota,GR 86,0,2,2,2,2,0,0,2,2,2,2,0,8,0,8
+Toyota,GR Corolla,0,0,1,1,2,2,0,0,1,1,2,2,6,0,6
+Toyota,GR Supra,2,2,3,3,3,3,2,2,3,3,3,3,16,0,16
+Toyota,Grand Highlander AWD LE/XLE,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Grand Highlander AWD Limited/Platinum,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Grand Highlander Hybrid,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Grand Highlander Hybrid AWD,0,0,0,2,2,2,0,0,0,2,2,2,6,0,6
+Toyota,Grand Highlander Hybrid Limited,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Toyota,Grand Highlander LE/XLE,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Grand Highlander Limited,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Highlander,2,2,2,2,2,0,2,2,2,2,2,0,10,0,10
+Toyota,Highlander AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Toyota,Highlander Hybrid,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Highlander Hybrid AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Toyota,Highlander Hybrid AWD LTD/PLAT,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Toyota,Land Cruiser,0,0,0,1,1,1,0,0,0,1,1,1,3,0,3
+Toyota,Land Cruiser Wagon 4WD,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Toyota,Prius,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Toyota,Prius AWD,1,1,1,1,1,1,1,1,1,1,1,1,6,0,6
+Toyota,Prius AWD XLE/LTD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Toyota,Prius Eco,1,1,0,0,0,0,1,1,0,0,0,0,2,0,2
+Toyota,Prius PHEV,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Toyota,Prius PHEV SE,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Toyota,Prius Prime,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Prius Prime SE,0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Toyota,Prius XLE/LTD,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Toyota,RAV4,2,2,2,1,1,1,2,2,2,1,1,1,9,0,9
+Toyota,RAV4 AWD,2,2,2,2,2,0,2,2,2,2,2,0,10,0,10
+Toyota,RAV4 AWD LE,1,1,1,1,1,0,1,1,1,1,1,0,5,0,5
+Toyota,RAV4 AWD Limited & XSE,0,0,0,0,0,2,0,0,0,0,0,2,2,0,2
+Toyota,RAV4 AWD SE & LE,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,RAV4 AWD TRD OFFROAD,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,RAV4 AWD XLE,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,RAV4 Hybrid  AWD,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Toyota,RAV4 Hybrid AWD,0,1,1,1,1,0,0,1,1,1,1,0,4,0,4
+Toyota,RAV4 Hybrid AWD Woodland Edition,0,0,1,1,1,1,0,0,1,1,1,1,4,0,4
+Toyota,RAV4 PHEV AWD,0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Toyota,RAV4 Prime 4WD,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,Sequoia 2WD,1,1,1,1,1,2,1,1,1,1,1,2,7,0,7
+Toyota,Sequoia 4WD,1,1,1,1,1,2,1,1,1,1,1,2,7,0,7
+Toyota,Sienna 2WD,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Toyota,Sienna AWD,0,1,1,1,1,1,0,1,1,1,1,1,5,0,5
+Toyota,Sienna Hybrid 2WD,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Toyota,Sienna Hybrid AWD,1,0,0,0,0,0,1,0,0,0,0,0,1,0,1
+Toyota,Tacoma 2WD,2,2,2,1,1,1,0,0,0,0,0,0,9,9,0
+Toyota,Tacoma 4WD,3,3,3,1,1,1,0,0,0,0,0,0,12,12,0
+Toyota,Tacoma 4WD D-CAB MT TRD-ORP/PRO,1,1,1,0,0,0,0,0,0,0,0,0,3,3,0
+Toyota,Tacoma 4WD MT,0,0,0,1,1,1,0,0,0,0,0,0,3,3,0
+Toyota,Tacoma Hybrid 4WD,0,0,0,2,2,2,0,0,0,0,0,0,6,6,0
+Toyota,Tacoma SR5/Sport/Off-Road/Limited 4WD,0,0,0,3,3,3,0,0,0,0,0,0,9,9,0
+Toyota,Tacoma SR5/Sport/PreRunner 2WD,0,0,0,2,2,2,0,0,0,0,0,0,6,6,0
+Toyota,Tundra 2WD,1,3,3,6,3,2,0,0,0,0,0,0,18,18,0
+Toyota,Tundra 2WD TRD Perf,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra 4WD,1,3,3,5,3,2,0,0,0,0,0,0,17,17,0
+Toyota,Tundra 4WD PRO,0,1,1,2,1,0,0,0,0,0,0,0,5,5,0
+Toyota,Tundra 4WD TRD Perf,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra Hybrid 2WD,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra Hybrid 2WD TRD Perf,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra Hybrid 4WD,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra Hybrid 4WD PRO,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra Hybrid 4WD PRO TRD Perf,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Tundra Hybrid 4WD TRD Per,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0
+Toyota,Venza AWD,1,1,1,1,0,0,1,1,1,1,0,0,4,0,4
+Toyota,bZ (energy capacity 191 Ah),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ (energy capacity 200 Ah),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ AWD,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ AWD LIMITED,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ LIMITED (energy capacity 191 Ah),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ LIMITED (energy capacity 200 Ah),0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ Woodland AWD 235/60R18,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ Woodland AWD 235/65R18,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1
+Toyota,bZ4X,0,0,1,1,1,0,0,0,1,1,1,0,3,0,3
+Toyota,bZ4X AWD,0,0,1,1,0,0,0,0,1,1,0,0,2,0,2
+Toyota,bZ4X AWD (18inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Toyota,bZ4X AWD (20inch Wheels),0,0,0,0,1,0,0,0,0,0,1,0,1,0,1
+Toyota,bZ4X LIMITED,0,0,1,0,1,0,0,0,1,0,1,0,2,0,2
+Toyota,bZ4X LIMITED AWD,0,0,1,0,1,0,0,0,1,0,1,0,2,0,2
+Toyota,bZ4X Limited,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1
+Toyota,bZ4X Limited AWD,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1

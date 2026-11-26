@@ -1,0 +1,121 @@
+Manufacturer,Model year,Powertrain,Released,Excluded pickups,Retained
+Honda,2021,Gasoline,23,1,22
+Honda,2021,Traditional hybrid,5,0,5
+Honda,2021,Plug-in hybrid,1,0,1
+Honda,2021,Fully electric,0,0,0
+Honda,2022,Gasoline,27,1,26
+Honda,2022,Traditional hybrid,5,0,5
+Honda,2022,Plug-in hybrid,0,0,0
+Honda,2022,Fully electric,0,0,0
+Honda,2023,Gasoline,24,1,23
+Honda,2023,Traditional hybrid,4,0,4
+Honda,2023,Plug-in hybrid,0,0,0
+Honda,2023,Fully electric,0,0,0
+Honda,2024,Gasoline,25,2,23
+Honda,2024,Traditional hybrid,4,0,4
+Honda,2024,Plug-in hybrid,0,0,0
+Honda,2024,Fully electric,3,0,3
+Honda,2025,Gasoline,18,2,16
+Honda,2025,Traditional hybrid,6,0,6
+Honda,2025,Plug-in hybrid,0,0,0
+Honda,2025,Fully electric,3,0,3
+Honda,2026,Gasoline,20,2,18
+Honda,2026,Traditional hybrid,8,0,8
+Honda,2026,Plug-in hybrid,0,0,0
+Honda,2026,Fully electric,3,0,3
+Hyundai,2021,Gasoline,31,0,31
+Hyundai,2021,Traditional hybrid,8,0,8
+Hyundai,2021,Plug-in hybrid,1,0,1
+Hyundai,2021,Fully electric,2,0,2
+Hyundai,2022,Gasoline,30,3,27
+Hyundai,2022,Traditional hybrid,10,0,10
+Hyundai,2022,Plug-in hybrid,3,0,3
+Hyundai,2022,Fully electric,4,0,4
+Hyundai,2023,Gasoline,26,3,23
+Hyundai,2023,Traditional hybrid,8,0,8
+Hyundai,2023,Plug-in hybrid,2,0,2
+Hyundai,2023,Fully electric,6,0,6
+Hyundai,2024,Gasoline,25,3,22
+Hyundai,2024,Traditional hybrid,7,0,7
+Hyundai,2024,Plug-in hybrid,1,0,1
+Hyundai,2024,Fully electric,10,0,10
+Hyundai,2025,Gasoline,27,4,23
+Hyundai,2025,Traditional hybrid,7,0,7
+Hyundai,2025,Plug-in hybrid,1,0,1
+Hyundai,2025,Fully electric,15,0,15
+Hyundai,2026,Gasoline,28,4,24
+Hyundai,2026,Traditional hybrid,12,0,12
+Hyundai,2026,Plug-in hybrid,1,0,1
+Hyundai,2026,Fully electric,10,0,10
+Kia,2021,Gasoline,32,0,32
+Kia,2021,Traditional hybrid,4,0,4
+Kia,2021,Plug-in hybrid,1,0,1
+Kia,2021,Fully electric,1,0,1
+Kia,2022,Gasoline,30,0,30
+Kia,2022,Traditional hybrid,5,0,5
+Kia,2022,Plug-in hybrid,2,0,2
+Kia,2022,Fully electric,4,0,4
+Kia,2023,Gasoline,26,0,26
+Kia,2023,Traditional hybrid,6,0,6
+Kia,2023,Plug-in hybrid,3,0,3
+Kia,2023,Fully electric,6,0,6
+Kia,2024,Gasoline,22,0,22
+Kia,2024,Traditional hybrid,6,0,6
+Kia,2024,Plug-in hybrid,2,0,2
+Kia,2024,Fully electric,10,0,10
+Kia,2025,Gasoline,22,0,22
+Kia,2025,Traditional hybrid,7,0,7
+Kia,2025,Plug-in hybrid,3,0,3
+Kia,2025,Fully electric,10,0,10
+Kia,2026,Gasoline,19,0,19
+Kia,2026,Traditional hybrid,7,0,7
+Kia,2026,Plug-in hybrid,3,0,3
+Kia,2026,Fully electric,11,0,11
+Nissan,2021,Gasoline,35,5,30
+Nissan,2021,Traditional hybrid,0,0,0
+Nissan,2021,Plug-in hybrid,0,0,0
+Nissan,2021,Fully electric,3,0,3
+Nissan,2022,Gasoline,31,5,26
+Nissan,2022,Traditional hybrid,0,0,0
+Nissan,2022,Plug-in hybrid,0,0,0
+Nissan,2022,Fully electric,3,0,3
+Nissan,2023,Gasoline,39,9,30
+Nissan,2023,Traditional hybrid,0,0,0
+Nissan,2023,Plug-in hybrid,0,0,0
+Nissan,2023,Fully electric,9,0,9
+Nissan,2024,Gasoline,31,6,25
+Nissan,2024,Traditional hybrid,0,0,0
+Nissan,2024,Plug-in hybrid,0,0,0
+Nissan,2024,Fully electric,9,0,9
+Nissan,2025,Gasoline,30,3,27
+Nissan,2025,Traditional hybrid,0,0,0
+Nissan,2025,Plug-in hybrid,0,0,0
+Nissan,2025,Fully electric,8,0,8
+Nissan,2026,Gasoline,24,3,21
+Nissan,2026,Traditional hybrid,0,0,0
+Nissan,2026,Plug-in hybrid,0,0,0
+Nissan,2026,Fully electric,8,0,8
+Toyota,2021,Gasoline,48,8,40
+Toyota,2021,Traditional hybrid,15,0,15
+Toyota,2021,Plug-in hybrid,2,0,2
+Toyota,2021,Fully electric,0,0,0
+Toyota,2022,Gasoline,51,10,41
+Toyota,2022,Traditional hybrid,18,3,15
+Toyota,2022,Plug-in hybrid,2,0,2
+Toyota,2022,Fully electric,0,0,0
+Toyota,2023,Gasoline,42,10,32
+Toyota,2023,Traditional hybrid,26,3,23
+Toyota,2023,Plug-in hybrid,3,0,3
+Toyota,2023,Fully electric,4,0,4
+Toyota,2024,Gasoline,49,15,34
+Toyota,2024,Traditional hybrid,36,8,28
+Toyota,2024,Plug-in hybrid,3,0,3
+Toyota,2024,Fully electric,4,0,4
+Toyota,2025,Gasoline,42,12,30
+Toyota,2025,Traditional hybrid,36,5,31
+Toyota,2025,Plug-in hybrid,3,0,3
+Toyota,2025,Fully electric,5,0,5
+Toyota,2026,Gasoline,36,14,22
+Toyota,2026,Traditional hybrid,45,8,37
+Toyota,2026,Plug-in hybrid,0,0,0
+Toyota,2026,Fully electric,10,0,10
