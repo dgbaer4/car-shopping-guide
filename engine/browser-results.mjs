@@ -1,3 +1,5 @@
+import { observationLink } from './browser-observations.mjs';
+import { provenance } from './observations.mjs';
 import { recommendPilot } from './pilot.mjs';
 import { PAGE_SIZE } from './results.mjs';
 import { cashEstimate } from './pilot-cost.mjs';
@@ -10,7 +12,7 @@ async function readJson(path) {
   return response.json();
 }
 
-export async function loadResults(profile, limit = PAGE_SIZE, pricedOnly) {
+export async function loadResults(profile, limit = PAGE_SIZE, pricedOnly, targetId) {
   inputs ??= Promise.all([
     readJson('../data/vehicle-catalog-v0.3-pilot.json'),
     readJson('../data/development/equipment/vehicle-equipment.v1.json'),
@@ -38,7 +40,7 @@ export async function loadResults(profile, limit = PAGE_SIZE, pricedOnly) {
       group.shortlist.push(item);
       group.names.add(name);
     }
-    if (index < limit || shortlisted) group.items.push(item);
+    if (index < limit || shortlisted || item.id === targetId) group.items.push(item);
   }
   view.groups = groups.filter(group => group.items.length);
   view.items = view.groups.flatMap(group => group.items);
@@ -218,6 +220,9 @@ export function renderResults(container, view, session, { comparison, showMore }
       option.value = value;
     }
     condition.value = session.conditions.get(item.id) ?? item.pricing.conditions[0];
+    const observations = append(estimate, 'div');
+    observations.className = 'observation-actions';
+    observationLink(observations, item, () => condition.value);
     const evidence = append(estimate, 'p');
     const price = numberInput(estimate, ['vehiclePrice', 'Vehicle purchase price override ($)']);
     const quoteLabel = append(estimate, 'label', 'Vehicle price is confirmed by the seller ');
@@ -263,7 +268,8 @@ export function renderResults(container, view, session, { comparison, showMore }
           msrp: 'Manufacturer MSRP reference, low–high and median across published grades',
           transaction: 'Reported transaction prices, low–high and median',
         };
-        evidence.append(`${basis[record.priceBasis]}: ${money(record.low)}–${money(record.high)} · central ${money(record.central)} · ${record.referenceDate}. `);
+        const indicator = record.priceBasis === 'msrp' ? provenance.msrp : provenance.market;
+        evidence.append(`${indicator} · ${basis[record.priceBasis]}: ${money(record.low)}–${money(record.high)} · central ${money(record.central)} · ${record.referenceDate}. `);
         const sample = record.priceBasis === 'msrp' ? 'grades' : 'observations';
         if (record.sampleSize != null) evidence.append(`${record.sampleSize} ${sample}. `);
         if (record.confidence === 'limited') evidence.append('Limited listing sample. ');
