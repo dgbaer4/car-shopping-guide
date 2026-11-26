@@ -42,3 +42,7 @@ The complete commuter scenario passed at five viewport sizes, including tablet p
 | UAT-006 | Replaced the newest-model-year tiebreaker with deterministic year variety among similarly suitable configurations. Audited the released catalog and removed 153 verified pickup configurations. Age limits and actual purchase condition remain separate checks. | Feature branch verified with matched-profile comparisons and automated regression. Staging and Safari acceptance pending controlled integration. |
 
 The packaged v0.4 feature also rechecked UAT-001 through UAT-005 in Chromium, including the Walnut Creek–Moraga scenario and the match-category fixtures. [Development report and catalog audit](v0.4-recommendation-quality.md)
+
+## CSG-I15 integration acceptance
+
+Combined packaged Chromium tests rechecked UAT-001 through UAT-005 and the Walnut Creek–Moraga commuter. CSG-I13 ranking, catalog coverage and UAT-006 regressions passed on the integrated branch. The used-only policy for model year 2027 is covered at the June 30 boundary. Physical iPad/Safari and staging acceptance require a separate owner decision. [v0.4 integration report](integration-report-v0.4.md)
