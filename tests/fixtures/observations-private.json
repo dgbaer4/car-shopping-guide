@@ -1,0 +1,26 @@
+{
+  "format": "csg-observations",
+  "version": 1,
+  "observations": [
+    {
+      "schemaVersion": 1,
+      "id": "f34e28ad-88a2-4655-af03-854b122cfd98",
+      "observedAt": "2026-11-25T12:34:00.000Z",
+      "year": 2023,
+      "condition": "used",
+      "priceCents": 2150050,
+      "type": "quote",
+      "scope": "out_the_door",
+      "source": "contributed",
+      "verification": "unverified",
+      "make": "Toyota",
+      "model": "Prius",
+      "nickname": "Sample",
+      "mileage": 31225,
+      "zip": "01234",
+      "listingUrl": "https://example.com/vehicles/123?session=fixture#price",
+      "interest": "GOOD",
+      "privateNotes": "Ask about spare tire.\nCompare with other quote."
+    }
+  ]
+}

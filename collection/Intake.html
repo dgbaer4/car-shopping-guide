@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+body{max-width:42rem;margin:auto;padding:1rem;font:17px/1.5 system-ui;color:#283c36}
+label{display:block;margin-block:1rem}
+textarea,input,button{font:inherit}
+textarea,input[type=password]{box-sizing:border-box;display:block;width:100%;padding:.5rem}
+textarea{min-height:10rem}
+button{min-height:44px;padding:.5rem 1rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Share a vehicle observation</h1>
+<p>Paste one sanitized contribution from Car Shopping Guide. The project owner stores it in a private spreadsheet for pricing review. Keep names, contact information, VINs and other identifiers out of this submission. A receipt confirms delivery only.</p>
+<form id="intake">
+<label>Contribution JSON<textarea name="payload" required maxlength="8000" spellcheck="false"></textarea></label>
+<label>Pilot invite code<input type="password" name="invite" required pattern="[a-f0-9]{48}" maxlength="48" autocomplete="off"></label>
+<label><input name="consent" type="checkbox" required> I agree to share these vehicle data privately with the project owner for pricing review.</label>
+<button>Submit observation</button>
+</form>
+<p id="status" role="status"></p>
+</main>
+<script>
+const form = document.getElementById('intake');
+const status = document.getElementById('status');
+const submit = form.querySelector('button');
+let attempt = 0;
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const current = ++attempt;
+  submit.disabled = true;
+  status.textContent = 'Submitting. Waiting for a receipt…';
+  const timer = setTimeout(() => finish('Delivery is unconfirmed. Retry with the same data.'), 30000);
+  function finish(message) {
+    if (current !== attempt) return;
+    clearTimeout(timer);
+    submit.disabled = false;
+    status.textContent = message;
+  }
+  google.script.run.withSuccessHandler(result => {
+    if (result.status === 'received' || result.status === 'duplicate') {
+      finish((result.status === 'received' ? 'Received. ' : 'Already received. ') + 'Observation ID ' + result.id);
+    } else {
+      finish(result.message);
+    }
+  }).withFailureHandler(() => finish('Delivery is unconfirmed. Retry with the same data.'))
+    .submitObservation(form.elements.payload.value, form.elements.invite.value, form.elements.consent.checked);
+});
+</script>
+</body>
+</html>

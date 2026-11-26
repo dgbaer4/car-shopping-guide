@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Car Shopping Guide observation exchange v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "observations"
+  ],
+  "properties": {
+    "format": {
+      "const": "csg-observations"
+    },
+    "version": {
+      "const": 1
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/sharedObservation"
+          },
+          {
+            "$ref": "#/$defs/privateObservation"
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "sharedObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "id",
+        "observedAt",
+        "year",
+        "make",
+        "model",
+        "condition",
+        "priceCents",
+        "type",
+        "scope",
+        "source",
+        "verification"
+      ],
+      "properties": {
+        "make": {
+          "type": "string",
+          "maxLength": 70,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*\\S[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "model": {
+          "type": "string",
+          "maxLength": 90,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*\\S[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "trim": {
+          "type": "string",
+          "maxLength": 90,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "powertrain": {
+          "type": "string",
+          "maxLength": 60,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "drivetrain": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "nickname": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "vehicleNotes": {
+          "type": "string",
+          "maxLength": 500,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "catalogId": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,99}$"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d\\.\\d{3}Z$"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1886,
+          "description": "Runtime maximum is current UTC year plus two."
+        },
+        "priceCents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000000
+        },
+        "condition": {
+          "enum": [
+            "new",
+            "used"
+          ]
+        },
+        "type": {
+          "enum": [
+            "asking",
+            "quote",
+            "purchase"
+          ]
+        },
+        "scope": {
+          "enum": [
+            "vehicle",
+            "out_the_door",
+            "unknown"
+          ]
+        },
+        "source": {
+          "const": "contributed"
+        },
+        "verification": {
+          "const": "unverified"
+        },
+        "mileage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000000
+        },
+        "zip": {
+          "type": "string",
+          "pattern": "^[0-9]{5}$"
+        },
+        "sellerType": {
+          "enum": [
+            "dealer",
+            "private",
+            "other"
+          ]
+        },
+        "listingUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 500,
+          "pattern": "^https://[^/?#]+(?:/[^?#]*)?$"
+        }
+      }
+    },
+    "privateObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "id",
+        "observedAt",
+        "year",
+        "make",
+        "model",
+        "condition",
+        "priceCents",
+        "type",
+        "scope",
+        "source",
+        "verification",
+        "interest"
+      ],
+      "properties": {
+        "make": {
+          "type": "string",
+          "maxLength": 70,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*\\S[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "model": {
+          "type": "string",
+          "maxLength": 90,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*\\S[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "trim": {
+          "type": "string",
+          "maxLength": 90,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "powertrain": {
+          "type": "string",
+          "maxLength": 60,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "drivetrain": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "nickname": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "vehicleNotes": {
+          "type": "string",
+          "maxLength": 500,
+          "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u202a-\\u202e\\u2066-\\u2069]*$"
+        },
+        "catalogId": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,99}$"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d\\.\\d{3}Z$"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1886,
+          "description": "Runtime maximum is current UTC year plus two."
+        },
+        "priceCents": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "condition": {
+          "enum": [
+            "new",
+            "used"
+          ]
+        },
+        "type": {
+          "enum": [
+            "asking",
+            "quote",
+            "purchase"
+          ]
+        },
+        "scope": {
+          "enum": [
+            "vehicle",
+            "out_the_door",
+            "unknown"
+          ]
+        },
+        "source": {
+          "const": "contributed"
+        },
+        "verification": {
+          "const": "unverified"
+        },
+        "mileage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000000
+        },
+        "zip": {
+          "type": "string",
+          "pattern": "^[0-9]{5}$"
+        },
+        "sellerType": {
+          "enum": [
+            "dealer",
+            "private",
+            "other"
+          ]
+        },
+        "listingUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 500,
+          "pattern": "^https://"
+        },
+        "privateNotes": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "interest": {
+          "enum": [
+            "GOOD",
+            "POSSIBLE",
+            "DON’T THINK SO"
+          ]
+        }
+      }
+    }
+  }
+}
