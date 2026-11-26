@@ -3,7 +3,7 @@ import { results } from './results.mjs';
 import { indexPricing, priceConditions } from './vehicle-pricing.mjs';
 import { pilotDefaults } from './pilot-cost.mjs';
 
-export function recommendPilot(profile, catalog, { year, limit, pricing, pricedOnly = false }) {
+export function recommendPilot(profile, catalog, { asOf = new Date(), year = asOf.getFullYear(), limit, pricing, pricedOnly = false }) {
   const buyer = normalize(profile);
   const defaults = pilotDefaults(profile);
   const indexed = indexPricing(pricing);
@@ -23,42 +23,74 @@ export function recommendPilot(profile, catalog, { year, limit, pricing, pricedO
     electricPrice: defaults.electricPrice,
   })]));
 
+  const preferredCondition = { 'Prefer new': 'new', 'Prefer used': 'used' }[buyer.condition];
+  const families = new Map(catalog.vehicles.map(({ id, make, model }) => {
+    // EPA model labels mix family, drivetrain, trim, and battery variants.
+    const namedFamily = model.match(/^(?:Accord|Altima|ARIYA|bZ Woodland|bZ4X|bZ|Civic|EV6|EV9|Ioniq [569]|LEAF|Prius|Sentra)(?=\s|$)/i)?.[0];
+    const family = namedFamily ??
+      model.replace(/\s+(?:AWD|FWD|RWD|2WD|4WD|HEV|PHEV|Hybrid|Plug-in Hybrid|Electric|Blue|Eco)(?:\s.*)?$/i, '');
+    return [id, `${make} ${family.toLowerCase()}`];
+  }));
+  const fitsBody = vehicle => Number(buyer.body.includes(vehicle.body));
+  const conditionFit = vehicle => {
+    if (!preferredCondition || vehicle.condition == null) return 0;
+    return vehicle.condition === preferredCondition ? 1 : -1;
+  };
+  const compareFit = (a, b) =>
+    a.unknown.length - b.unknown.length ||
+    conditionFit(vehicles.get(b.id)) - conditionFit(vehicles.get(a.id)) ||
+    fitsBody(vehicles.get(b.id)) - fitsBody(vehicles.get(a.id)) ||
+    b.matched.length - a.matched.length ||
+    a.missing.length - b.missing.length;
+  const compareCost = (a, b) => compareEnergy
+    ? (energy.get(a.id) ?? Infinity) - (energy.get(b.id) ?? Infinity) || 0
+    : 0;
+  const compareSuitability = (a, b) => compareFit(a, b) || compareCost(a, b);
+
   function orderCandidates(rows) {
-    const group = new Map();
-    for (const row of rows) {
-      const vehicle = vehicles.get(row.id);
-      const family = vehicle.model.replace(/\s+(?:AWD|FWD|RWD|2WD|4WD|Blue|Eco)$/i, '');
-      group.set(row.id, [vehicle.make, family].join(' '));
-    }
-    const selected = new Set();
     const prioritized = [];
+    const usedFamilies = new Set();
     for (const status of ['eligible', 'conditional']) {
-      const tier = rows.filter(row => row.status === status);
-      tier.sort((a, b) => a.unknown.length - b.unknown.length ||
-        (compareEnergy ? (energy.get(a.id) ?? Infinity) - (energy.get(b.id) ?? Infinity) || 0 : 0) ||
-        vehicles.get(b.id).year - vehicles.get(a.id).year || a.id.localeCompare(b.id));
-      const unique = [], alternatives = [];
-      for (const row of tier) {
-        const family = group.get(row.id);
-        if (selected.has(family)) alternatives.push(row);
-        else {
-          unique.push(row);
-          selected.add(family);
+      const ranked = rows.filter(row => row.status === status).sort((a, b) =>
+        compareSuitability(a, b) || a.id.localeCompare(b.id));
+      const yearsShown = new Map();
+      const yearCount = row => yearsShown.get(vehicles.get(row.id).year) ?? 0;
+      const take = row => {
+        const modelYear = vehicles.get(row.id).year;
+        yearsShown.set(modelYear, yearCount(row) + 1);
+        usedFamilies.add(families.get(row.id));
+        prioritized.push(row);
+      };
+
+      // Prefer distinct families within each fit level. Efficiency orders that
+      // level when requested. Year variety resolves ties at the same cost.
+      for (let start = 0; start < ranked.length;) {
+        let end = start + 1;
+        while (end < ranked.length && !compareFit(ranked[start], ranked[end])) end++;
+        const remaining = ranked.slice(start, end);
+        const representedPower = new Set();
+        const takeBest = predicate => {
+          let best = -1;
+          for (let i = 0; i < remaining.length; i++) {
+            const row = remaining[i];
+            if (best >= 0 && compareCost(row, remaining[best]) > 0) break;
+            if (predicate(row) && (best < 0 || yearCount(row) < yearCount(remaining[best]))) best = i;
+          }
+          if (best < 0) return false;
+          const [row] = remaining.splice(best, 1);
+          take(row);
+          representedPower.add(vehicles.get(row.id).power);
+          return true;
+        };
+        const freshFamily = row => !usedFamilies.has(families.get(row.id));
+        if (buyer.power.length > 1) {
+          while (representedPower.size < buyer.power.length && takeBest(row =>
+            freshFamily(row) && !representedPower.has(vehicles.get(row.id).power))) { /* One per selected powertrain. */ }
         }
+        while (takeBest(freshFamily)) { /* One per family before alternatives. */ }
+        while (takeBest(() => true)) { /* Include remaining configurations for pagination. */ }
+        start = end;
       }
-      const kinds = new Set();
-      const front = [];
-      const first = unique[0];
-      if (buyer.power.length > 1 && first) {
-        for (const row of unique) {
-          const power = vehicles.get(row.id).power;
-          if (row.unknown.length !== first.unknown.length || kinds.has(power)) continue;
-          front.push(row);
-          kinds.add(power);
-        }
-      }
-      const frontIds = new Set(front.map(row => row.id));
-      prioritized.push(...front, ...unique.filter(row => !frontIds.has(row.id)), ...alternatives);
     }
     return prioritized;
   }
@@ -67,12 +99,12 @@ export function recommendPilot(profile, catalog, { year, limit, pricing, pricedO
     const { records, conditions } = priceByVehicle.get(vehicle.id);
     return records[conditions[0]] != null;
   }) : catalog.vehicles;
-  const view = results(buyer, candidates, year, { limit, orderCandidates });
+  const view = results(buyer, candidates, year, { limit, orderCandidates, asOf });
   return {
     ...view,
     defaults,
     compareEnergy,
-    budget: { ceiling: buyer.budget, flex: buyer.flex, allIn: buyer.allIn, exclusive: buyer.budgetExclusive },
+    budget: { mode: buyer.budgetMode, ceiling: buyer.budget, flex: buyer.flex, allIn: buyer.allIn, exclusive: buyer.budgetExclusive },
     items: view.items.map(item => ({
       ...item,
       classification: item.explanation.status === 'eligible' ? 'Confirmed match' : 'Potential match',

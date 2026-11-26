@@ -15,3 +15,7 @@ The pilot uses a limited U.S. vehicle catalog. Sourced asking prices and MSRP ar
 Use `staging` for acceptance testing and `main` for approved release packages. To serve an approved package locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/`. Keep personal buyer responses out of this public repository.
 
 The v0.3 package was accepted on a physical iPad in Safari. [Staging acceptance record](https://github.com/dgbaer4/car-shopping-guide/issues/11#issuecomment-7181409833)
+
+## v0.4 integration preview
+
+The integration adds a local Shopping Tracker, recommendation improvements and optional private price collection. The default package runs without an intake service. See the [v0.4 integration report](docs/integration-report-v0.4.md), [private collection setup](docs/v0.4-owner-google-setup.md) and [roadmap](docs/future-development-backlog.md).
