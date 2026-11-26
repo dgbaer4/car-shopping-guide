@@ -31,6 +31,6 @@ The UAT branch owns the body-style imagery and assumptions CSS in `index.html`, 
 | UAT-002 | Aligned numeric inputs with wrapping labels across phone, tablet and desktop | Verified in packaged Chromium |
 | UAT-003 | Independent financial details preserve quotes, calculation state and unapplied assumptions | Verified in packaged Chromium |
 | UAT-004 | Sourced ranges, condition/date/basis disclosure and quote overrides replace the budget-derived price default | Verified in packaged Chromium |
-| UAT-005 | Accurate match counts and linked category shortlists above detailed cards, with financial assumptions below | Verified in packaged Chromium for zero confirmed, mixed, confirmed-only, and zero total matches |
+| UAT-005 | Accurate match counts and linked category shortlists above detailed cards, with financial assumptions below | Verified in packaged Chromium for all four match scenarios and on live staging at both tablet orientations. Physical iPad/Safari acceptance remains open. |
 
 The complete commuter scenario passed at five viewport sizes, including tablet portrait and landscape. The default five retain suitable unpriced vehicles. The optional priced view supports like-for-like cash comparisons where evidence exists. All four corrections were also exercised on live staging in tablet-size Chromium. Final physical iPad/Safari acceptance remains open. [Staging preview](https://dgbaer4.github.io/car-shopping-guide/) [Integration report](integration-report-v0.3.md) · [Pricing coverage and limitations](vehicle-pricing-v1.md)
