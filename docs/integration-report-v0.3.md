@@ -2,6 +2,28 @@
 
 **2026-11-25 · CSG-I08 · Car Shopping Guide v0.3 — Pilot Preview**
 
+## CSG-I11 final pilot integration · 2026-11-26
+
+| Integrated change | Commit |
+| --- | --- |
+| [PR #7](https://github.com/dgbaer4/car-shopping-guide/pull/7), UAT interface corrections | `2c54565016a8ba4f332b2494d5bc1d1d83e9cc83` |
+| [PR #8](https://github.com/dgbaer4/car-shopping-guide/pull/8), sourced pricing and final conflict resolution | `879efe0bd833d6de23443ee66ed24af9f323dd6d` |
+
+The merge retained the UAT body images and aligned input grid in `index.html`, connected the condition-specific price and seller quote controls to each card’s independent financial disclosure in `engine/browser-results.mjs`, and combined the seven WebPs with the pricing JSON and module in `tools/build_pilot_release.py`. Price edits and applied or unapplied assumptions persist across disclosures, pagination and switching comparison views within the same profile.
+
+Default recommendations are independent of price coverage. The initial five use verified constraints, verification gaps, model variety and relevant efficiency evidence. The Walnut Creek–Moraga shortlist included a priced EV and unpriced hybrid and gasoline configurations. **Compare matches with sourced prices** is an optional view that shows candidates with pricing for the preferred purchase condition. Sourced estimates never confirm budget fit. User-entered seller quotes may confirm the applicable price scope while other unknown requirements stay unverified.
+
+Pricing cards distinguish advertised asking prices and MSRP, include the source, date, and range, and disclose that estimates exclude individual mileage, ZIP code, trim and condition adjustments. Completed transaction data are unavailable. Unpriced candidates show independent operating estimates where supported and leave purchase-dependent amounts unavailable until the shopper enters a price. The packaged site excludes development safety files and the recommendation engine receives no unapproved ratings.
+
+| Check | Observed result |
+| --- | --- |
+| Python and Node regressions | 46 Python tests and 33 Node checks passed across eight Node files. Default result IDs were identical with and without the pricing evidence. |
+| Schema, input verification and regeneration | Catalog and pricing assets validated and reproduced byte for byte. The retained ForCar slice matched the pinned upstream download. Two allowed static release packages were identical and each contained seven WebPs with no NHTSA claim fields or sources. |
+| Packaged browser | The complete commuter profile passed in Chromium at 390×844, 844×390, 768×1024, 1024×768 and 1280×900. Verified all seven decoded images, aligned inputs, initial five, the optional priced view, independent keyboard-accessible disclosure, quote and condition switching, ten-card expansion, draft and applied values, export and same-origin requests. |
+| Priced and unpriced estimates | The unpriced Ioniq Blue had no purchase default. In the priced view, the used Ioniq 6, Prius and Versa used sourced estimates. Switching the Prius to new left purchase-dependent totals unavailable. A $21,500 override plus 10% tax and $500 fees yielded $24,150 at purchase. Applying $750 fees updated that to $24,400. |
+
+**Remaining release gate:** final acceptance on a physical iPad in Safari. Pricing evidence covers 118 of 1,406 EPA configurations (8.4%). Broader cohort coverage, representative quantiles and completed retail transactions are deferred development work. [UAT defects](pilot-uat-ui.md) · [Pricing coverage](vehicle-pricing-v1.md) · [Backlog](future-development-backlog.md)
+
 ## Cash-purchase pilot amendment
 
 The project owner authorized the cash-purchase MVP and staging deployment. The tested pilot implementation is `0a710c9fddf49e264150c9c3fa02be4f9a25d324`. The pilot removes the payment-method question and financing presentation, while the development engine retains its financing logic and regression coverage.

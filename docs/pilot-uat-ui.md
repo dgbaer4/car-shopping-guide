@@ -21,3 +21,15 @@ The browser checks used the Walnut Creek saved-profile fixture. They verified lo
 ## File ownership for integration
 
 The UAT branch owns the body-style imagery and assumptions CSS in `index.html`, disclosure markup in `engine/browser-results.mjs`, the WebP assets, and their entries in the release asset allowlist in `tools/build_pilot_release.py`. The pricing work owns calculators, pricing inputs and data, and recommendation behavior. As of verification, no published pricing branch or PR was available for comparison. If pricing changes the shared renderer or release allowlist, merge those files by section and rerun the packaged browser checks.
+
+
+## CSG-I11 defect register · 2026-11-26
+
+| Defect | Integrated correction | Status |
+| --- | --- | --- |
+| UAT-001 | Seven local vehicle images, with accessible body-style names and selection | Verified in packaged Chromium |
+| UAT-002 | Aligned numeric inputs with wrapping labels across phone, tablet and desktop | Verified in packaged Chromium |
+| UAT-003 | Independent financial details preserve quotes, calculation state and unapplied assumptions | Verified in packaged Chromium |
+| UAT-004 | Sourced ranges, condition/date/basis disclosure and quote overrides replace the budget-derived price default | Verified in packaged Chromium |
+
+The complete commuter scenario passed at five viewport sizes, including tablet portrait and landscape. The default five retain suitable unpriced vehicles. The optional priced view supports like-for-like cash comparisons where evidence exists. All four corrections await final physical iPad/Safari acceptance. [Integration report](integration-report-v0.3.md) · [Pricing coverage and limitations](vehicle-pricing-v1.md)
