@@ -1,5 +1,6 @@
 import { recommendPilot } from './pilot.mjs';
 import { cashEstimate } from './pilot-cost.mjs';
+import { assessBudget, priceDisclosure } from './vehicle-pricing.mjs';
 
 let inputs;
 async function readJson(path) {
@@ -8,16 +9,17 @@ async function readJson(path) {
   return response.json();
 }
 
-export async function loadResults(profile, limit) {
+export async function loadResults(profile, limit, pricedOnly) {
   inputs ??= Promise.all([
     readJson('../data/vehicle-catalog-v0.3-pilot.json'),
     readJson('../data/development/equipment/vehicle-equipment.v1.json'),
+    readJson('../data/vehicle-pricing.v1.json'),
   ]).catch(error => {
     inputs = undefined;
     throw error;
   });
-  const [catalog, equipment] = await inputs;
-  const view = recommendPilot(profile, catalog, { year: new Date().getFullYear(), limit });
+  const [catalog, equipment, pricing] = await inputs;
+  const view = recommendPilot(profile, catalog, { year: new Date().getFullYear(), limit, pricing, pricedOnly });
   const trims = new Map(equipment.trims.map(trim => [trim.id, trim]));
   const requested = Object.keys(profile.features);
   for (const item of view.items) {
@@ -38,7 +40,6 @@ export async function loadResults(profile, limit) {
 const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 const money = value => value == null ? 'Unavailable' : currency.format(value);
 const fields = [
-  ['purchasePrice', 'Default vehicle price ($)'],
   ['salesTaxRate', 'Sales tax estimate (%)', 100],
   ['fees', 'One-time fees excluding annual registration ($)'],
   ['annualMiles', 'Miles per year'],
@@ -71,20 +72,8 @@ function numberInput(parent, [key, caption, max, min = 0, step = 'any'], value) 
   return input;
 }
 
-function budgetMessage(budget, cost) {
-  const { ceiling, flex, allIn, exclusive } = budget;
-  if (ceiling == null || allIn == null) return '';
-  const amount = allIn ? cost.atPurchase : cost.purchasePrice;
-  if (amount == null) return '';
-  const measure = allIn ? 'cash at purchase' : 'vehicle price';
-  const within = cap => exclusive ? amount < cap : amount <= cap;
-  if (within(ceiling)) return `Estimated ${measure} is within your preferred budget. Verify the seller quote.`;
-  if (flex && within(ceiling + flex)) return `Estimated ${measure} uses your stated budget flexibility. Verify the seller quote.`;
-  return `Estimated ${measure} exceeds your preferred budget${flex ? ' plus flexibility' : ''}. Update it with a seller quote.`;
-}
-
-function renderEstimate(list, details, item, assumptions, quotePrice, budget) {
-  const cost = cashEstimate(item.vehicle, assumptions, quotePrice);
+function renderEstimate(list, details, item, assumptions, purchasePrice) {
+  const cost = cashEstimate(item.vehicle, assumptions, purchasePrice);
   list.replaceChildren();
   details.replaceChildren();
   const breakdown = [
@@ -113,11 +102,13 @@ function renderEstimate(list, details, item, assumptions, quotePrice, budget) {
     append(details, 'dd', total == null ? 'Unavailable with the current inputs and EPA data.'
       : `${money(total)} over ${years} years · ${money(total / years)}/year · ${money(total / years / 12)} monthly equivalent`);
   }
-  return budgetMessage(budget, cost);
 }
 
 export function renderResults(container, view, session) {
+  session.conditions ??= new Map();
+  session.expandedFinancials ??= new Set();
   session.assumptions ??= { ...view.defaults };
+  session.assumptionDraft ??= {};
   container.replaceChildren();
   append(container, 'h1', 'Vehicle recommendations');
   const confirmed = view.totalCandidates - view.conditionalCount;
@@ -129,12 +120,18 @@ export function renderResults(container, view, session) {
   append(container, 'p', 'Confirmed matches satisfy the evaluated requirements. Potential matches still need listing or configuration details verified. Safety ratings are unavailable in the pilot.');
   if (view.compareEnergy) append(container, 'p', 'Within each match group, the shortlist prioritizes fewer items to verify and lower estimated energy costs using the starting assumptions. Editing costs updates the comparisons below.');
   append(container, 'p', 'Cash expenditure includes the purchase and running costs. Net ownership cost subtracts estimated resale value. Both cover the same ownership period.');
+  append(container, 'p', priceDisclosure + ' Asking prices and MSRP are reference prices. Completed transaction prices are unavailable.');
   const form = append(container, 'form');
   append(form, 'h2', 'Editable cash-purchase assumptions');
-  append(form, 'p', 'Starting values are planning assumptions. The default price uses your budget when available and applies to every vehicle until you enter a vehicle-specific price. Replace tax, fees, running costs and resale assumptions with local figures or quotes.');
+  append(form, 'p', 'Tax, fees, running costs and resale start with editable planning assumptions. Each vehicle uses its sourced central price when available. Enter a vehicle-specific price to compare a quote or an alternative scenario.');
   const grid = append(form, 'div');
   grid.className = 'cost-grid';
-  const inputs = fields.map(field => numberInput(grid, field, session.assumptions[field[0]]));
+  const inputs = fields.map(field => {
+    const key = field[0];
+    const input = numberInput(grid, field, session.assumptionDraft[key] ?? session.assumptions[key]);
+    input.addEventListener('input', () => { session.assumptionDraft[key] = input.value; });
+    return input;
+  });
   const apply = append(form, 'button', 'Update cost estimates');
   apply.type = 'submit';
   const status = append(form, 'p');
@@ -174,8 +171,22 @@ export function renderResults(container, view, session) {
 
     const estimate = append(card, 'div');
     estimate.className = 'estimate';
-    const price = numberInput(estimate, ['vehiclePrice', 'Estimated vehicle price for this candidate ($)'], session.prices.get(item.id));
-    price.placeholder = String(session.assumptions.purchasePrice ?? '');
+    const conditionLabel = append(estimate, 'label', 'Purchase condition');
+    const condition = append(conditionLabel, 'select');
+    condition.setAttribute('aria-label', 'Purchase condition');
+    for (const value of item.pricing.conditions) {
+      const option = append(condition, 'option', value === 'new' ? 'New' : 'Used');
+      option.value = value;
+    }
+    condition.value = session.conditions.get(item.id) ?? item.pricing.conditions[0];
+    const evidence = append(estimate, 'p');
+    const price = numberInput(estimate, ['vehiclePrice', 'Vehicle purchase price override ($)']);
+    const quoteLabel = append(estimate, 'label', 'Vehicle price is confirmed by the seller ');
+    const confirmed = append(quoteLabel, 'input');
+    confirmed.type = 'checkbox';
+    const allIn = view.budget.allIn
+      ? numberInput(estimate, ['outTheDoor', 'Confirmed out-the-door seller quote ($), for budget comparison'])
+      : null;
     const list = append(estimate, 'dl');
     list.className = 'estimates';
     const showFinancials = 'Show more financial information';
@@ -184,23 +195,73 @@ export function renderResults(container, view, session) {
     const details = append(estimate, 'dl');
     details.className = 'estimates';
     details.id = `financial-details-${cards.length}`;
-    details.hidden = true;
-    toggle.setAttribute('aria-controls', details.id);
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.addEventListener('click', () => {
-      details.hidden = !details.hidden;
+    const syncDisclosure = () => {
+      details.hidden = !session.expandedFinancials.has(item.id);
       toggle.setAttribute('aria-expanded', String(!details.hidden));
       toggle.textContent = details.hidden ? showFinancials : 'Hide financial information';
-    });
-    const budget = append(estimate, 'p');
-    const update = () => {
-      price.placeholder = String(session.assumptions.purchasePrice ?? '');
-      budget.textContent = renderEstimate(list, details, item, session.assumptions, session.prices.get(item.id), view.budget);
     };
+    toggle.setAttribute('aria-controls', details.id);
+    toggle.addEventListener('click', () => {
+      if (details.hidden) session.expandedFinancials.add(item.id);
+      else session.expandedFinancials.delete(item.id);
+      syncDisclosure();
+    });
+    syncDisclosure();
+    const budget = append(estimate, 'p');
+    budget.setAttribute('aria-live', 'polite');
+    const key = () => `${item.id}/${condition.value}`;
+    const update = () => {
+      const input = session.prices.get(key()) ?? {};
+      const record = item.pricing.records[condition.value];
+      price.value = input.price ?? '';
+      price.placeholder = record?.central ?? '';
+      confirmed.checked = input.confirmed ?? false;
+      if (allIn) allIn.value = input.outTheDoor ?? '';
+      evidence.replaceChildren();
+      if (record) {
+        const basis = {
+          asking: 'Advertised asking prices, observed low–high and mean',
+          msrp: 'Manufacturer MSRP reference, low–high and median across published grades',
+          transaction: 'Reported transaction prices, low–high and median',
+        };
+        evidence.append(`${basis[record.priceBasis]}: ${money(record.low)}–${money(record.high)} · central ${money(record.central)} · ${record.referenceDate}. `);
+        const sample = record.priceBasis === 'msrp' ? 'grades' : 'observations';
+        if (record.sampleSize != null) evidence.append(`${record.sampleSize} ${sample}. `);
+        if (record.confidence === 'limited') evidence.append('Limited listing sample. ');
+        evidence.append(record.priceBasis === 'msrp'
+          ? 'MSRP excludes destination. Add it to one-time fees if applicable. '
+          : 'Observed extremes can differ from typical asking prices. ');
+        const source = append(evidence, 'a', record.attribution.name);
+        source.href = record.attribution.url;
+        if (record.attribution.licenseUrl) {
+          evidence.append(' · ');
+          append(evidence, 'a', record.attribution.license).href = record.attribution.licenseUrl;
+        }
+      } else {
+        evidence.textContent = 'Sourced pricing is unavailable for this model year and condition. Enter a price to estimate acquisition and ownership costs.';
+      }
+      renderEstimate(list, details, item, session.assumptions, input.price ?? record?.central ?? null);
+      budget.textContent = assessBudget(view.budget, record, session.assumptions, input);
+    };
+    condition.addEventListener('change', () => {
+      session.conditions.set(item.id, condition.value);
+      update();
+    });
     price.addEventListener('change', () => {
       if (!price.reportValidity()) return;
-      if (price.value === '') session.prices.delete(item.id);
-      else session.prices.set(item.id, price.valueAsNumber);
+      const input = session.prices.get(key()) ?? {};
+      session.prices.set(key(), { ...input, price: price.value === '' ? null : price.valueAsNumber, confirmed: false });
+      update();
+    });
+    confirmed.addEventListener('change', () => {
+      const input = session.prices.get(key()) ?? {};
+      session.prices.set(key(), { ...input, confirmed: confirmed.checked && input.price != null });
+      update();
+    });
+    allIn?.addEventListener('change', () => {
+      if (!allIn.reportValidity()) return;
+      const input = session.prices.get(key()) ?? {};
+      session.prices.set(key(), { ...input, outTheDoor: allIn.value === '' ? null : allIn.valueAsNumber });
       update();
     });
     cards.push(update);

@@ -1,0 +1,22 @@
+[
+  ["Toyota", "Prius", "Prius(?: AWD(?: XLE/LTD)?| Eco| XLE/LTD)?", "Traditional hybrid"],
+  ["Toyota", "Prius Prime", "Prius (?:Prime|PHEV)(?: SE)?", "Plug-in hybrid"],
+  ["Toyota", "Venza", "Venza AWD", "Traditional hybrid"],
+  ["Toyota", "bZ4X", "bZ4X(?: .*)?", "Fully electric"],
+  ["Honda", "HR-V", "HR-V [AF]WD", "Gasoline"],
+  ["Honda", "Passport", "Passport (?:AWD(?: Trailsport)?|FWD)", "Gasoline"],
+  ["Honda", "Ridgeline", "Ridgeline AWD(?: TrailSport)?", "Gasoline"],
+  ["Honda", "Prologue", "Prologue (?:AWD (?:Elite|Touring)|FWD)", "Fully electric"],
+  ["Hyundai", "Ioniq 5", "Ioniq 5 (?!N$|Robo taxi$).+", "Fully electric"],
+  ["Hyundai", "Ioniq 6", "Ioniq 6 .+", "Fully electric"],
+  ["Hyundai", "Venue", "Venue", "Gasoline"],
+  ["Kia", "EV6", "EV6 (?!AWD GT$).+", "Fully electric"],
+  ["Kia", "Forte", "Forte(?: FE)?", "Gasoline"],
+  ["Kia", "K4", "K4(?: 4DR w/ DMS| without DMS)?", "Gasoline"],
+  ["Kia", "Soul", "Soul(?: Eco dynamics)?", "Gasoline"],
+  ["Nissan", "Altima", "Altima(?: .*)?", "Gasoline"],
+  ["Nissan", "ARIYA", "ARIYA .+", "Fully electric"],
+  ["Nissan", "Leaf", "Leaf(?: .*)?", "Fully electric"],
+  ["Nissan", "Sentra", "Sentra(?: .*)?", "Gasoline"],
+  ["Nissan", "Versa", "Versa", "Gasoline"]
+]

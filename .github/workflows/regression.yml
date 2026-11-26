@@ -1,7 +1,7 @@
 name: Development regression tests
 on:
   push:
-    branches: [feature/v0.3-recommendation-engine, feature/v0.3-integration]
+    branches: [feature/v0.3-recommendation-engine, feature/v0.3-integration, feature/v0.3-vehicle-pricing]
   pull_request:
     branches: [feature/v0.3-recommendation-engine, feature/v0.3-integration]
 permissions:
@@ -24,8 +24,9 @@ jobs:
       - run: python -m pip install -r tools/requirements-equipment.txt
       - run: python -m unittest discover -s tests -p 'test_*.py'
       - name: Verify integration catalog regeneration
-        if: github.ref_name == 'feature/v0.3-integration' || github.base_ref == 'feature/v0.3-integration'
+        if: github.ref_name == 'feature/v0.3-integration' || github.ref_name == 'feature/v0.3-vehicle-pricing' || github.base_ref == 'feature/v0.3-integration'
         run: |
           python tools/build_integration_catalog.py "$RUNNER_TEMP/integration-catalog.json"
           cmp "$RUNNER_TEMP/integration-catalog.json" data/vehicle-catalog-v0.3-integration.json
           python tools/build_pilot_release.py
+          python tools/build_vehicle_pricing.py

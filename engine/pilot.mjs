@@ -1,10 +1,17 @@
 import { energyCost, normalize } from './recommendation.mjs';
 import { results } from './results.mjs';
+import { indexPricing, priceConditions } from './vehicle-pricing.mjs';
 import { pilotDefaults } from './pilot-cost.mjs';
 
-export function recommendPilot(profile, catalog, { year, limit }) {
+export function recommendPilot(profile, catalog, { year, limit, pricing, pricedOnly = false }) {
   const buyer = normalize(profile);
   const defaults = pilotDefaults(profile);
+  const indexed = indexPricing(pricing);
+  const priceByVehicle = new Map(catalog.vehicles.map(vehicle => {
+    const records = indexed.get(vehicle.id) ?? {};
+    const conditions = priceConditions(buyer, records);
+    return [vehicle.id, { records, conditions }];
+  }));
   const vehicles = new Map(catalog.vehicles.map(vehicle => [vehicle.id, vehicle]));
   const compareEnergy = buyer.priorities.includes('Operating costs');
   const energy = new Map(catalog.vehicles.map(vehicle => [vehicle.id, energyCost({
@@ -30,21 +37,37 @@ export function recommendPilot(profile, catalog, { year, limit }) {
       tier.sort((a, b) => a.unknown.length - b.unknown.length ||
         (compareEnergy ? (energy.get(a.id) ?? Infinity) - (energy.get(b.id) ?? Infinity) || 0 : 0) ||
         vehicles.get(b.id).year - vehicles.get(a.id).year || a.id.localeCompare(b.id));
-      const alternatives = [];
+      const unique = [], alternatives = [];
       for (const row of tier) {
         const family = group.get(row.id);
         if (selected.has(family)) alternatives.push(row);
         else {
-          prioritized.push(row);
+          unique.push(row);
           selected.add(family);
         }
       }
-      prioritized.push(...alternatives);
+      const kinds = new Set();
+      const front = [];
+      const first = unique[0];
+      if (buyer.power.length > 1 && first) {
+        for (const row of unique) {
+          const power = vehicles.get(row.id).power;
+          if (row.unknown.length !== first.unknown.length || kinds.has(power)) continue;
+          front.push(row);
+          kinds.add(power);
+        }
+      }
+      const frontIds = new Set(front.map(row => row.id));
+      prioritized.push(...front, ...unique.filter(row => !frontIds.has(row.id)), ...alternatives);
     }
     return prioritized;
   }
 
-  const view = results(buyer, catalog.vehicles, year, { limit, orderCandidates });
+  const candidates = pricedOnly ? catalog.vehicles.filter(vehicle => {
+    const { records, conditions } = priceByVehicle.get(vehicle.id);
+    return records[conditions[0]] != null;
+  }) : catalog.vehicles;
+  const view = results(buyer, candidates, year, { limit, orderCandidates });
   return {
     ...view,
     defaults,
@@ -54,6 +77,7 @@ export function recommendPilot(profile, catalog, { year, limit }) {
       ...item,
       classification: item.explanation.status === 'eligible' ? 'Confirmed match' : 'Potential match',
       vehicle: vehicles.get(item.id),
+      pricing: priceByVehicle.get(item.id),
     })),
   };
 }

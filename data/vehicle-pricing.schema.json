@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "US vehicle price evidence v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "referenceDate",
+    "currency",
+    "sources",
+    "records"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "referenceDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "url",
+          "license",
+          "changes"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "license": {
+            "type": "string"
+          },
+          "licenseUrl": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "changes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "make",
+          "model",
+          "year",
+          "condition",
+          "power",
+          "priceBasis",
+          "low",
+          "central",
+          "high",
+          "source",
+          "referenceDate",
+          "methodology",
+          "sampleSize",
+          "confidence",
+          "coverage",
+          "epaIds"
+        ],
+        "properties": {
+          "make": {
+            "enum": [
+              "Toyota",
+              "Honda",
+              "Hyundai",
+              "Kia",
+              "Nissan"
+            ]
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 2021,
+            "maximum": 2026
+          },
+          "condition": {
+            "enum": [
+              "new",
+              "used"
+            ]
+          },
+          "power": {
+            "enum": [
+              "Gasoline",
+              "Traditional hybrid",
+              "Plug-in hybrid",
+              "Fully electric"
+            ]
+          },
+          "priceBasis": {
+            "enum": [
+              "asking",
+              "msrp",
+              "transaction"
+            ]
+          },
+          "low": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "central": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "high": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "referenceDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "methodology": {
+            "enum": [
+              "observed-mean",
+              "grade-median",
+              "transaction-median"
+            ]
+          },
+          "sampleSize": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 2
+          },
+          "confidence": {
+            "enum": [
+              "moderate",
+              "limited",
+              "reference-only"
+            ]
+          },
+          "coverage": {
+            "const": "model-year-family"
+          },
+          "epaIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^epa-[0-9]+$"
+            }
+          }
+        }
+      }
+    }
+  }
+}
