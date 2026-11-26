@@ -25,7 +25,7 @@ export async function loadResults(profile, limit = PAGE_SIZE, pricedOnly, target
   // The cross-category shortlists need the full ranked order, even when
   // the first page is filled by confirmed matches.
   const view = recommendPilot(profile, catalog, {
-    year: new Date().getFullYear(), limit: Math.max(1, catalog.vehicles.length), pricing, pricedOnly,
+    limit: Math.max(1, catalog.vehicles.length), pricing, pricedOnly,
   });
   const ranked = view.items;
   const groups = [

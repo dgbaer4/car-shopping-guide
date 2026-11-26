@@ -30,12 +30,31 @@ const DICTIONARY = {
   vehicleNotes: 'Optional vehicle-only text, up to 500 characters. Review for identifiers.',
   nickname: 'Optional unverified pseudonym, up to 40 characters. Do not publish by default.',
   Received_At_UTC: 'Server receipt time in UTC.',
-  Consent_Version: 'Intake consent text version (1).',
+  Consent_Version: 'Intake consent text version (2 for direct sharing).',
   Payload_SHA256: 'Hex digest of normalized submitted JSON for idempotent retries.',
 };
 
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile('Intake').setTitle('Car Shopping Guide contribution')
+  return renderIntake_('');
+}
+
+function doPost(event) {
+  const inputs = event?.parameters?.payload;
+  if (inputs?.length === 1 && typeof inputs[0] === 'string' && inputs[0].length <= 8000) {
+    try {
+      const records = decodeObservations_(inputs[0], { shared: true });
+      if (records.length === 1) return renderIntake_(encodeObservations_(records, { shared: true }));
+    } catch {
+      // Invalid handoffs render the no-observation screen without echoing user input.
+    }
+  }
+  return renderIntake_('');
+}
+
+function renderIntake_(payload) {
+  const template = HtmlService.createTemplateFromFile('Intake');
+  template.payload = payload;
+  return template.evaluate().setTitle('Car Shopping Guide contribution')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1');
 }
 
@@ -77,59 +96,142 @@ function initializeCollection_() {
   if (dictionary.getLastRow() === 1) dictionary.getRange(2, 1, rows.length, 2).setValues(rows);
 }
 
-function submitObservation(payload, inviteCode, consent) {
-  if (consent !== true) return { status: 'rejected', message: 'Consent is required.' };
-  if (typeof payload !== 'string' || payload.length > 8000
-      || typeof inviteCode !== 'string' || !/^[a-f0-9]{48}$/.test(inviteCode)) {
-    return { status: 'rejected', message: 'Check the payload size and pilot invite code.' };
-  }
-  const properties = PropertiesService.getScriptProperties();
-  if (!matchesDigest_(digest_(inviteCode), properties.getProperty('INVITE_SHA256'))) {
-    return { status: 'rejected', message: 'Pilot invite code is invalid or collection is closed.' };
-  }
-  let record;
-  try {
-    const records = decodeObservations_(payload, { shared: true });
-    if (records.length !== 1) throw Error('Submit one observation at a time.');
-    record = records[0];
-  } catch {
-    return { status: 'rejected', message: 'Invalid observation. Use the sanitized export from the guide.' };
-  }
+const HOUR = 3600000;
+const DAY = 24 * HOUR;
+const HEX_SECRET = /^[a-f0-9]{64}$/;
+const DEVICE_TOKEN = /^([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\.[a-f0-9]{64}$/;
+const CLOSED = { status: 'closed', message: 'Shared collection is paused. Your local tracker is still available.' };
+const BUSY = { status: 'retry', message: 'Collection is busy. Retry the same observation.' };
+const UNAUTHORIZED = { status: 'unauthorized', message: 'Device authorization is unavailable. Enroll again or contact the project owner.' };
 
-  const json = JSON.stringify(record);
-  const fingerprint = digest_(json);
+function hmac_(message, key) {
+  // The hex string itself is the HMAC key. The owner helper uses the same UTF-8 encoding.
+  return Utilities.computeHmacSha256Signature(message, key, Utilities.Charset.UTF_8)
+    .map(byte => (byte & 255).toString(16).padStart(2, '0')).join('');
+}
+
+function readState_(properties, key) {
+  return JSON.parse(properties.getProperty(key) || 'null');
+}
+
+function enrollDevice(invitation, remember, nonce) {
+  if (typeof invitation !== 'string' || invitation.length > 40 || typeof nonce !== 'string' || !HEX_SECRET.test(nonce)) {
+    return { status: 'rejected', message: 'Enter the invitation supplied by the project owner.' };
+  }
   const lock = LockService.getScriptLock();
-  if (!lock.tryLock(4000)) return { status: 'retry', message: 'Collection is busy. Retry the same record.' };
+  if (!lock.tryLock(500)) return BUSY;
   try {
-    // Recheck revocation after waiting for the lock.
-    if (!matchesDigest_(digest_(inviteCode), properties.getProperty('INVITE_SHA256'))) {
-      return { status: 'rejected', message: 'Pilot invite code is invalid or collection is closed.' };
+    const properties = PropertiesService.getScriptProperties();
+    if (properties.getProperty('INTAKE_OPEN') !== 'true') return CLOSED;
+    const key = properties.getProperty('TOKEN_KEY');
+    const invite = readState_(properties, 'INVITATION');
+    const now = Date.now();
+    if (!HEX_SECRET.test(key || '') || !invite || !HEX_SECRET.test(invite.digest)
+        || !(Date.parse(invite.expiresAt) > now)) {
+      return { status: 'rejected', message: 'Enrollment is closed. Ask the project owner for a current invitation.' };
     }
+    const hour = Math.floor(now / HOUR);
+    const previous = readState_(properties, 'ENROLLMENT_LIMITS');
+    const counts = previous?.invitation === invite.digest ? previous
+      : { invitation: invite.digest, failures: 0, enrolled: 0 };
+    if (counts.hour !== hour) Object.assign(counts, { hour, attempts: 0 });
+    if (counts.attempts >= 8 || counts.failures >= 24 || counts.enrolled >= 30) {
+      return { status: 'limited', message: 'Enrollment is temporarily unavailable. Try later or contact the project owner.' };
+    }
+    counts.attempts++;
+    const supplied = hmac_('invite:' + invitation.trim().toLowerCase(), key);
+    if (!matchesDigest_(supplied, invite.digest)) {
+      counts.failures++;
+      properties.setProperty('ENROLLMENT_LIMITS', JSON.stringify(counts));
+      return { status: 'rejected', message: 'Invitation was not accepted. Check with the project owner.' };
+    }
+    counts.enrolled++;
+    properties.setProperty('ENROLLMENT_LIMITS', JSON.stringify(counts));
+    const id = Utilities.getUuid().toLowerCase();
+    const token = id + '.' + hmac_('device:' + id + ':' + nonce, key);
+    const remembered = remember === true;
+    const expiresAt = now + (remembered ? 30 * DAY : 12 * HOUR);
+    properties.setProperty('DEVICE_' + id, JSON.stringify({
+      digest: digest_(token), remembered, expiresAt, hardExpiry: now + (remembered ? 90 * DAY : 12 * HOUR),
+    }));
+    return { status: 'enrolled', id, token, expiresAt };
+  } catch {
+    return { status: 'retry', message: 'Enrollment could not be confirmed. Try again or contact the project owner.' };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function submitObservation(payload, token, consent) {
+  if (consent !== true) return { status: 'rejected', message: 'Consent is required.' };
+  if (typeof payload !== 'string' || payload.length > 8000) {
+    return { status: 'rejected', message: 'Check the contribution size.' };
+  }
+  const match = typeof token === 'string' && DEVICE_TOKEN.exec(token);
+  if (!match) return UNAUTHORIZED;
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(1000)) return BUSY;
+  try {
+    const properties = PropertiesService.getScriptProperties();
+    if (properties.getProperty('INTAKE_OPEN') !== 'true') return CLOSED;
+    const id = match[1];
+    const deviceKey = 'DEVICE_' + id;
+    const device = readState_(properties, deviceKey);
+    const now = Date.now();
+    if (!device || properties.getProperty('REVOKED_' + id) || !(device.expiresAt > now)
+        || !(device.hardExpiry > now) || !matchesDigest_(digest_(token), device.digest)) return UNAUTHORIZED;
+    const hour = Math.floor(now / HOUR);
+    if (device.hour !== hour) Object.assign(device, { hour, attempts: 0 });
+    if (device.attempts >= 20) return { status: 'limited', message: 'Device request limit reached. Retry later.' };
+    device.attempts++;
+    properties.setProperty(deviceKey, JSON.stringify(device));
+
+    let record;
+    try {
+      const records = decodeObservations_(payload, { shared: true });
+      if (records.length !== 1) throw Error('Submit one observation at a time.');
+      record = records[0];
+    } catch {
+      return { status: 'rejected', message: 'Invalid observation. Return to the tracker and review the contribution.' };
+    }
+
+    const json = JSON.stringify(record);
+    const fingerprint = digest_(json);
     const sheet = getCollection_().getSheetByName('Raw_Observations');
     if (!sheet || sheet.getRange(1, 1).getValue() !== 'Observation_ID') throw Error('Intake setup missing.');
+    function receipt(status, receivedAt) {
+      if (device.remembered) {
+        device.expiresAt = Math.min(now + 30 * DAY, device.hardExpiry);
+        properties.setProperty(deviceKey, JSON.stringify(device));
+      }
+      return { status, id: record.id, receivedAt, expiresAt: device.expiresAt };
+    }
     const last = sheet.getLastRow();
     if (last > 1) {
       const existing = sheet.getRange(2, 1, last - 1, 1).createTextFinder(record.id)
         .matchEntireCell(true).findNext();
       if (existing) {
+        const savedTime = sheet.getRange(existing.getRow(), 3).getValue();
         return sheet.getRange(existing.getRow(), 2).getValue() === fingerprint
-          ? { status: 'duplicate', id: record.id }
-          : { status: 'conflict', message: 'This observation ID already has different data. Ask the project owner before resubmitting.' };
+          ? receipt('duplicate', new Date(savedTime).toISOString())
+          : { status: 'conflict', message: 'This observation ID already has different data. Contact the project owner.' };
       }
     }
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date(now).toISOString();
     const day = timestamp.slice(0, 10);
     const [previousDay, previousCount] = (properties.getProperty('DAILY_WRITES') || '').split('/');
     const used = previousDay === day ? Number(previousCount) : 0;
-    if (used >= 50 || last >= 5001) {
-      return { status: 'retry', message: 'Pilot capacity reached. Keep your copy and try later or contact the project owner.' };
+    const deviceWrites = device.day === day ? device.writes : 0;
+    if (used >= 50 || deviceWrites >= 10 || last >= 5001) {
+      return { status: 'limited', message: 'Pilot write limit reached. Keep your copy and retry later or contact the project owner.' };
     }
     properties.setProperty('DAILY_WRITES', day + '/' + (used + 1));
-    // JSON begins with "{". No untrusted value is written as a standalone cell.
-    // UUID, digest, timestamp and consent version are constrained literals.
-    sheet.appendRow([record.id, fingerprint, timestamp, 'v1', json]);
+    Object.assign(device, { day, writes: deviceWrites + 1 });
+    properties.setProperty(deviceKey, JSON.stringify(device));
+    // Only constrained literals and JSON are written as standalone cell values.
+    sheet.appendRow([record.id, fingerprint, timestamp, 'v2', json]);
     SpreadsheetApp.flush();
-    return { status: 'received', id: record.id };
+    return receipt('received', timestamp);
   } catch {
     return { status: 'retry', message: 'Delivery could not be confirmed. Retry with the same observation ID and data.' };
   } finally {

@@ -7,6 +7,7 @@ from hashlib import sha256
 import io
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 
@@ -117,7 +118,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
     parser.add_argument("--site", type=Path, help="Package the approved static paths in a new directory")
+    parser.add_argument("--intake-url", help="HTTPS Apps Script /exec URL for an explicitly configured test package")
     args = parser.parse_args()
+    if args.intake_url and (not args.site or not re.fullmatch(
+        r"https://script\.google\.com/macros/s/[A-Za-z0-9_-]+/exec", args.intake_url
+    )):
+        parser.error("--intake-url requires --site and a Google Apps Script /exec URL")
     for path, payload in build().items():
         destination = ROOT / path
         if args.write:
@@ -130,11 +136,16 @@ def main():
         ).splitlines()
         assets = [path for path in release_paths if path in {".nojekyll", "index.html"}
                   or path.startswith(("assets/", "data/", "engine/"))]
+        assets.extend(("engine/browser-observations.mjs", "engine/observation-config.mjs",
+                       "engine/observations.mjs", "owner-credentials.html"))
         args.site.mkdir()
         for asset in assets:
             target = args.site / asset
             target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(ROOT / asset, target)
+            if asset == "engine/observation-config.mjs" and args.intake_url:
+                target.write_text(f"export const intakeUrl = {json.dumps(args.intake_url)};\n", encoding="utf-8")
+            else:
+                shutil.copyfile(ROOT / asset, target)
     print("Validated catalog scope, pricing links and coverage matrix")
 
 

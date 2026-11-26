@@ -192,3 +192,24 @@ test('unrestricted budget ignores saved fee inclusion and flexibility while reta
     assert.equal(older.budget.ceiling, label === profile.answers.budget ? 25000 : null);
   }
 });
+
+test('used-only 2027 cutoff takes effect at local midnight June 30 and leaves condition independent', () => {
+  const vehicles = [
+    { id: '2027-known', year: 2027, condition: 'used' },
+    { id: '2027-unknown', year: 2027 },
+    { id: '2027-new', year: 2027, condition: 'new' },
+    { id: '2026-used', year: 2026, condition: 'used' },
+    { id: '2023-too-old', year: 2023, condition: 'used' },
+  ].map(row => ({ ...row, model: row.id, make: 'Fixture', power: 'Gasoline' }));
+  const get = (condition, date) => recommendPilot({
+    ...profile, answers: { condition, age: 'Up to 3 years' }, features: {},
+  }, { vehicles }, { asOf: date });
+  assert.deepEqual(get('Used only', new Date(2027, 5, 29, 23, 59, 59, 999)).items.map(item => item.id), ['2026-used']);
+  const available = get('Used only', new Date(2027, 5, 30));
+  assert.equal(available.totalCandidates, 3);
+  assert.equal(available.conditionalCount, 1);
+  assert.equal(available.items.at(-1).id, '2027-unknown');
+  assert.deepEqual(get('New only', new Date(2027, 5, 29, 23, 59, 59, 999)).items.map(item => item.id),
+    ['2027-new', '2027-unknown']);
+  assert.ok(get('Prefer used', new Date(2027, 5, 29, 23, 59, 59, 999)).items.some(item => item.id === '2027-known'));
+});

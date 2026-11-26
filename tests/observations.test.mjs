@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { createHash, createHmac } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import vm from 'node:vm';
@@ -62,14 +62,27 @@ test('tracker sorts missing prices last within each interest group', () => {
     [['GOOD', [200, 400, null]], ['POSSIBLE', [100]], ['DON’T THINK SO', [100]]]);
 });
 
-test('Apps Script mock enforces consent, invite, validation, limits and idempotent retry', () => {
+test('iPad setup validator is the deterministic Apps Script build', () => {
+  assert.equal(readFileSync(new URL('../collection/ObservationValidation.gs', import.meta.url), 'utf8'), intakeValidator());
+});
+
+function intakeMock() {
   const code = intakeValidator() + '\n' + readFileSync(new URL('../collection/Intake.gs', import.meta.url), 'utf8');
   const rows = [['Observation_ID', 'Payload_SHA256']];
-  const invite = 'f'.repeat(48);
-  const props = new Map([['SPREADSHEET_ID', 'fixture'], ['INVITE_SHA256', createHash('sha256').update(invite).digest('hex')]]);
+  const invite = 'fixture' + String(9101);
+  const key = 'a'.repeat(64);
+  let now = Date.now();
+  const inviteState = value => JSON.stringify({
+    digest: createHmac('sha256', key).update('invite:' + value).digest('hex'),
+    expiresAt: new Date(now + 7 * 86400000).toISOString(),
+  });
+  const props = new Map([
+    ['SPREADSHEET_ID', 'fixture'], ['INTAKE_OPEN', 'true'], ['TOKEN_KEY', key], ['INVITATION', inviteState(invite)],
+  ]);
   let busy = false;
   let failFlush = false;
   let opened = 0;
+  let uuid = 0;
   const sheet = {
     getLastRow: () => rows.length,
     appendRow: row => rows.push(row),
@@ -86,46 +99,128 @@ test('Apps Script mock enforces consent, invite, validation, limits and idempote
     }),
   };
   const sandbox = vm.createContext({
+    Date: class extends Date {
+      constructor(...args) { super(...(args.length ? args : [now])); }
+      static now() { return now; }
+    },
     Utilities: {
+      getUuid: () => 'cbc56e5e-0d64-4616-836e-' + String(++uuid).padStart(12, '0'),
       computeDigest: (_, text) => [...createHash('sha256').update(text).digest()],
+      computeHmacSha256Signature: (text, secret) => [...createHmac('sha256', secret).update(text).digest()],
       DigestAlgorithm: { SHA_256: 1 }, Charset: { UTF_8: 1 },
     },
     PropertiesService: { getScriptProperties: () => ({
-      getProperty: key => props.get(key), setProperty: (key, value) => props.set(key, value),
+      getProperty: name => props.get(name), setProperty: (name, value) => props.set(name, value),
     }) },
     LockService: { getScriptLock: () => ({ tryLock: () => !busy, releaseLock() {} }) },
     SpreadsheetApp: {
       openById() { opened += 1; return { getSheetByName: () => sheet }; },
       flush() { if (failFlush) throw Error('mock write response lost'); },
     },
+    HtmlService: {
+      createTemplateFromFile: () => ({
+        evaluate() { return { payload: this.payload, setTitle() { return this; }, addMetaTag() { return this; } }; },
+      }),
+    },
   });
   vm.runInContext(code, sandbox);
-  const submit = (payload, code = invite, consent = true) => sandbox.submitObservation(payload, code, consent).status;
-  assert.equal(submit(fixture('shared'), invite, false), 'rejected');
-  assert.equal(submit(fixture('shared'), 'e'.repeat(48)), 'rejected');
-  assert.equal(submit(fixture('private')), 'rejected');
-  assert.equal(submit('x'.repeat(8001)), 'rejected');
-  assert.equal(submit('{broken'), 'rejected');
-  assert.equal(opened, 0);
-  const malicious = encodeObservations([{ ...shared, make: '=IMPORTXML("https://example.com")' }], { shared: true });
-  busy = true;
-  assert.equal(submit(malicious), 'retry');
+  return {
+    sandbox, rows, props, invite, inviteState, opened: () => opened,
+    busy(value) { busy = value; }, lostWrite(value) { failFlush = value; },
+    advance(ms) { now += ms; },
+    enroll: (value = invite, remember = true) => sandbox.enrollDevice(value, remember, 'b'.repeat(64)),
+  };
+}
+
+test('Apps Script mock verifies enrollment, rotation, caps, suspension, expiry and revocation', () => {
+  const { sandbox, rows, props, invite, inviteState, advance, enroll } = intakeMock();
+  const hour = 3600000;
+  const day = 24 * hour;
+  const payload = fixture('shared');
+  for (let block = 0; block < 3; block++) {
+    for (let i = 0; i < 8; i++) assert.equal(enroll('wrong1234').status, 'rejected');
+    assert.equal(enroll().status, 'limited');
+    advance(hour);
+  }
+  assert.equal(enroll().status, 'limited');
+  const rotated = invite + '0';
+  props.set('INVITATION', inviteState(rotated));
+  assert.equal(enroll().status, 'rejected');
+  const remembered = enroll(rotated.toUpperCase());
+  const session = enroll(rotated, false);
+  assert.equal(remembered.status, 'enrolled');
+  assert.match(remembered.token, /^[a-f0-9-]{36}\.[a-f0-9]{64}$/);
+  assert.notEqual(remembered.token, session.token);
+  assert.equal(props.get('DEVICE_' + remembered.id).includes(remembered.token), false);
+  advance(13 * hour);
+  assert.equal(sandbox.submitObservation(payload, session.token, true).status, 'unauthorized');
+  props.set('INTAKE_OPEN', 'false');
+  assert.equal(enroll(rotated).status, 'closed');
+  assert.equal(sandbox.submitObservation(payload, remembered.token, true).status, 'closed');
   assert.equal(rows.length, 1);
-  busy = false;
-  failFlush = true;
-  assert.equal(submit(malicious), 'retry');
-  failFlush = false;
-  assert.equal(submit(malicious), 'duplicate');
+  props.set('INTAKE_OPEN', 'true');
+  assert.equal(sandbox.submitObservation(payload, remembered.token.slice(0, -1), true).status, 'unauthorized');
+  for (let i = 0; i < 3; i++) {
+    const reply = sandbox.submitObservation(payload, remembered.token, true);
+    assert.ok(['received', 'duplicate'].includes(reply.status));
+    assert.ok(reply.expiresAt > remembered.expiresAt);
+    advance(29 * day);
+  }
+  assert.equal(sandbox.submitObservation(payload, remembered.token, true).status, 'duplicate');
+  advance(3 * day);
+  assert.equal(sandbox.submitObservation(payload, remembered.token, true).status, 'unauthorized');
+  assert.equal(enroll(rotated).status, 'rejected');
+  props.set('INVITATION', inviteState(rotated));
+  const revoke = enroll(rotated);
+  props.set('REVOKED_' + revoke.id, 'true');
+  assert.equal(sandbox.submitObservation(payload, revoke.token, true).status, 'unauthorized');
+});
+
+test('Apps Script mock validates direct handoff, consent, limits and idempotent receipts', () => {
+  const { sandbox, rows, props, opened, busy, lostWrite, enroll } = intakeMock();
+  const token = enroll().token;
+  const submit = (payload, consent = true) => sandbox.submitObservation(payload, token, consent);
+  assert.equal(sandbox.doGet().payload, '');
+  assert.equal(sandbox.doPost({ parameters: { payload: [fixture('private')] } }).payload, '');
+  assert.equal(sandbox.doPost({ parameters: { payload: ['one', 'two'] } }).payload, '');
+  const handoff = sandbox.doPost({ parameters: { payload: [fixture('shared')] } });
+  assert.deepEqual(decodeObservations(handoff.payload, { shared: true }), [shared]);
+  assert.equal(submit(fixture('shared'), false).status, 'rejected');
+  assert.equal(submit(fixture('private')).status, 'rejected');
+  assert.equal(submit('x'.repeat(8001)).status, 'rejected');
+  assert.equal(submit('{broken').status, 'rejected');
+  assert.equal(opened(), 0);
+  const malicious = encodeObservations([{ ...shared, make: '=IMPORTXML("https://example.com")' }], { shared: true });
+  busy(true);
+  assert.equal(submit(malicious).status, 'retry');
+  assert.equal(rows.length, 1);
+  busy(false);
+  lostWrite(true);
+  assert.equal(submit(malicious).status, 'retry');
+  lostWrite(false);
+  const receipt = submit(malicious);
+  assert.equal(receipt.status, 'duplicate');
+  assert.equal(receipt.id, shared.id);
+  assert.equal(receipt.receivedAt, rows[1][2]);
   assert.equal(rows.length, 2);
+  assert.equal(rows[1][3], 'v2');
   assert.equal(rows[1][4][0], '{');
   assert.match(JSON.parse(rows[1][4]).make, /^=IMPORTXML/);
-  assert.equal(submit(fixture('shared')), 'conflict');
+  assert.equal(submit(fixture('shared')).status, 'conflict');
   const other = encodeObservations([{ ...shared, id: otherId }], { shared: true });
   const today = new Date().toISOString().slice(0, 10);
   props.set('DAILY_WRITES', today + '/50');
-  assert.equal(submit(other), 'retry');
-  assert.equal(submit(malicious), 'duplicate');
+  assert.equal(submit(other).status, 'limited');
+  assert.equal(submit(malicious).status, 'duplicate');
   props.set('DAILY_WRITES', '2020-01-01/50');
-  assert.equal(submit(other), 'received');
+  const deviceKey = 'DEVICE_' + token.split('.')[0];
+  const device = JSON.parse(props.get(deviceKey));
+  props.set(deviceKey, JSON.stringify({ ...device, day: today, writes: 10 }));
+  assert.equal(submit(other).status, 'limited');
+  props.set(deviceKey, JSON.stringify(device));
+  assert.equal(submit(other).status, 'received');
   assert.equal(rows.length, 3);
+  const updated = JSON.parse(props.get(deviceKey));
+  props.set(deviceKey, JSON.stringify({ ...updated, attempts: 20 }));
+  assert.equal(submit(other).status, 'limited');
 });

@@ -1,2 +1,2 @@
-// Configure this only in an approved feature package after live intake verification.
+// Until the owner verifies a live deployment, the tracker offers private exports.
 export const intakeUrl = '';

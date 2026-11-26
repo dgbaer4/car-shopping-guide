@@ -1,7 +1,11 @@
 """Run against the packaged static site with Playwright and Chromium."""
 
 import argparse
+from html import escape
+import hashlib
+import hmac
 import json
+from urllib.parse import parse_qs, urljoin
 from pathlib import Path
 
 from playwright.sync_api import expect, sync_playwright
@@ -132,33 +136,127 @@ def verify_page(browser, site, width, height):
     page.close()
 
 
-def verify_mock_intake(browser):
-    page = browser.new_page()
-    shared = (FIXTURES / "observations-shared.json").read_text()
-    page.evaluate("""window.invocations = [];
-      window.google = {script: {run: {
-        withSuccessHandler(callback) { this.success = callback; return this; },
-        withFailureHandler(callback) { this.failure = callback; return this; },
-        submitObservation(...args) {
-          window.invocations.push(args);
-          if (window.invocations.length === 1) setTimeout(this.failure);
-          else setTimeout(() => this.success({status:'duplicate', id:JSON.parse(args[0]).observations[0].id}));
-        }
-      }}};
+def verify_mock_intake(browser, site, width, height, blocked_storage=False):
+    endpoint = "https://script.google.com/macros/s/fixture/exec"
+    fixture = json.loads((FIXTURES / "observations-private.json").read_text())["observations"][0]
+    template = (FIXTURES.parents[1] / "collection" / "Intake.html").read_text()
+    page = browser.new_page(viewport={"width": width, "height": height})
+    requests = []
+    page.route("**/engine/observation-config.mjs", lambda route: route.fulfill(
+        content_type="text/javascript", body=f"export const intakeUrl = {json.dumps(endpoint)};",
+    ))
+
+    def receive_handoff(route):
+        request = route.request
+        assert request.method == "POST"
+        assert request.url == endpoint
+        data = parse_qs(request.post_data)
+        assert set(data) == {"payload"}
+        payload = data["payload"][0]
+        observation = json.loads(payload)["observations"][0]
+        assert observation["id"] == fixture["id"]
+        assert not {"privateNotes", "interest", "listingUrl", "nickname", "zip"} & observation.keys()
+        requests.append(observation["id"])
+        route.fulfill(content_type="text/html", body=template.replace("<?= payload ?>", escape(payload)))
+
+    page.route(endpoint, receive_handoff)
+    page.add_init_script(f"""
+      if (location.origin === {json.dumps(urljoin(site, '/').rstrip('/'))}) {{
+        const record = {json.dumps(fixture)};
+        localStorage.setItem('csg-observation-v1/' + record.id, JSON.stringify(record));
+      }}
+      if (location.href === {json.dumps(endpoint)}) {{
+        if ({json.dumps(blocked_storage)}) {{
+          for (const kind of ['localStorage', 'sessionStorage']) {{
+            Object.defineProperty(window, kind, {{get() {{throw new DOMException('Mock blocked', 'SecurityError');}}}});
+          }}
+        }}
+        window.invocations = [];
+        window.google = {{script: {{run: {{
+          withSuccessHandler(callback) {{ this.success = callback; return this; }},
+          withFailureHandler(callback) {{ this.failure = callback; return this; }},
+          enrollDevice(invite, remember, nonce) {{
+            window.invocations.push(['enroll', remember, /^[a-f0-9]{{64}}$/.test(nonce)]);
+            const result = invite === 'mock input'
+              ? {{status:'enrolled', token:'11111111-1111-4111-8111-111111111111.' + '2'.repeat(64),
+                  expiresAt:Date.now()+60000}}
+              : {{status:'rejected', message:'Invitation was not accepted.'}};
+            setTimeout(() => this.success(result));
+          }},
+          submitObservation(...args) {{
+            window.invocations.push(['submit', ...args]);
+            const attempts = window.invocations.filter(row => row[0] === 'submit').length;
+            const id = JSON.parse(args[0]).observations[0].id;
+            if (attempts === 1) setTimeout(this.failure);
+            else setTimeout(() => this.success({{status:'duplicate',
+              id: attempts === 2 ? 'foreign id' : id, receivedAt:'2026-11-26T01:00:00.000Z',
+              expiresAt:Date.now()+60000}}));
+          }}
+        }}}}}};
+      }}
     """)
-    page.set_content((FIXTURES.parents[1] / "collection" / "Intake.html").read_text())
-    page.get_by_label("Contribution JSON").fill(shared)
-    page.get_by_label("Pilot invite code").fill("f" * 48)
-    submit = page.get_by_role("button", name="Submit observation")
-    submit.click()
-    assert page.evaluate("window.invocations.length") == 0
-    page.get_by_role("checkbox").check()
-    submit.click()
+
+    def handoff():
+        page.goto(site + "#observation-" + fixture["id"])
+        panel = page.locator("#shopping-tracker")
+        panel.get_by_role("button", name="Share or export contribution").click()
+        proceed = panel.get_by_role("button", name="Continue to Share Price")
+        expect(proceed).to_be_hidden()
+        panel.get_by_role("checkbox", name="I agree", exact=False).check()
+        with page.expect_navigation(url=endpoint):
+            proceed.click()
+
+    handoff()
+    assert requests == [fixture["id"]]
+    page.get_by_label("Pilot invitation").fill("wrong input")
+    page.get_by_role("button", name="Enroll device").click()
+    expect(page.get_by_role("status")).to_contain_text("Invitation was not accepted")
+    page.get_by_label("Pilot invitation").fill("mock input")
+    page.get_by_role("checkbox", name="Remember this device").check()
+    page.get_by_role("button", name="Enroll device").click()
+    expect(page.get_by_role("status")).to_contain_text("Device enrolled")
+    if blocked_storage:
+        expect(page.get_by_role("status")).to_contain_text("Browser storage is blocked")
+    assert page.evaluate("invocations[1][1] && invocations[1][2]")
+    send = page.get_by_role("button", name="Share Price", exact=True)
+    send.click()
+    assert page.evaluate("invocations.length") == 2
+    page.get_by_role("checkbox", name="I agree", exact=False).check()
+    send.click()
+    expect(page.get_by_role("status")).to_contain_text("The response is unconfirmed")
+    send.click()
     expect(page.get_by_role("status")).to_contain_text("Delivery is unconfirmed")
-    expect(page.get_by_label("Contribution JSON")).to_have_value(shared)
-    submit.click()
-    expect(page.get_by_role("status")).to_contain_text("Already received")
-    assert page.evaluate("JSON.stringify(invocations[0]) === JSON.stringify(invocations[1])")
+    send.click()
+    expect(page.get_by_role("status")).to_contain_text("Already received. Observation ID " + fixture["id"])
+    assert page.evaluate("JSON.stringify(invocations[2]) === JSON.stringify(invocations[4])")
+
+    handoff()
+    assert len(requests) == 2
+    assert page.evaluate("invocations.length") == 0
+    if blocked_storage:
+        expect(page.get_by_label("Pilot invitation")).to_be_visible()
+    else:
+        expect(page.get_by_label("Pilot invitation")).to_be_hidden()
+        page.get_by_role("button", name="Forget this device").click()
+        expect(page.get_by_label("Pilot invitation")).to_be_visible()
+        assert page.evaluate("localStorage.getItem('csg-pilot-device-v1') === null")
+    page.close()
+
+
+def verify_credential_generator(browser, site):
+    page = browser.new_page(viewport={"width": 768, "height": 1024})
+    page.goto(site + "owner-credentials.html")
+    page.get_by_role("button", name="Generate a key for first setup").click()
+    key = page.get_by_label("Token key", exact=True).input_value()
+    assert len(bytes.fromhex(key)) == 32
+    page.get_by_role("button", name="Generate a seven-day invitation").click()
+    expect(page.get_by_role("status")).to_contain_text("Copy the settings value")
+    invite = page.get_by_label("Private invitation", exact=False).input_value()
+    assert invite[-4:].isdigit() and invite[:-4].isalpha()
+    config = json.loads(page.get_by_label("INVITATION value for Apps Script").input_value())
+    expected = hmac.new(key.encode(), ("invite:" + invite.lower()).encode(), hashlib.sha256).hexdigest()
+    assert hmac.compare_digest(config["digest"], expected)
+    assert page.evaluate("localStorage.length === 0 && sessionStorage.length === 0")
     page.close()
 
 
@@ -172,8 +270,13 @@ def main():
         for width, height in ((390, 844), (844, 390), (768, 1024), (1024, 768), (1280, 900)):
             verify_page(browser, args.site, width, height)
             print(f"Packaged observation and commuter checks passed at {width} × {height}")
-        verify_mock_intake(browser)
-        print("Hosted intake HTML passed with mocked Google RPC")
+        for width, height in ((390, 844), (768, 1024)):
+            verify_mock_intake(browser, args.site, width, height)
+            print(f"Direct cross-origin form and hosted receipt mock passed at {width} × {height}")
+        verify_mock_intake(browser, args.site, 768, 1024, blocked_storage=True)
+        print("Hosted submission with blocked storage passed")
+        verify_credential_generator(browser, args.site)
+        print("Local owner credential generation and HMAC compatibility passed")
 
 
 if __name__ == "__main__":

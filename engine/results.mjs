@@ -7,11 +7,11 @@ export function classification(row){
  if(row.status==='conditional'||!Number.isFinite(row.score))return 'Potential match';
  return row.score>=85?'Strong match':row.score>=70?'Good match':'Potential match';
 }
-export function results(profile,vehicles,year,{metricsById={},costById={},limit=PAGE_SIZE,eligibleOnly=false,orderCandidates}={}){
+export function results(profile,vehicles,year,{metricsById={},costById={},limit=PAGE_SIZE,eligibleOnly=false,orderCandidates,asOf}={}){
  if(!Number.isInteger(limit)||limit<1)throw Error('Invalid results limit');
  const byId=new Map(vehicles.map(v=>[v.id,v]));
  if(byId.size!==vehicles.length)throw Error('Duplicate vehicle ID');
- const ranked=rank(profile,vehicles,year,metricsById);
+ const ranked=rank(profile,vehicles,year,metricsById,asOf);
  const conditionalCount=ranked.filter(r=>r.status==='conditional').length;
  const excludedCount=ranked.filter(r=>r.status==='excluded').length;
  const candidates=ranked.filter(r=>r.status==='eligible'||(!eligibleOnly&&r.status==='conditional'));

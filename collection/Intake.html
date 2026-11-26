@@ -2,52 +2,189 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
 <style>
 body{max-width:42rem;margin:auto;padding:1rem;font:17px/1.5 system-ui;color:#283c36}
-label{display:block;margin-block:1rem}
-textarea,input,button{font:inherit}
-textarea,input[type=password]{box-sizing:border-box;display:block;width:100%;padding:.5rem}
-textarea{min-height:10rem}
+label{display:block;margin-block:.8rem}
+input,button{font:inherit}
+input[type=password]{box-sizing:border-box;display:block;width:100%;padding:.5rem}
 button{min-height:44px;padding:.5rem 1rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <main>
-<h1>Share a vehicle observation</h1>
-<p>Paste one sanitized contribution from Car Shopping Guide. The project owner stores it in a private spreadsheet for pricing review. Keep names, contact information, VINs and other identifiers out of this submission. A receipt confirms delivery only.</p>
-<form id="intake">
-<label>Contribution JSON<textarea name="payload" required maxlength="8000" spellcheck="false"></textarea></label>
-<label>Pilot invite code<input type="password" name="invite" required pattern="[a-f0-9]{48}" maxlength="48" autocomplete="off"></label>
-<label><input name="consent" type="checkbox" required> I agree to share these vehicle data privately with the project owner for pricing review.</label>
-<button>Submit observation</button>
-</form>
+<h1>Share Price</h1>
+<p id="missing" hidden>Open an observation in your Shopping Tracker, review the data and continue to sharing. Use your browser’s Back button to return.</p>
+<textarea id="payload" hidden readonly><?= payload ?></textarea>
+<section id="review" hidden>
+  <p>The project owner will receive the information below in a private spreadsheet for pricing review. This action sends the price for review. A receipt confirms delivery.</p>
+  <p id="summary"></p>
+  <details><summary>Review all shared fields</summary><pre id="preview"></pre></details>
+  <form id="enrollment" hidden>
+    <h2>Enroll this device</h2>
+    <label>Pilot invitation <input type="password" name="invitation" required maxlength="40" autocomplete="off" autocapitalize="none"></label>
+    <label><input name="remember" type="checkbox"> Remember this device</label>
+    <button>Enroll device</button>
+  </form>
+  <form id="sharing" hidden>
+    <label><input name="consent" type="checkbox" required> I agree to send this observation privately to the project owner for pricing review.</label>
+    <button>Share Price</button>
+    <button id="forget" type="button">Forget this device</button>
+    <p id="device"></p>
+  </form>
+</section>
 <p id="status" role="status"></p>
 </main>
 <script>
-const form = document.getElementById('intake');
+const storageKey = 'csg-pilot-device-v1';
+const payload = document.getElementById('payload').value;
 const status = document.getElementById('status');
-const submit = form.querySelector('button');
+const enrollment = document.getElementById('enrollment');
+const sharing = document.getElementById('sharing');
+const tokenPattern = /^[a-f0-9-]{36}\.[a-f0-9]{64}$/;
+let authorization;
 let attempt = 0;
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  const current = ++attempt;
-  submit.disabled = true;
-  status.textContent = 'Submitting. Waiting for a receipt…';
-  const timer = setTimeout(() => finish('Delivery is unconfirmed. Retry with the same data.'), 30000);
-  function finish(message) {
-    if (current !== attempt) return;
-    clearTimeout(timer);
-    submit.disabled = false;
-    status.textContent = message;
+let record;
+try { record = JSON.parse(payload).observations[0]; } catch { /* No valid handoff. */ }
+
+function forget() {
+  for (const medium of ['localStorage', 'sessionStorage']) {
+    try { window[medium].removeItem(storageKey); } catch { /* Storage may be blocked. */ }
   }
-  google.script.run.withSuccessHandler(result => {
-    if (result.status === 'received' || result.status === 'duplicate') {
-      finish((result.status === 'received' ? 'Received. ' : 'Already received. ') + 'Observation ID ' + result.id);
-    } else {
-      finish(result.message);
-    }
-  }).withFailureHandler(() => finish('Delivery is unconfirmed. Retry with the same data.'))
-    .submitObservation(form.elements.payload.value, form.elements.invite.value, form.elements.consent.checked);
+  authorization = undefined;
+}
+
+function restore() {
+  for (const medium of ['localStorage', 'sessionStorage']) {
+    try {
+      const saved = JSON.parse(window[medium].getItem(storageKey));
+      if (saved && typeof saved.token === 'string' && tokenPattern.test(saved.token) && saved.expiresAt > Date.now()) {
+        return { ...saved, medium };
+      }
+      window[medium].removeItem(storageKey);
+    } catch { /* Storage may be blocked. */ }
+  }
+}
+
+function persist() {
+  try {
+    const { medium, ...saved } = authorization;
+    window[medium].setItem(storageKey, JSON.stringify(saved));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function showAuthorization() {
+  enrollment.hidden = Boolean(authorization);
+  sharing.hidden = !authorization;
+  if (authorization) {
+    document.getElementById('device').textContent = 'Device reference: ' + authorization.token.split('.')[0];
+  }
+}
+
+function request(button, pending, send, handle) {
+  const current = ++attempt;
+  button.disabled = true;
+  status.textContent = pending;
+  const timer = setTimeout(() => {
+    finish(() => { status.textContent = 'The response is unconfirmed. Retry with the same observation or contact the project owner.'; });
+  }, 12000);
+  function finish(callback) {
+    if (current !== attempt) return;
+    attempt++;
+    clearTimeout(timer);
+    button.disabled = false;
+    callback();
+  }
+  try {
+    const rpc = google.script.run
+      .withSuccessHandler(result => finish(() => handle(result)))
+      .withFailureHandler(() => finish(() => {
+        status.textContent = 'The response is unconfirmed. Retry with the same observation.';
+      }));
+    send(rpc);
+  } catch {
+    finish(() => { status.textContent = 'Sharing service unavailable. Your local tracker is still available.'; });
+  }
+}
+
+if (!record) {
+  document.getElementById('missing').hidden = false;
+} else {
+  document.getElementById('review').hidden = false;
+  document.getElementById('summary').textContent = [
+    [record.year, record.make, record.model].join(' '),
+    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(record.priceCents / 100),
+    { asking: 'Advertised asking price', quote: 'Dealer or seller quote', purchase: 'Reported completed purchase' }[record.type],
+    { vehicle: 'Vehicle only', out_the_door: 'Out the door (including taxes and fees)',
+      unknown: 'Price scope unknown' }[record.scope],
+  ].join(' · ');
+  document.getElementById('preview').textContent = payload;
+  authorization = restore();
+  showAuthorization();
+}
+
+enrollment.addEventListener('submit', event => {
+  event.preventDefault();
+  const form = enrollment.elements;
+  let nonce;
+  try {
+    nonce = Array.from(crypto.getRandomValues(new Uint8Array(32)), byte => byte.toString(16).padStart(2, '0')).join('');
+  } catch {
+    status.textContent = 'This browser cannot securely enroll the device.';
+    return;
+  }
+  const invitation = form.invitation.value;
+  const remember = form.remember.checked;
+  form.invitation.value = '';
+  request(enrollment.querySelector('button'), 'Checking invitation…',
+    rpc => rpc.enrollDevice(invitation, remember, nonce),
+    result => {
+      if (result?.status !== 'enrolled' || typeof result.token !== 'string'
+          || !tokenPattern.test(result.token) || !(result.expiresAt > Date.now())) {
+        status.textContent = result?.message || 'Enrollment could not be confirmed.';
+        return;
+      }
+      forget();
+      authorization = { token: result.token, expiresAt: result.expiresAt, medium: remember ? 'localStorage' : 'sessionStorage' };
+      status.textContent = persist() ? 'Device enrolled. Confirm sharing below.'
+        : 'Device enrolled for this page. Browser storage is blocked, so authorization may need to be renewed on another visit.';
+      showAuthorization();
+      sharing.elements.consent.focus();
+    });
+});
+
+sharing.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!authorization || !sharing.elements.consent.checked || !record) return;
+  request(sharing.querySelector('button'), 'Submitting. Waiting for a receipt…',
+    rpc => rpc.submitObservation(payload, authorization.token, true),
+    result => {
+      if (result?.status === 'unauthorized') {
+        forget();
+        showAuthorization();
+      }
+      if (['received', 'duplicate'].includes(result?.status) && result.id === record.id
+          && typeof result.receivedAt === 'string' && Number.isFinite(Date.parse(result.receivedAt))) {
+        authorization.expiresAt = result.expiresAt;
+        persist();
+        status.textContent = (result.status === 'received' ? 'Received. ' : 'Already received. ')
+          + 'Observation ID ' + result.id + ' · ' + result.receivedAt;
+        sharing.elements.consent.checked = false;
+      } else {
+        status.textContent = result?.message || 'Delivery is unconfirmed. Retry with the same observation.';
+      }
+    });
+});
+
+document.getElementById('forget').addEventListener('click', () => {
+  if (sharing.querySelector('button').disabled) return;
+  forget();
+  showAuthorization();
+  status.textContent = 'Authorization removed from this browser. Contact the project owner to revoke the device on the server.';
 });
 </script>
 </body>

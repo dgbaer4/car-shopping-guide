@@ -3,7 +3,7 @@ import { results } from './results.mjs';
 import { indexPricing, priceConditions } from './vehicle-pricing.mjs';
 import { pilotDefaults } from './pilot-cost.mjs';
 
-export function recommendPilot(profile, catalog, { year, limit, pricing, pricedOnly = false }) {
+export function recommendPilot(profile, catalog, { asOf = new Date(), year = asOf.getFullYear(), limit, pricing, pricedOnly = false }) {
   const buyer = normalize(profile);
   const defaults = pilotDefaults(profile);
   const indexed = indexPricing(pricing);
@@ -99,7 +99,7 @@ export function recommendPilot(profile, catalog, { year, limit, pricing, pricedO
     const { records, conditions } = priceByVehicle.get(vehicle.id);
     return records[conditions[0]] != null;
   }) : catalog.vehicles;
-  const view = results(buyer, candidates, year, { limit, orderCandidates });
+  const view = results(buyer, candidates, year, { limit, orderCandidates, asOf });
   return {
     ...view,
     defaults,

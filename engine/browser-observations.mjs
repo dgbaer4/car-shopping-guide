@@ -179,35 +179,43 @@ export function initObservations({ showRecommendation }) {
     const extra = document.createElement('input');
     extra.type = 'checkbox';
     extraLabel.prepend(extra);
-    const preview = append(content, 'pre');
+    const summary = append(content, 'p');
+    const details = append(content, 'details');
+    append(details, 'summary', 'Review every field to be shared');
+    const preview = append(details, 'pre');
     const consentLabel = append(content, 'label', ' I agree to share the data shown above with the project owner for pricing review.');
     const consent = document.createElement('input');
     consent.type = 'checkbox';
     consentLabel.prepend(consent);
     const actions = append(content, 'div');
     actions.className = 'observation-actions';
-    const copy = button(actions, 'Copy contribution JSON', async () => {
-      try {
-        await navigator.clipboard.writeText(preview.textContent);
-        status.textContent = 'Copied. Submit the same JSON on the intake page to get a receipt.';
-      } catch {
-        status.textContent = 'Clipboard unavailable. Select and copy the preview, or download JSON.';
-      }
-    });
     const downloads = append(actions, 'span');
+    let payload;
     if (/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(intakeUrl)) {
-      const link = append(actions, 'a', 'Open secure intake');
-      link.href = intakeUrl;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
+      const form = append(actions, 'form');
+      form.action = intakeUrl;
+      form.method = 'post';
+      payload = append(form, 'input');
+      payload.type = 'hidden';
+      payload.name = 'payload';
+      const proceed = append(form, 'button', 'Continue to Share Price');
+      proceed.type = 'submit';
+      form.addEventListener('submit', event => {
+        if (!consent.checked) event.preventDefault();
+      });
+      append(content, 'p', 'The secure sharing page shows your receipt. Use your browser’s Back button to return to the tracker. If delivery is unconfirmed, retry there with the same observation.');
     } else {
       append(content, 'p', 'Hosted intake is unavailable in this build. You can download a contribution for owner-mediated review.');
     }
-    append(content, 'p', 'Delivery is confirmed on the intake page only. If the result is unclear, retry with the same JSON and observation ID.');
     button(content, 'Back to tracker', () => tracker(record.id));
     function update() {
       const shared = sharedObservation(record, extra.checked);
+      summary.textContent = [
+        `${shared.year} ${shared.make} ${shared.model}`, money.format(shared.priceCents / 100),
+        observationTypes[shared.type], priceScopes[shared.scope],
+      ].join(' · ');
       preview.textContent = encodeObservations([shared], { shared: true });
+      if (payload) payload.value = preview.textContent;
       downloads.replaceChildren();
       exportActions(downloads, [shared], { shared: true });
       actions.hidden = !consent.checked;
